@@ -1,0 +1,7 @@
+﻿node_modules/
+.env
+.vscode/
+dist/
+build/
+coverage/
+data/reportes.json
