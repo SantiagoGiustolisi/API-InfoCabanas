@@ -17,7 +17,7 @@ const DATA = {
     {
       "id": "04",
       "ambientes": {
-        "cocina": {
+        "cocina_comedor": {
           "items": [
             { "item": "plato llano", "target": 4, "unidad": "unidad", "original": "" },
             { "item": "plato hondo", "target": 4, "unidad": "unidad", "original": "" },
@@ -31,26 +31,7 @@ const DATA = {
             { "item": "tabla para picar", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
-            { "item": "repasador", "target": 1, "unidad": "unidad", "original": "" }
-          ]
-        },
-        "habitacion_1": {
-          "items": [
-            { "item": "percha", "target": 4, "unidad": "unidad", "original": "" },
-            { "item": "control tv", "target": 0, "unidad": "unidad", "original": "" },
-            { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "pilas aaa", "target": 2, "unidad": "unidad", "original": "" }
-          ]
-        },
-        "habitacion_2": {
-          "items": [
-            { "item": "percha", "target": 4, "unidad": "unidad", "original": "" },
-            { "item": "control aire acondicionado", "target": 0, "unidad": "unidad", "original": "" },
-            { "item": "pilas aaa", "target": 0, "unidad": "unidad", "original": "" }
-          ]
-        },
-        "comedor": {
-          "items": [
+            { "item": "repasador", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "tv", "target": 0, "unidad": "unidad", "original": "" },
             { "item": "control tv", "target": 0, "unidad": "unidad", "original": "" },
             { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
@@ -67,20 +48,29 @@ const DATA = {
             { "item": "papel higiénico", "target": 2, "unidad": "rollo", "original": "" }
           ]
         },
-        "utensilios": {
-          "items": [
-            { "item": "secador de pelo", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "plancha para ropa", "target": 0, "unidad": "unidad", "original": "" },
-            { "item": "cable hdmi", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "adaptador universal", "target": 0, "unidad": "unidad", "original": "" }
-          ]
+        "habitacion": {
+          "habitacion_1": {
+            "items": [
+              { "item": "percha", "target": 4, "unidad": "unidad", "original": "" },
+              { "item": "control tv", "target": 0, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "pilas aaa", "target": 2, "unidad": "unidad", "original": "" }
+            ]
+          },
+          "habitacion_2": {
+            "items": [
+              { "item": "percha", "target": 4, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 0, "unidad": "unidad", "original": "" },
+              { "item": "pilas aaa", "target": 0, "unidad": "unidad", "original": "" }
+            ]
+          }
         }
       }
     },
     {
       "id": "05",
       "ambientes": {
-        "cocina": {
+        "cocina_comedor": {
           "items": [
             { "item": "plato llano", "target": 6, "unidad": "unidad", "original": "" },
             { "item": "plato hondo", "target": 6, "unidad": "unidad", "original": "" },
@@ -97,25 +87,7 @@ const DATA = {
             { "item": "tabla para picar", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
-            { "item": "repasador", "target": 2, "unidad": "unidad", "original": "" }
-          ]
-        },
-        "habitacion_1": {
-          "items": [
-            { "item": "percha", "target": 8, "unidad": "unidad", "original": "" },
-            { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "pilas aaa", "target": 4, "unidad": "unidad", "original": "" }
-          ]
-        },
-        "habitacion_2": {
-          "items": [
-            { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
-            { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
-          ]
-        },
-        "comedor": {
-          "items": [
+            { "item": "repasador", "target": 2, "unidad": "unidad", "original": "" },
             { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "control decodificador", "target": 1, "unidad": "unidad", "original": "" },
@@ -133,20 +105,28 @@ const DATA = {
             { "item": "papel higiénico", "target": 3, "unidad": "rollo", "original": "" }
           ]
         },
-        "utensilios": {
-          "items": [
-            { "item": "secador de pelo", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "plancha para ropa", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "cable hdmi", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "adaptador universal", "target": 1, "unidad": "unidad", "original": "" }
-          ]
+        "habitacion": {
+          "habitacion_1": {
+            "items": [
+              { "item": "percha", "target": 8, "unidad": "unidad", "original": "" },
+              { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "pilas aaa", "target": 4, "unidad": "unidad", "original": "" }
+            ]
+          },
+          "habitacion_2": {
+            "items": [
+              { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
+            ]
+          }
         }
       }
     },
     {
       "id": "06",
       "ambientes": {
-        "cocina": {
+        "cocina_comedor": {
           "items": [
             { "item": "plato llano", "target": 8, "unidad": "unidad", "original": "" },
             { "item": "plato hondo", "target": 8, "unidad": "unidad", "original": "" },
@@ -162,26 +142,7 @@ const DATA = {
             { "item": "fuente vidrio", "target": 2, "unidad": "unidad", "original": "" },
             { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
-            { "item": "repasador", "target": 2, "unidad": "unidad", "original": "" }
-          ]
-        },
-        "habitacion_1": {
-          "items": [
-            { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
-            { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "pilas aaa", "target": 4, "unidad": "unidad", "original": "" }
-          ]
-        },
-        "habitacion_2": {
-          "items": [
-            { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
-            { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "pilas aaa", "target": 2, "unidad": "unidad", "original": "" }
-          ]
-        },
-        "comedor": {
-          "items": [
+            { "item": "repasador", "target": 2, "unidad": "unidad", "original": "" },
             { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "control decodificador", "target": 0, "unidad": "unidad", "original": "" },
@@ -199,20 +160,29 @@ const DATA = {
             { "item": "papel higiénico", "target": 3, "unidad": "rollo", "original": "" }
           ]
         },
-        "utensilios": {
-          "items": [
-            { "item": "secador de pelo", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "plancha para ropa", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "cable hdmi", "target": 0, "unidad": "unidad", "original": "" },
-            { "item": "adaptador universal", "target": 2, "unidad": "unidad", "original": "" }
-          ]
+        "habitacion": {
+          "habitacion_1": {
+            "items": [
+              { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
+              { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "pilas aaa", "target": 4, "unidad": "unidad", "original": "" }
+            ]
+          },
+          "habitacion_2": {
+            "items": [
+              { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "pilas aaa", "target": 2, "unidad": "unidad", "original": "" }
+            ]
+          }
         }
       }
     },
     {
       "id": "07",
       "ambientes": {
-        "cocina": {
+        "cocina_comedor": {
           "items": [
             { "item": "plato llano", "target": 2, "unidad": "unidad", "original": "" },
             { "item": "plato hondo", "target": 2, "unidad": "unidad", "original": "" },
@@ -224,25 +194,7 @@ const DATA = {
             { "item": "sartén", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "olla chica", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
-            { "item": "repasador", "target": 1, "unidad": "unidad", "original": "" }
-          ]
-        },
-        "habitacion_1": {
-          "items": [
-            { "item": "percha", "target": 4, "unidad": "unidad", "original": "" },
-            { "item": "control tv", "target": 0, "unidad": "unidad", "original": "" },
-            { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "pilas aaa", "target": 2, "unidad": "unidad", "original": "" }
-          ]
-        },
-        "habitacion_2": {
-          "items": [
-            { "item": "percha", "target": 0, "unidad": "unidad", "original": "" },
-            { "item": "control aire acondicionado", "target": 0, "unidad": "unidad", "original": "" }
-          ]
-        },
-        "comedor": {
-          "items": [
+            { "item": "repasador", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "tv", "target": 0, "unidad": "unidad", "original": "" },
             { "item": "control tv", "target": 0, "unidad": "unidad", "original": "" },
             { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
@@ -259,20 +211,28 @@ const DATA = {
             { "item": "papel higiénico", "target": 2, "unidad": "rollo", "original": "" }
           ]
         },
-        "utensilios": {
-          "items": [
-            { "item": "secador de pelo", "target": 0, "unidad": "unidad", "original": "" },
-            { "item": "plancha para ropa", "target": 0, "unidad": "unidad", "original": "" },
-            { "item": "cable hdmi", "target": 0, "unidad": "unidad", "original": "" },
-            { "item": "adaptador universal", "target": 0, "unidad": "unidad", "original": "" }
-          ]
+        "habitacion": {
+          "habitacion_1": {
+            "items": [
+              { "item": "percha", "target": 4, "unidad": "unidad", "original": "" },
+              { "item": "control tv", "target": 0, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "pilas aaa", "target": 2, "unidad": "unidad", "original": "" }
+            ]
+          },
+          "habitacion_2": {
+            "items": [
+              { "item": "percha", "target": 0, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 0, "unidad": "unidad", "original": "" }
+            ]
+          }
         }
       }
     },
     {
       "id": "08",
       "ambientes": {
-        "cocina": {
+        "cocina_comedor": {
           "items": [
             { "item": "plato llano", "target": 6, "unidad": "unidad", "original": "" },
             { "item": "plato hondo", "target": 6, "unidad": "unidad", "original": "" },
@@ -289,24 +249,7 @@ const DATA = {
             { "item": "olla grande", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
-            { "item": "repasador", "target": 2, "unidad": "unidad", "original": "" }
-          ]
-        },
-        "habitacion_1": {
-          "items": [
-            { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
-            { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
-          ]
-        },
-        "habitacion_2": {
-          "items": [
-            { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
-            { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
-          ]
-        },
-        "comedor": {
-          "items": [
+            { "item": "repasador", "target": 2, "unidad": "unidad", "original": "" },
             { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
             { "item": "control decodificador", "target": 1, "unidad": "unidad", "original": "" },
@@ -324,13 +267,20 @@ const DATA = {
             { "item": "papel higiénico", "target": 4, "unidad": "rollo", "original": "" }
           ]
         },
-        "utensilios": {
-          "items": [
-            { "item": "secador de pelo", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "plancha para ropa", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "cable hdmi", "target": 1, "unidad": "unidad", "original": "" },
-            { "item": "adaptador universal", "target": 1, "unidad": "unidad", "original": "" }
-          ]
+        "habitacion": {
+          "habitacion_1": {
+            "items": [
+              { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
+              { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
+            ]
+          },
+          "habitacion_2": {
+            "items": [
+              { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
+            ]
+          }
         }
       }
     }
