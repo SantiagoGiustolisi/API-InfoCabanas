@@ -408,19 +408,23 @@ const formatItems = (items = []) =>
     ? items.map(it => `• ${it.target} ${it.unidad || ""} × ${it.item}`).join("\n")
     : "No hay ítems configurados en este ambiente.";
 
-// 👇 Nueva helper: genera texto por secciones (habitacion_1, habitacion_2, etc.)
+// === NUEVA: separa secciones en WhatsApp/ManyChat sin que se colapsen ===
 const formatSectioned = (sections = []) => {
   if (!sections.length) return "No hay ítems en este ambiente.";
+
+  const NL  = "\n";
+  const SEP = "\n\u200B\n"; // newline + zero-width space + newline
+
   return sections.map(sec => {
     const title = (sec.sector || "").replace(/_/g, " ").toUpperCase();
-    const body = (sec.items || [])
+    const body  = (sec.items || [])
       .map(it => `• ${it.target} ${it.unidad || ""} × ${it.item}`)
-      .join("\n");
-    return `*${title}*\n${body || "—"}`;
-  }).join("\n\n");
+      .join(NL);
+    return `*${title}*${NL}${body || "—"}`;
+  }).join(SEP);
 };
 
-// 👇 Reemplazo completo: soporta ambientes “contenedor”
+// Soporta ambientes “contenedor” (habitacion con sub-sectores)
 const buildAmbientePayload = (id, amb, onlySmall) => {
   const cab = findCabana(id);
   if (!cab) return { error: "Cabaña no encontrada." };
@@ -447,7 +451,7 @@ const buildAmbientePayload = (id, amb, onlySmall) => {
     return { cab, ambCanon, items, text };
   }
 
-  // Caso 2: ambiente “contenedor” (p.ej. habitacion con sub-sectores)
+  // Caso 2: ambiente “contenedor”
   if (typeof ambData === "object" && ambData) {
     let sections = [];
     for (const [sector, obj] of Object.entries(ambData)) {
@@ -457,11 +461,10 @@ const buildAmbientePayload = (id, amb, onlySmall) => {
         sections.push({ sector, items: its });
       }
     }
-    // items a nivel plano para JSON: agregamos la etiqueta de sector
     const items = sections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })));
 
     const header = `*Cabaña ${cab.id} — ${ambCanon.toUpperCase()}*`;
-    const text   = `${header}\n${formatSectioned(sections)}`;
+    const text   = `${header}\n\u200B\n${formatSectioned(sections)}`; // <- separación extra
 
     return { cab, ambCanon, items, text, sections };
   }
@@ -511,7 +514,6 @@ app.get("/cabanas/:id/ambientes/:amb", (req, res) => {
   if (String(req.query.format || "").toLowerCase() === "chat") {
     return res.send(result.text);
   }
-  // Incluye sections si existen (para ambientes contenedor)
   const { cab, ambCanon, items, text, sections } = result;
   res.json({ ok: true, cabana: cab.id, ambiente: ambCanon, items, sections, text });
 });
