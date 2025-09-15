@@ -388,10 +388,15 @@ const findCabana = (idRaw = "") => (DATA.cabanas || []).find(c => norm(c.id) ===
 
 const resolveAmbiente = (input = "") => {
   const t = norm(input);
+
   for (const a of CANON_AMBIENTES) if (t === norm(a)) return a;
-  for (const [canon, arr] of Object.entries((SIN.ambientes || {}))) {
+
+  // SIN puede no existir; evitamos ReferenceError
+  const SIN_AMB = (globalThis.SIN && SIN.ambientes) ? SIN.ambientes : {};
+  for (const [canon, arr] of Object.entries(SIN_AMB)) {
     if ((arr || []).map(norm).includes(t)) return canon;
   }
+
   if (/(^|\s)hab(\s*1|i)(\s|$)|matrimonial/.test(t)) return "habitacion_1";
   if (/(^|\s)hab(\s*2|ii)(\s|$)/.test(t)) return "habitacion_2";
   if (/bano|banio|ban/.test(t)) return "baño";
@@ -403,6 +408,19 @@ const formatItems = (items = []) =>
     ? items.map(it => `• ${it.target} ${it.unidad || ""} × ${it.item}`).join("\n")
     : "No hay ítems configurados en este ambiente.";
 
+// 👇 Nueva helper: genera texto por secciones (habitacion_1, habitacion_2, etc.)
+const formatSectioned = (sections = []) => {
+  if (!sections.length) return "No hay ítems en este ambiente.";
+  return sections.map(sec => {
+    const title = (sec.sector || "").replace(/_/g, " ").toUpperCase();
+    const body = (sec.items || [])
+      .map(it => `• ${it.target} ${it.unidad || ""} × ${it.item}`)
+      .join("\n");
+    return `*${title}*\n${body || "—"}`;
+  }).join("\n\n");
+};
+
+// 👇 Reemplazo completo: soporta ambientes “contenedor”
 const buildAmbientePayload = (id, amb, onlySmall) => {
   const cab = findCabana(id);
   if (!cab) return { error: "Cabaña no encontrada." };
@@ -417,9 +435,38 @@ const buildAmbientePayload = (id, amb, onlySmall) => {
   const ambData = cab.ambientes?.[ambCanon];
   if (!ambData) return { error: `No encuentro el ambiente "${amb}".` };
 
-  const items = (ambData.items || []).filter(it => (onlySmall ? isChico(it.item) : true));
-  const text  = `*Cabaña ${cab.id} — ${ambCanon.toUpperCase()}*\n` + formatItems(items);
-  return { cab, ambCanon, items, text };
+  // Caso 1: ambiente “normal” con items directos
+  if (Array.isArray(ambData.items)) {
+    let items = ambData.items.map(it => ({ ...it }));
+    if (onlySmall) items = items.filter(it => isChico(it.item));
+
+    const header = `*Cabaña ${cab.id} — ${ambCanon.toUpperCase()}*`;
+    const body   = formatItems(items);
+    const text   = `${header}\n${body}`;
+
+    return { cab, ambCanon, items, text };
+  }
+
+  // Caso 2: ambiente “contenedor” (p.ej. habitacion con sub-sectores)
+  if (typeof ambData === "object" && ambData) {
+    let sections = [];
+    for (const [sector, obj] of Object.entries(ambData)) {
+      if (Array.isArray(obj?.items)) {
+        let its = obj.items.map(it => ({ ...it }));
+        if (onlySmall) its = its.filter(it => isChico(it.item));
+        sections.push({ sector, items: its });
+      }
+    }
+    // items a nivel plano para JSON: agregamos la etiqueta de sector
+    const items = sections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })));
+
+    const header = `*Cabaña ${cab.id} — ${ambCanon.toUpperCase()}*`;
+    const text   = `${header}\n${formatSectioned(sections)}`;
+
+    return { cab, ambCanon, items, text, sections };
+  }
+
+  return { error: "Estructura de ambiente desconocida." };
 };
 
 /* =======================
@@ -458,14 +505,15 @@ app.get("/menu/:id", (req, res) => {
 // Detalle por ambiente (?small=1 filtra “grandes”; &format=chat devuelve solo texto)
 app.get("/cabanas/:id/ambientes/:amb", (req, res) => {
   const onlySmall = String(req.query.small ?? "1") === "1"; // default 1
-  const { cab, ambCanon, items, text, error } =
-    buildAmbientePayload(req.params.id, req.params.amb, onlySmall);
-  if (error) return res.status(404).json({ ok: false, text: error });
+  const result = buildAmbientePayload(req.params.id, req.params.amb, onlySmall);
+  if (result.error) return res.status(404).json({ ok: false, text: result.error });
 
   if (String(req.query.format || "").toLowerCase() === "chat") {
-    return res.send(text);
+    return res.send(result.text);
   }
-  res.json({ ok: true, cabana: cab.id, ambiente: ambCanon, items, text });
+  // Incluye sections si existen (para ambientes contenedor)
+  const { cab, ambCanon, items, text, sections } = result;
+  res.json({ ok: true, cabana: cab.id, ambiente: ambCanon, items, sections, text });
 });
 
 // Atajo: /buscar?casa_id=05&ambiente=baño&small=1&format=chat
@@ -476,13 +524,14 @@ app.get("/buscar", (req, res) => {
   if (!amb) return res.status(400).json({ ok: false, text: "Falta ambiente" });
 
   const onlySmall = String(req.query.small ?? "1") === "1";
-  const { cab, ambCanon, items, text, error } = buildAmbientePayload(id, amb, onlySmall);
-  if (error) return res.status(404).json({ ok: false, text: error });
+  const result = buildAmbientePayload(id, amb, onlySmall);
+  if (result.error) return res.status(404).json({ ok: false, text: result.error });
 
   if (String(req.query.format || "").toLowerCase() === "chat") {
-    return res.send(text);
+    return res.send(result.text);
   }
-  res.json({ ok: true, cabana: id, ambiente: ambCanon, items, text });
+  const { ambCanon, items, text, sections } = result;
+  res.json({ ok: true, cabana: id, ambiente: ambCanon, items, sections, text });
 });
 
 /* =======================
