@@ -14,264 +14,836 @@ app.use(morgan("dev"));
 ======================= */
 const DATA = {
   cabanas: [
-       {
-      "id": "01",
+    {
+  "id": "01",
+  "ambientes": {
+    "cocina_comedor": {
+      "items": [
+        { "item": "plato llano", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "plato hondo", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "vaso", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "taza", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "cuchillo", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "tenedor", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "cuchara", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "cucharita", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "copa de vino", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "sartén", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla chica", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla grande", "target": 0, "unidad": "unidad", "original": "" },
+        { "item": "tabla para picar", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
+        { "item": "repasador", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control decodificador", "target": 0, "unidad": "unidad", "original": "" },
+        { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "posavasos", "target": 2, "unidad": "unidad", "original": "" }
+      ]
+    },
+    "baño": {
+      "items": [
+        { "item": "toalla", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "toallón", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "jabón", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "sobre shampoo", "target": 2, "unidad": "sobre", "original": "" },
+        { "item": "sobre crema enjuague", "target": 2, "unidad": "sobre", "original": "" },
+        { "item": "papel higiénico", "target": 2, "unidad": "rollo", "original": "" }
+      ]
+    },
+    "habitacion": {
+      "habitacion_1": {
+        "items": [
+          { "item": "percha", "target": 4, "unidad": "unidad", "original": "" },
+          { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "pilas aaa", "target": 2, "unidad": "unidad", "original": "" }
+        ]
+      },
+      "habitacion_2": {
+        "items": [
+          { "item": "percha", "target": 0, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 0, "unidad": "unidad", "original": "" }
+        ]
+      }
+    }
+  }
+},
+{
+  "id": "02",
+  "ambientes": {
+    "cocina_comedor": {
+      "items": [
+        { "item": "plato llano", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "plato hondo", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "vaso", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "taza", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "cuchillo", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "tenedor", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "cuchara", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "cucharita", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "copa de vino", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "sartén", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla chica", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla grande", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "tabla para picar", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
+        { "item": "repasador", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control decodificador", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "posavasos", "target": 4, "unidad": "unidad", "original": "" }
+      ]
+    },
+    "baño": {
+      "items": [
+        { "item": "toalla", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "toallón", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "jabón", "target": 3, "unidad": "unidad", "original": "" },
+        { "item": "sobre shampoo", "target": 3, "unidad": "sobre", "original": "" },
+        { "item": "sobre crema enjuague", "target": 3, "unidad": "sobre", "original": "" },
+        { "item": "papel higiénico", "target": 3, "unidad": "rollo", "original": "" }
+      ]
+    },
+    "habitacion": {
+      "habitacion_1": {
+        "items": [
+          { "item": "percha", "target": 8, "unidad": "unidad", "original": "" },
+          { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "pilas aaa", "target": 4, "unidad": "unidad", "original": "" }
+        ]
+      },
+      "habitacion_2": {
+        "items": [
+          { "item": "percha", "target": 4, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
+        ]
+      }
+    }
+  }
+},
+{
+  "id": "03",
+  "ambientes": {
+    "cocina_comedor": {
+      "items": [
+        { "item": "plato llano", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "plato hondo", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "vaso", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "taza", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "cuchillo", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "tenedor", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "cuchara", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "cucharita", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "copa de vino", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "sartén", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "olla chica", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla grande", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "tabla para picar", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
+        { "item": "repasador", "target": 3, "unidad": "unidad", "original": "" },
+        { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control decodificador", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "posavasos", "target": 6, "unidad": "unidad", "original": "" }
+      ]
+    },
+    "baño": {
+      "items": [
+        { "item": "toalla", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "toallón", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "jabón", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "sobre shampoo", "target": 4, "unidad": "sobre", "original": "" },
+        { "item": "sobre crema enjuague", "target": 4, "unidad": "sobre", "original": "" },
+        { "item": "papel higiénico", "target": 4, "unidad": "rollo", "original": "" }
+      ]
+    },
+    "habitacion": {
+      "habitacion_1": {
+        "items": [
+          { "item": "percha", "target": 10, "unidad": "unidad", "original": "" },
+          { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "pilas aaa", "target": 4, "unidad": "unidad", "original": "" }
+        ]
+      },
+      "habitacion_2": {
+        "items": [
+          { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
+        ]
+      }
+    }
+  }
+},
+    {
+      "id": "04",
       "ambientes": {
         "cocina_comedor": {
-          "electrodomesticos": {
-            "items": [
-              { "item": "luz emergencia", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "heladera gafa", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "cocina florencia", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "microondas atma", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "estractor tst", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "aire acondicionado philco", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "jarra winco", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "tostadora ultracomb", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "minipimer atma", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "cafetera yelmo", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "calefaccion caldera", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "radiadores x9 - toayeros x3", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "termotante", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "secador de pelo atma", "target": 1, "unidad": "unidad", "original": "" }
-            ]
-          },
-          "vajilla": {
-            "items": [
-              { "item": "cuchillo", "target": 8, "unidad": "unidad", "original": "cuchillo x8" },
-              { "item": "tenedor", "target": 8, "unidad": "unidad", "original": "tenedor x8" },
-              { "item": "cucharita", "target": 8, "unidad": "unidad", "original": "cucharita x8" },
-              { "item": "cuchara", "target": 8, "unidad": "unidad", "original": "cuchara x8" },
-              { "item": "plato playo", "target": 8, "unidad": "unidad", "original": "plato playo x8" },
-              { "item": "plato mediano", "target": 8, "unidad": "unidad", "original": "plato mediano x8" },
-              { "item": "plato hondo", "target": 8, "unidad": "unidad", "original": "plato hondo x8" },
-              { "item": "platito café", "target": 8, "unidad": "unidad", "original": "platito café x8" },
-              { "item": "compotera postre", "target": 8, "unidad": "unidad", "original": "compotera postre x8" },
-              { "item": "vaso comun", "target": 8, "unidad": "unidad", "original": "vaso comun x8" },
-              { "item": "copa de agua", "target": 7, "unidad": "unidad", "original": "copa de agua x7" },
-              { "item": "copa de vino", "target": 5, "unidad": "unidad", "original": "copa de vino x5" },
-              { "item": "taza de café", "target": 8, "unidad": "unidad", "original": "taza de café x8" },
-              { "item": "pocillo", "target": 8, "unidad": "unidad", "original": "pocillo x8" },
-              { "item": "sarten", "target": 2, "unidad": "unidad", "original": "sarten x2" },
-              { "item": "olla", "target": 3, "unidad": "unidad", "original": "olla x3" },
-              { "item": "olla con mango", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "bandeja acero", "target": 3, "unidad": "unidad", "original": "bandeja acero x3" },
-              { "item": "ensaladera acero", "target": 3, "unidad": "unidad", "original": "ensaladera acero x3" },
-              { "item": "pela papa", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "pisa papa", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "abre lata", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "saca corcho", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "colador", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "cucharon acero", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "cuchara madera", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "espumadera acero", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "colador de pasta", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "fuente acero ovalada", "target": 2, "unidad": "unidad", "original": "fuente acero ovalada x2" },
-              { "item": "platos de madera", "target": 3, "unidad": "unidad", "original": "platos de madera x3" },
-              { "item": "tabla picar madera", "target": 2, "unidad": "unidad", "original": "tabla picar madera x2" },
-              { "item": "bandeja horno", "target": 2, "unidad": "unidad", "original": "bandeja horno x2" },
-              { "item": "pizera enlosada", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "pizera acero", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "bowl blanco", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "rayador", "target": 1, "unidad": "unidad", "original": "" }
-            ]
-          },
-          "living_cocina": {
-            "items": [
-              { "item": "mesa con vidrio 8 sillas", "target": 1, "unidad": "juego", "original": "" },
-              { "item": "sillon 3 cuerpos", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "sillon 1 cuerpo", "target": 2, "unidad": "unidad", "original": "sillon 1 cuerpo x2" },
-              { "item": "mueble tv empotrado", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "mesa ratona", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "reloj de pared", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "jarron vidrio", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "mesa + caminito", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "tv smart sharp", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "tv philco led", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "servicio de directv", "target": 1, "unidad": "servicio", "original": "" }
-            ]
-          },
-          "parrilla": {
-            "items": [
-              { "item": "parrilla", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "bracero", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "palita", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "atizador", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "mesa 2 bancos", "target": 1, "unidad": "juego", "original": "" },
-              { "item": "tender", "target": 1, "unidad": "unidad", "original": "" }
-            ]
-          }
+          "items": [
+            { "item": "plato llano", "target": 4, "unidad": "unidad", "original": "" },
+            { "item": "plato hondo", "target": 4, "unidad": "unidad", "original": "" },
+            { "item": "vaso", "target": 4, "unidad": "unidad", "original": "" },
+            { "item": "taza", "target": 4, "unidad": "unidad", "original": "" },
+            { "item": "cuchillo", "target": 4, "unidad": "unidad", "original": "" },
+            { "item": "tenedor", "target": 4, "unidad": "unidad", "original": "" },
+            { "item": "cuchara", "target": 4, "unidad": "unidad", "original": "" },
+            { "item": "sartén", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "olla chica", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "tabla para picar", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
+            { "item": "repasador", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "tv", "target": 0, "unidad": "unidad", "original": "" },
+            { "item": "control tv", "target": 0, "unidad": "unidad", "original": "" },
+            { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "posavasos", "target": 4, "unidad": "unidad", "original": "" }
+          ]
         },
         "baño": {
           "items": [
-            { "item": "bañera con hidromasaje", "target": 1, "unidad": "unidad", "original": "" }
+            { "item": "toalla", "target": 3, "unidad": "unidad", "original": "" },
+            { "item": "toallón", "target": 3, "unidad": "unidad", "original": "" },
+            { "item": "jabón", "target": 3, "unidad": "unidad", "original": "" },
+            { "item": "sobre shampoo", "target": 3, "unidad": "sobre", "original": "" },
+            { "item": "sobre crema enjuague", "target": 3, "unidad": "sobre", "original": "" },
+            { "item": "papel higiénico", "target": 2, "unidad": "rollo", "original": "" }
           ]
         },
         "habitacion": {
-          "matrimonial": {
+          "habitacion_1": {
             "items": [
-              { "item": "cama 2 plazas", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "mesa de luz", "target": 2, "unidad": "unidad", "original": "mesa de luz x2" },
-              { "item": "veladores", "target": 2, "unidad": "unidad", "original": "veladores x2" },
-              { "item": "estante tv empotrado", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "frazada 2p", "target": 2, "unidad": "unidad", "original": "frazada 2p x2" },
-              { "item": "caja fuerte", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "perchas", "target": 6, "unidad": "unidad", "original": "perchas x6" },
-              { "item": "cubrecama de verano", "target": 1, "unidad": "unidad", "original": "" }
+              { "item": "percha", "target": 4, "unidad": "unidad", "original": "" },
+              { "item": "control tv", "target": 0, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "pilas aaa", "target": 2, "unidad": "unidad", "original": "" }
             ]
           },
-          "simple_I": {
+          "habitacion_2": {
             "items": [
-              { "item": "cama 1 plaza", "target": 3, "unidad": "unidad", "original": "cama 1 plaza x3" },
-              { "item": "mesa de luz", "target": 2, "unidad": "unidad", "original": "mesa de luz x2" },
-              { "item": "veladores", "target": 2, "unidad": "unidad", "original": "veladores x2" },
-              { "item": "cubrecama verano 1p", "target": 3, "unidad": "unidad", "original": "cubrecama verano 1p x3" },
-              { "item": "frazada 1p", "target": 3, "unidad": "unidad", "original": "frazada 1p x3" },
-              { "item": "perchas", "target": 6, "unidad": "unidad", "original": "perchas x6" }
-            ]
-          },
-          "simple_II": {
-            "items": [
-              { "item": "cama 1 plaza", "target": 3, "unidad": "unidad", "original": "cama 1 plaza x3" },
-              { "item": "mesa de luz", "target": 2, "unidad": "unidad", "original": "mesa de luz x2" },
-              { "item": "veladores", "target": 2, "unidad": "unidad", "original": "veladores x2" },
-              { "item": "frazada 1p", "target": 3, "unidad": "unidad", "original": "frazada 1p x3" },
-              { "item": "cubrecama verano 1p", "target": 3, "unidad": "unidad", "original": "cubrecama verano 1p x3" },
-              { "item": "mueble tv empotrado", "target": 1, "unidad": "unidad", "original": "" },
-              { "item": "perchas", "target": 6, "unidad": "unidad", "original": "perchas x6" }
+              { "item": "percha", "target": 4, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 0, "unidad": "unidad", "original": "" },
+              { "item": "pilas aaa", "target": 0, "unidad": "unidad", "original": "" }
             ]
           }
         }
       }
     },
     {
-  "id": "02",
+      "id": "05",
+      "ambientes": {
+        "cocina_comedor": {
+          "items": [
+            { "item": "plato llano", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "plato hondo", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "vaso", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "taza", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "cuchillo", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "tenedor", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "cuchara", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "cucharita", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "copa de vino", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "sartén", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "olla chica", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "olla grande", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "tabla para picar", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
+            { "item": "repasador", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "control decodificador", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "posavasos", "target": 6, "unidad": "unidad", "original": "" }
+          ]
+        },
+        "baño": {
+          "items": [
+            { "item": "toalla", "target": 4, "unidad": "unidad", "original": "" },
+            { "item": "toallón", "target": 4, "unidad": "unidad", "original": "" },
+            { "item": "jabón", "target": 3, "unidad": "unidad", "original": "" },
+            { "item": "sobre shampoo", "target": 3, "unidad": "sobre", "original": "" },
+            { "item": "sobre crema enjuague", "target": 3, "unidad": "sobre", "original": "" },
+            { "item": "papel higiénico", "target": 3, "unidad": "rollo", "original": "" }
+          ]
+        },
+        "habitacion": {
+          "habitacion_1": {
+            "items": [
+              { "item": "percha", "target": 8, "unidad": "unidad", "original": "" },
+              { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "pilas aaa", "target": 4, "unidad": "unidad", "original": "" }
+            ]
+          },
+          "habitacion_2": {
+            "items": [
+              { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "06",
+      "ambientes": {
+        "cocina_comedor": {
+          "items": [
+            { "item": "plato llano", "target": 8, "unidad": "unidad", "original": "" },
+            { "item": "plato hondo", "target": 8, "unidad": "unidad", "original": "" },
+            { "item": "vaso", "target": 8, "unidad": "unidad", "original": "" },
+            { "item": "taza", "target": 8, "unidad": "unidad", "original": "" },
+            { "item": "cuchillo", "target": 8, "unidad": "unidad", "original": "" },
+            { "item": "tenedor", "target": 8, "unidad": "unidad", "original": "" },
+            { "item": "cuchara", "target": 8, "unidad": "unidad", "original": "" },
+            { "item": "cucharita", "target": 8, "unidad": "unidad", "original": "" },
+            { "item": "sartén", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "olla chica", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "olla grande", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "fuente vidrio", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
+            { "item": "repasador", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "control decodificador", "target": 0, "unidad": "unidad", "original": "" },
+            { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "posavasos", "target": 8, "unidad": "unidad", "original": "" }
+          ]
+        },
+        "baño": {
+          "items": [
+            { "item": "toalla", "target": 5, "unidad": "unidad", "original": "" },
+            { "item": "toallón", "target": 5, "unidad": "unidad", "original": "" },
+            { "item": "jabón", "target": 4, "unidad": "unidad", "original": "" },
+            { "item": "sobre shampoo", "target": 4, "unidad": "sobre", "original": "" },
+            { "item": "sobre crema enjuague", "target": 4, "unidad": "sobre", "original": "" },
+            { "item": "papel higiénico", "target": 3, "unidad": "rollo", "original": "" }
+          ]
+        },
+        "habitacion": {
+          "habitacion_1": {
+            "items": [
+              { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
+              { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "pilas aaa", "target": 4, "unidad": "unidad", "original": "" }
+            ]
+          },
+          "habitacion_2": {
+            "items": [
+              { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "pilas aaa", "target": 2, "unidad": "unidad", "original": "" }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "07",
+      "ambientes": {
+        "cocina_comedor": {
+          "items": [
+            { "item": "plato llano", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "plato hondo", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "vaso", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "taza", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "cuchillo", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "tenedor", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "cuchara", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "sartén", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "olla chica", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
+            { "item": "repasador", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "tv", "target": 0, "unidad": "unidad", "original": "" },
+            { "item": "control tv", "target": 0, "unidad": "unidad", "original": "" },
+            { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "posavasos", "target": 2, "unidad": "unidad", "original": "" }
+          ]
+        },
+        "baño": {
+          "items": [
+            { "item": "toalla", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "toallón", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "jabón", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "sobre shampoo", "target": 2, "unidad": "sobre", "original": "" },
+            { "item": "sobre crema enjuague", "target": 2, "unidad": "sobre", "original": "" },
+            { "item": "papel higiénico", "target": 2, "unidad": "rollo", "original": "" }
+          ]
+        },
+        "habitacion": {
+          "habitacion_1": {
+            "items": [
+              { "item": "percha", "target": 4, "unidad": "unidad", "original": "" },
+              { "item": "control tv", "target": 0, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "pilas aaa", "target": 2, "unidad": "unidad", "original": "" }
+            ]
+          },
+          "habitacion_2": {
+            "items": [
+              { "item": "percha", "target": 0, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 0, "unidad": "unidad", "original": "" }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "08",
+      "ambientes": {
+        "cocina_comedor": {
+          "items": [
+            { "item": "plato llano", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "plato hondo", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "vaso", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "taza", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "cuchillo", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "tenedor", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "cuchara", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "cucharita", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "copa de vino", "target": 4, "unidad": "unidad", "original": "" },
+            { "item": "tupper mediano", "target": 3, "unidad": "unidad", "original": "" },
+            { "item": "sartén", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "olla chica", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "olla grande", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
+            { "item": "repasador", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "control decodificador", "target": 1, "unidad": "unidad", "original": "" },
+            { "item": "mantel", "target": 2, "unidad": "unidad", "original": "" },
+            { "item": "posavasos", "target": 8, "unidad": "unidad", "original": "" }
+          ]
+        },
+        "baño": {
+          "items": [
+            { "item": "toalla", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "toallón", "target": 6, "unidad": "unidad", "original": "" },
+            { "item": "jabón", "target": 4, "unidad": "unidad", "original": "" },
+            { "item": "sobre shampoo", "target": 4, "unidad": "sobre", "original": "" },
+            { "item": "sobre crema enjuague", "target": 4, "unidad": "sobre", "original": "" },
+            { "item": "papel higiénico", "target": 4, "unidad": "rollo", "original": "" }
+          ]
+        },
+        "habitacion": {
+          "habitacion_1": {
+            "items": [
+              { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
+              { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
+            ]
+          },
+          "habitacion_2": {
+            "items": [
+              { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
+              { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
+            ]
+          }
+        }
+      }
+    },
+    {
+  "id": "09",
   "ambientes": {
     "cocina_comedor": {
-      "electrodomesticos": {
-        "items": [
-          { "item": "luz emergencia", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "heladera gafa", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "cocina florencia", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "microondas atma", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "estractor tst", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "aire acondicionado philco", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "jarra winco", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "tostadora ultracomb", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "minipimer atma", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "cafetera yelmo", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "calefaccion caldera", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "radiadores x9 - toayeros x3", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "termotante", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "secador de pelo atma", "target": 1, "unidad": "unidad", "original": "" }
-        ]
-      },
-      "vajilla": {
-        "items": [
-          { "item": "cuchillo", "target": 6, "unidad": "unidad", "original": "cuchillo x6" },
-          { "item": "tenedor", "target": 6, "unidad": "unidad", "original": "tenedor x6" },
-          { "item": "cucharita", "target": 6, "unidad": "unidad", "original": "cucharita x6" },
-          { "item": "cuchara", "target": 6, "unidad": "unidad", "original": "cuchara x6" },
-          { "item": "plato playo", "target": 6, "unidad": "unidad", "original": "plato playo x6" },
-          { "item": "plato mediano", "target": 6, "unidad": "unidad", "original": "plato mediano x6" },
-          { "item": "plato hondo", "target": 6, "unidad": "unidad", "original": "plato hondo x6" },
-          { "item": "platito café", "target": 6, "unidad": "unidad", "original": "platito café x6" },
-          { "item": "compotera postre", "target": 6, "unidad": "unidad", "original": "compotera postre x6" },
-          { "item": "vaso comun", "target": 6, "unidad": "unidad", "original": "vaso comun x6" },
-          { "item": "copa de agua", "target": 6, "unidad": "unidad", "original": "copa de agua x6" },
-          { "item": "copa de vino", "target": 6, "unidad": "unidad", "original": "copa de vino x6" },
-          { "item": "taza de café", "target": 6, "unidad": "unidad", "original": "taza de café x6" },
-          { "item": "pocillo", "target": 6, "unidad": "unidad", "original": "pocillo x6" },
-          { "item": "sarten", "target": 2, "unidad": "unidad", "original": "sarten x2" },
-          { "item": "olla", "target": 3, "unidad": "unidad", "original": "olla x3" },
-          { "item": "olla con mango", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "bandeja acero", "target": 3, "unidad": "unidad", "original": "bandeja acero x3" },
-          { "item": "ensaladera acero", "target": 3, "unidad": "unidad", "original": "ensaladera acero x3" },
-          { "item": "pela papa", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "pisa papa", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "abre lata", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "saca corcho", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "colador", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "cucharon acero", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "cuchara madera", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "espumadera acero", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "colador de pasta", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "fuente acero ovalada", "target": 1, "unidad": "unidad", "original": "fuente acero ovalada" },
-          { "item": "platos de madera", "target": 1, "unidad": "unidad", "original": "platos de madera" },
-          { "item": "tabla picar madera", "target": 2, "unidad": "unidad", "original": "tabla picar madera x2" },
-          { "item": "bandeja horno", "target": 2, "unidad": "unidad", "original": "bandeja horno x2" },
-          { "item": "pizera enlosada", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "pizera acero", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "bowl blanco", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "rayador", "target": 1, "unidad": "unidad", "original": "" }
-        ]
-      },
-      "living_cocina": {
-        "items": [
-          { "item": "mesa con vidrio 8 sillas", "target": 1, "unidad": "juego", "original": "" },
-          { "item": "sillon 3 cuerpos", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "sillon 1 cuerpo", "target": 2, "unidad": "unidad", "original": "sillon 1 cuerpo x2" },
-          { "item": "mueble tv empotrado", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "mesa ratona", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "reloj de pared", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "mesa + caminito", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "tv smart sharp", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "tv philco led", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "servicio de directv", "target": 1, "unidad": "servicio", "original": "" }
-        ]
-      },
-      "parrilla": {
-        "items": [
-          { "item": "parrilla", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "bracero", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "palita", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "atizador", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "mesa 2 bancos", "target": 1, "unidad": "juego", "original": "" },
-          { "item": "tender", "target": 1, "unidad": "unidad", "original": "" }
-        ]
-      }
+      "items": [
+        { "item": "plato llano", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "plato hondo", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "vaso", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "taza", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "cuchillo", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "tenedor", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "cuchara", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "cucharita", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "copa de vino", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "sartén", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla chica", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla grande", "target": 0, "unidad": "unidad", "original": "" },
+        { "item": "tabla para picar", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
+        { "item": "repasador", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control decodificador", "target": 0, "unidad": "unidad", "original": "" },
+        { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "posavasos", "target": 4, "unidad": "unidad", "original": "" }
+      ]
     },
     "baño": {
       "items": [
-        { "item": "bañera con hidromasaje", "target": 1, "unidad": "unidad", "original": "" }
+        { "item": "toalla", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "toallón", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "jabón", "target": 3, "unidad": "unidad", "original": "" },
+        { "item": "sobre shampoo", "target": 3, "unidad": "sobre", "original": "" },
+        { "item": "sobre crema enjuague", "target": 3, "unidad": "sobre", "original": "" },
+        { "item": "papel higiénico", "target": 3, "unidad": "rollo", "original": "" }
       ]
     },
     "habitacion": {
-      "matrimonial": {
+      "habitacion_1": {
         "items": [
-          { "item": "cama 2 plazas", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "mesa de luz", "target": 2, "unidad": "unidad", "original": "mesa de luz x2" },
-          { "item": "veladores", "target": 2, "unidad": "unidad", "original": "veladores x2" },
-          { "item": "estante tv empotrado", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "perchas", "target": 6, "unidad": "unidad", "original": "perchas x6" },
-          { "item": "cubrecama de verano", "target": 1, "unidad": "unidad", "original": "" }
+          { "item": "percha", "target": 8, "unidad": "unidad", "original": "" },
+          { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "pilas aaa", "target": 2, "unidad": "unidad", "original": "" }
         ]
       },
-      "simple_I": {
+      "habitacion_2": {
         "items": [
-          { "item": "cama 1 plaza", "target": 3, "unidad": "unidad", "original": "cama 1 plaza x3" },
-          { "item": "mesa de luz", "target": 2, "unidad": "unidad", "original": "mesa de luz x2" },
-          { "item": "veladores", "target": 2, "unidad": "unidad", "original": "veladores x2" },
-          { "item": "cubrecama verano 1p", "target": 3, "unidad": "unidad", "original": "cubrecama verano 1p x3" },
-          { "item": "frazada 1p", "target": 3, "unidad": "unidad", "original": "frazada 1p x3" },
-          { "item": "perchas", "target": 6, "unidad": "unidad", "original": "perchas x6" }
-        ]
-      },
-      "simple_II": {
-        "items": [
-          { "item": "cama 1 plaza", "target": 3, "unidad": "unidad", "original": "cama 1 plaza x3" },
-          { "item": "mesa de luz", "target": 2, "unidad": "unidad", "original": "mesa de luz x2" },
-          { "item": "veladores", "target": 2, "unidad": "unidad", "original": "veladores x2" },
-          { "item": "frazada 1p", "target": 3, "unidad": "unidad", "original": "frazada 1p x3" },
-          { "item": "cubrecama verano 1p", "target": 3, "unidad": "unidad", "original": "cubrecama verano 1p x3" },
-          { "item": "mueble tv empotrado", "target": 1, "unidad": "unidad", "original": "" },
-          { "item": "perchas", "target": 6, "unidad": "unidad", "original": "perchas x6" }
+          { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
         ]
       }
     }
   }
 },
-
+{
+  "id": "10",
+  "ambientes": {
+    "cocina_comedor": {
+      "items": [
+        { "item": "plato llano", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "plato hondo", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "vaso", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "taza", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "cuchillo", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "tenedor", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "cuchara", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "cucharita", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "copa de vino", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "sartén", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla chica", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla grande", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "tabla para picar", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
+        { "item": "repasador", "target": 3, "unidad": "unidad", "original": "" },
+        { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control decodificador", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "posavasos", "target": 6, "unidad": "unidad", "original": "" }
+      ]
+    },
+    "baño": {
+      "items": [
+        { "item": "toalla", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "toallón", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "jabón", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "sobre shampoo", "target": 4, "unidad": "sobre", "original": "" },
+        { "item": "sobre crema enjuague", "target": 4, "unidad": "sobre", "original": "" },
+        { "item": "papel higiénico", "target": 4, "unidad": "rollo", "original": "" }
+      ]
+    },
+    "habitacion": {
+      "habitacion_1": {
+        "items": [
+          { "item": "percha", "target": 10, "unidad": "unidad", "original": "" },
+          { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "pilas aaa", "target": 4, "unidad": "unidad", "original": "" }
+        ]
+      },
+      "habitacion_2": {
+        "items": [
+          { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
+        ]
+      }
+    }
+  }
+},
+{
+  "id": "11",
+  "ambientes": {
+    "cocina_comedor": {
+      "items": [
+        { "item": "plato llano", "target": 8, "unidad": "unidad", "original": "" },
+        { "item": "plato hondo", "target": 8, "unidad": "unidad", "original": "" },
+        { "item": "vaso", "target": 8, "unidad": "unidad", "original": "" },
+        { "item": "taza", "target": 8, "unidad": "unidad", "original": "" },
+        { "item": "cuchillo", "target": 8, "unidad": "unidad", "original": "" },
+        { "item": "tenedor", "target": 8, "unidad": "unidad", "original": "" },
+        { "item": "cuchara", "target": 8, "unidad": "unidad", "original": "" },
+        { "item": "cucharita", "target": 8, "unidad": "unidad", "original": "" },
+        { "item": "copa de vino", "target": 8, "unidad": "unidad", "original": "" },
+        { "item": "sartén", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "olla chica", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla grande", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "tabla para picar", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
+        { "item": "repasador", "target": 3, "unidad": "unidad", "original": "" },
+        { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control decodificador", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "posavasos", "target": 8, "unidad": "unidad", "original": "" }
+      ]
+    },
+    "baño": {
+      "items": [
+        { "item": "toalla", "target": 8, "unidad": "unidad", "original": "" },
+        { "item": "toallón", "target": 8, "unidad": "unidad", "original": "" },
+        { "item": "jabón", "target": 5, "unidad": "unidad", "original": "" },
+        { "item": "sobre shampoo", "target": 5, "unidad": "sobre", "original": "" },
+        { "item": "sobre crema enjuague", "target": 5, "unidad": "sobre", "original": "" },
+        { "item": "papel higiénico", "target": 5, "unidad": "rollo", "original": "" }
+      ]
+    },
+    "habitacion": {
+      "habitacion_1": {
+        "items": [
+          { "item": "percha", "target": 12, "unidad": "unidad", "original": "" },
+          { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "pilas aaa", "target": 4, "unidad": "unidad", "original": "" }
+        ]
+      },
+      "habitacion_2": {
+        "items": [
+          { "item": "percha", "target": 8, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
+        ]
+      }
+    }
+  }
+},
+{
+  "id": "12",
+  "ambientes": {
+    "cocina_comedor": {
+      "items": [
+        { "item": "plato llano", "target": 5, "unidad": "unidad", "original": "" },
+        { "item": "plato hondo", "target": 5, "unidad": "unidad", "original": "" },
+        { "item": "vaso", "target": 5, "unidad": "unidad", "original": "" },
+        { "item": "taza", "target": 5, "unidad": "unidad", "original": "" },
+        { "item": "cuchillo", "target": 5, "unidad": "unidad", "original": "" },
+        { "item": "tenedor", "target": 5, "unidad": "unidad", "original": "" },
+        { "item": "cuchara", "target": 5, "unidad": "unidad", "original": "" },
+        { "item": "cucharita", "target": 5, "unidad": "unidad", "original": "" },
+        { "item": "copa de vino", "target": 5, "unidad": "unidad", "original": "" },
+        { "item": "sartén", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla chica", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla grande", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "tabla para picar", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
+        { "item": "repasador", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control decodificador", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "posavasos", "target": 5, "unidad": "unidad", "original": "" }
+      ]
+    },
+    "baño": {
+      "items": [
+        { "item": "toalla", "target": 5, "unidad": "unidad", "original": "" },
+        { "item": "toallón", "target": 5, "unidad": "unidad", "original": "" },
+        { "item": "jabón", "target": 3, "unidad": "unidad", "original": "" },
+        { "item": "sobre shampoo", "target": 3, "unidad": "sobre", "original": "" },
+        { "item": "sobre crema enjuague", "target": 3, "unidad": "sobre", "original": "" },
+        { "item": "papel higiénico", "target": 3, "unidad": "rollo", "original": "" }
+      ]
+    },
+    "habitacion": {
+      "habitacion_1": {
+        "items": [
+          { "item": "percha", "target": 8, "unidad": "unidad", "original": "" },
+          { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "pilas aaa", "target": 2, "unidad": "unidad", "original": "" }
+        ]
+      },
+      "habitacion_2": {
+        "items": [
+          { "item": "percha", "target": 6, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
+        ]
+      }
+    }
+  }
+},
+{
+  "id": "13",
+  "ambientes": {
+    "cocina_comedor": {
+      "items": [
+        { "item": "plato llano", "target": 7, "unidad": "unidad", "original": "" },
+        { "item": "plato hondo", "target": 7, "unidad": "unidad", "original": "" },
+        { "item": "vaso", "target": 7, "unidad": "unidad", "original": "" },
+        { "item": "taza", "target": 7, "unidad": "unidad", "original": "" },
+        { "item": "cuchillo", "target": 7, "unidad": "unidad", "original": "" },
+        { "item": "tenedor", "target": 7, "unidad": "unidad", "original": "" },
+        { "item": "cuchara", "target": 7, "unidad": "unidad", "original": "" },
+        { "item": "cucharita", "target": 7, "unidad": "unidad", "original": "" },
+        { "item": "copa de vino", "target": 7, "unidad": "unidad", "original": "" },
+        { "item": "sartén", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "olla chica", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla grande", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "tabla para picar", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
+        { "item": "repasador", "target": 3, "unidad": "unidad", "original": "" },
+        { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control decodificador", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "posavasos", "target": 7, "unidad": "unidad", "original": "" }
+      ]
+    },
+    "baño": {
+      "items": [
+        { "item": "toalla", "target": 7, "unidad": "unidad", "original": "" },
+        { "item": "toallón", "target": 7, "unidad": "unidad", "original": "" },
+        { "item": "jabón", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "sobre shampoo", "target": 4, "unidad": "sobre", "original": "" },
+        { "item": "sobre crema enjuague", "target": 4, "unidad": "sobre", "original": "" },
+        { "item": "papel higiénico", "target": 4, "unidad": "rollo", "original": "" }
+      ]
+    },
+    "habitacion": {
+      "habitacion_1": {
+        "items": [
+          { "item": "percha", "target": 10, "unidad": "unidad", "original": "" },
+          { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "pilas aaa", "target": 4, "unidad": "unidad", "original": "" }
+        ]
+      },
+      "habitacion_2": {
+        "items": [
+          { "item": "percha", "target": 8, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
+        ]
+      }
+    }
+  }
+},
+{
+  "id": "14",
+  "ambientes": {
+    "cocina_comedor": {
+      "items": [
+        { "item": "plato llano", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "plato hondo", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "vaso", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "taza", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "cuchillo", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "tenedor", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "cuchara", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "cucharita", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "copa de vino", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "sartén", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla chica", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla grande", "target": 0, "unidad": "unidad", "original": "" },
+        { "item": "tabla para picar", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
+        { "item": "repasador", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control decodificador", "target": 0, "unidad": "unidad", "original": "" },
+        { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "posavasos", "target": 2, "unidad": "unidad", "original": "" }
+      ]
+    },
+    "baño": {
+      "items": [
+        { "item": "toalla", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "toallón", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "jabón", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "sobre shampoo", "target": 2, "unidad": "sobre", "original": "" },
+        { "item": "sobre crema enjuague", "target": 2, "unidad": "sobre", "original": "" },
+        { "item": "papel higiénico", "target": 2, "unidad": "rollo", "original": "" }
+      ]
+    },
+    "habitacion": {
+      "habitacion_1": {
+        "items": [
+          { "item": "percha", "target": 4, "unidad": "unidad", "original": "" },
+          { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "pilas aaa", "target": 2, "unidad": "unidad", "original": "" }
+        ]
+      },
+      "habitacion_2": {
+        "items": [
+          { "item": "percha", "target": 0, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 0, "unidad": "unidad", "original": "" }
+        ]
+      }
+    }
+  }
+},
+{
+  "id": "15",
+  "ambientes": {
+    "cocina_comedor": {
+      "items": [
+        { "item": "plato llano", "target": 10, "unidad": "unidad", "original": "" },
+        { "item": "plato hondo", "target": 10, "unidad": "unidad", "original": "" },
+        { "item": "vaso", "target": 10, "unidad": "unidad", "original": "" },
+        { "item": "taza", "target": 10, "unidad": "unidad", "original": "" },
+        { "item": "cuchillo", "target": 10, "unidad": "unidad", "original": "" },
+        { "item": "tenedor", "target": 10, "unidad": "unidad", "original": "" },
+        { "item": "cuchara", "target": 10, "unidad": "unidad", "original": "" },
+        { "item": "cucharita", "target": 10, "unidad": "unidad", "original": "" },
+        { "item": "copa de vino", "target": 10, "unidad": "unidad", "original": "" },
+        { "item": "sartén", "target": 2, "unidad": "unidad", "original": "" },
+        { "item": "olla chica", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "olla grande", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "tabla para picar", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "abrelatas", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "detergente", "target": 1, "unidad": "botella", "original": "" },
+        { "item": "repasador", "target": 4, "unidad": "unidad", "original": "" },
+        { "item": "tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "control decodificador", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "mantel", "target": 1, "unidad": "unidad", "original": "" },
+        { "item": "posavasos", "target": 10, "unidad": "unidad", "original": "" }
+      ]
+    },
+    "baño": {
+      "items": [
+        { "item": "toalla", "target": 10, "unidad": "unidad", "original": "" },
+        { "item": "toallón", "target": 10, "unidad": "unidad", "original": "" },
+        { "item": "jabón", "target": 6, "unidad": "unidad", "original": "" },
+        { "item": "sobre shampoo", "target": 6, "unidad": "sobre", "original": "" },
+        { "item": "sobre crema enjuague", "target": 6, "unidad": "sobre", "original": "" },
+        { "item": "papel higiénico", "target": 6, "unidad": "rollo", "original": "" }
+      ]
+    },
+    "habitacion": {
+      "habitacion_1": {
+        "items": [
+          { "item": "percha", "target": 16, "unidad": "unidad", "original": "" },
+          { "item": "control tv", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" },
+          { "item": "pilas aaa", "target": 6, "unidad": "unidad", "original": "" }
+        ]
+      },
+      "habitacion_2": {
+        "items": [
+          { "item": "percha", "target": 12, "unidad": "unidad", "original": "" },
+          { "item": "control aire acondicionado", "target": 1, "unidad": "unidad", "original": "" }
+        ]
+      }
+    }
+  }
+}
   ]
 };
 
