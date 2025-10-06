@@ -309,6 +309,20 @@ const formatSectioned = (sections = []) => {
   return parts.join(SEP);
 };
 
+/* ---------- Encabezados por ambiente ---------- */
+const AMB_LABEL = {
+  habitaciones: { title: "HABITACIÓN", icon: "🛏️" },
+  baño:         { title: "BAÑO",       icon: "🚿"   },
+  cocina:       { title: "COCINA",     icon: ""     },
+  comedor:      { title: "COMEDOR",    icon: ""     },
+};
+
+const headerFor = (idCab, ambCanon) => {
+  const meta = AMB_LABEL[ambCanon] || { title: ambCanon.toUpperCase(), icon: "" };
+  const icon = meta.icon ? ` ${meta.icon}` : "";
+  return `*Cabaña ${idCab} | ${meta.title}${icon}*\n──────────────`;
+};
+
 /* ---------- Construcción de respuesta por ambiente ---------- */
 const buildAmbientePayload = (id, amb, onlySmall) => {
   const cab = findCabana(id);
@@ -329,14 +343,14 @@ const buildAmbientePayload = (id, amb, onlySmall) => {
     let items = ambData.items.map(it => ({ ...it }));
     if (onlySmall) items = items.filter(it => isChico(it.item));
 
-    const header = `*Cabaña ${cab.id} — ${ambCanon.toUpperCase()}*`;
+    const header = headerFor(cab.id, ambCanon);
     const body   = formatItems(items);
     const text   = `${header}\n${body}`;
 
     return { cab, ambCanon, items, text };
   }
 
-  // Caso 2: ambiente “contenedor” (habitaciones)
+  // Caso 2: ambiente “contenedor” (habitaciones / baño con secciones)
   if (typeof ambData === "object" && ambData) {
     let sections = [];
     for (const [sector, obj] of Object.entries(ambData)) {
@@ -348,8 +362,11 @@ const buildAmbientePayload = (id, amb, onlySmall) => {
     }
     const items = sections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })));
 
-    const header = `*Cabaña ${cab.id} | HABITACIÓN 🛏️*\n──────────────`;
-    const text   = `${header}\n\n${formatSectioned(sections)}`;
+    const header = headerFor(cab.id, ambCanon);
+    const text   = `${header}\n\n${
+      ambCanon === "habitaciones" ? formatSectioned(sections)
+                                  : sections.map(s => `*${String(s.sector).replace(/_/g," ").toUpperCase()}*\n${formatItems(s.items)}`).join("\n\u200B\n")
+    }`;
 
     return { cab, ambCanon, items, text, sections };
   }
