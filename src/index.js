@@ -138,6 +138,206 @@ const DATA = {
           }
         }
       }
+    },
+
+    {
+      id: "41",
+      ambientes: {
+        cocina: {
+          items: [
+            { item: "luz de emergencia", target: 1, unidad: "unidad", original: "" },
+            { item: "heladera patrick", target: 1, unidad: "unidad", original: "" },
+            { item: "cocina longvie", target: 1, unidad: "unidad", original: "" },
+            { item: "microondas bgh", target: 1, unidad: "unidad", original: "" },
+            { item: "extractor tst", target: 1, unidad: "unidad", original: "" },
+            { item: "aire acondicionado philco", target: 2, unidad: "unidad", original: "" },
+            { item: "jarra eléctrica atma", target: 1, unidad: "unidad", original: "" },
+            { item: "tostadora atma", target: 1, unidad: "unidad", original: "" },
+            { item: "minipimer philips", target: 1, unidad: "unidad", original: "" },
+            { item: "cafetera atma", target: 1, unidad: "unidad", original: "" },
+            { item: "calefacción por caldera", target: 1, unidad: "unidad", original: "" },
+            { item: "radiador", target: 6, unidad: "unidad", original: "" },
+            { item: "toallero", target: 2, unidad: "unidad", original: "" },
+            { item: "termotanque", target: 1, unidad: "unidad", original: "" },
+            { item: "tv smart noblex", target: 1, unidad: "unidad", original: "" },
+            { item: "servicio de directv", target: 1, unidad: "servicio", original: "" },
+            { item: "mesa comedor con vidrio", target: 1, unidad: "unidad", original: "" },
+            { item: "silla de comedor", target: 6, unidad: "unidad", original: "" },
+
+            // Vajilla / utensilios (resumida)
+            { item: "cuchillo", target: 6, unidad: "unidad", original: "" },
+            { item: "tenedor", target: 6, unidad: "unidad", original: "" },
+            { item: "plato playo", target: 6, unidad: "unidad", original: "" },
+            { item: "plato hondo", target: 6, unidad: "unidad", original: "" },
+            { item: "vaso común", target: 6, unidad: "unidad", original: "" },
+            { item: "taza de café", target: 6, unidad: "unidad", original: "" },
+            { item: "sartén", target: 1, unidad: "unidad", original: "" },
+            { item: "olla", target: 2, unidad: "unidad", original: "" },
+            { item: "bandeja para horno", target: 1, unidad: "unidad", original: "" }
+          ]
+        },
+        habitaciones: {
+          matrimonial: {
+            items: [
+              { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "" },
+              { item: "mesa de luz", target: 2, unidad: "unidad", original: "" },
+              { item: "velador", target: 2, unidad: "unidad", original: "" },
+              { item: "frazada 2 plazas", target: 1, unidad: "unidad", original: "" },
+              { item: "caja fuerte", target: 1, unidad: "unidad", original: "" },
+              { item: "percha", target: 5, unidad: "unidad", original: "" }
+            ]
+          },
+          simple_1: {
+            items: [
+              { item: "cama 1 plaza", target: 2, unidad: "unidad", original: "" },
+              { item: "mesa de luz", target: 1, unidad: "unidad", original: "" },
+              { item: "velador", target: 1, unidad: "unidad", original: "" },
+              { item: "frazada 1 plaza", target: 2, unidad: "unidad", original: "" },
+              { item: "percha", target: 4, unidad: "unidad", original: "" }
+            ]
+          },
+          simple_2: {
+            items: [
+              { item: "cama 1 plaza", target: 1, unidad: "unidad", original: "" },
+              { item: "mesa de luz", target: 1, unidad: "unidad", original: "" },
+              { item: "velador", target: 1, unidad: "unidad", original: "" },
+              { item: "percha", target: 3, unidad: "unidad", original: "" }
+            ]
+          }
+        },
+        baño: {
+          suite: {
+            items: [
+              { item: "ducha con mampara", target: 1, unidad: "unidad", original: "" },
+              { item: "secador de pelo yelmo", target: 1, unidad: "unidad", original: "" }
+            ]
+          }
+        }
+      }
+    },
+    {
+      id: "43",
+      ambientes: {
+        cocina: {
+          items: [
+            { item: "luz de emergencia", target: 1, unidad: "unidad", original: "" },
+            { item: "heladera whirlpool", target: 1, unidad: "unidad", original: "" },
+            { item: "cocina orbis", target: 1, unidad: "unidad", original: "" },
+            { item: "microondas philco", target: 1, unidad: "unidad", original: "" },
+            { item: "extractor tst", target: 1, unidad: "unidad", original: "" },
+            { item: "aire acondicionado sanyo", target: 3, unidad: "unidad", original: "" },
+            { item: "jarra eléctrica yelmo", target: 1, unidad: "unidad", original: "" },
+            { item: "tostadora ultracomb", target: 1, unidad: "unidad", original: "" },
+            { item: "cafetera dolce gusto", target: 1, unidad: "unidad", original: "" },
+            { item: "radiador", target: 7, unidad: "unidad", original: "" },
+            { item: "toallero", target: 2, unidad: "unidad", original: "" },
+            { item: "termotanque", target: 1, unidad: "unidad", original: "" },
+            { item: "tv smart tcl", target: 1, unidad: "unidad", original: "" },
+            { item: "silla de comedor", target: 4, unidad: "unidad", original: "" },
+
+            // Vajilla / utensilios (resumida)
+            { item: "plato playo", target: 4, unidad: "unidad", original: "" },
+            { item: "plato hondo", target: 4, unidad: "unidad", original: "" },
+            { item: "vaso común", target: 4, unidad: "unidad", original: "" },
+            { item: "taza de café", target: 4, unidad: "unidad", original: "" },
+            { item: "sartén", target: 1, unidad: "unidad", original: "" },
+            { item: "olla", target: 2, unidad: "unidad", original: "" }
+          ]
+        },
+        habitaciones: {
+          matrimonial: {
+            items: [
+              { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "" },
+              { item: "mesa de luz", target: 2, unidad: "unidad", original: "" },
+              { item: "velador", target: 2, unidad: "unidad", original: "" },
+              { item: "frazada 2 plazas", target: 1, unidad: "unidad", original: "" }
+            ]
+          },
+          simple_1: {
+            items: [
+              { item: "cama 1 plaza", target: 2, unidad: "unidad", original: "" },
+              { item: "mesa de luz", target: 1, unidad: "unidad", original: "" },
+              { item: "velador", target: 1, unidad: "unidad", original: "" }
+            ]
+          },
+          simple_2: {
+            items: [
+              { item: "cama 1 plaza", target: 2, unidad: "unidad", original: "" },
+              { item: "mesa de luz", target: 1, unidad: "unidad", original: "" },
+              { item: "velador", target: 1, unidad: "unidad", original: "" }
+            ]
+          }
+        },
+        baño: {
+          suite: {
+            items: [
+              { item: "ducha escocesa", target: 1, unidad: "unidad", original: "" },
+              { item: "secador de pelo atma", target: 1, unidad: "unidad", original: "" }
+            ]
+          }
+        }
+      }
+    },
+   {
+      id: "44",
+      ambientes: {
+        cocina: {
+          items: [
+            { item: "luz de emergencia", target: 1, unidad: "unidad", original: "" },
+            { item: "heladera gafa no frost", target: 1, unidad: "unidad", original: "" },
+            { item: "anafe eléctrico philips", target: 1, unidad: "unidad", original: "" },
+            { item: "horno eléctrico atma", target: 1, unidad: "unidad", original: "" },
+            { item: "microondas atma", target: 1, unidad: "unidad", original: "" },
+            { item: "campana de acero tst", target: 1, unidad: "unidad", original: "" },
+            { item: "aire acondicionado bgh", target: 2, unidad: "unidad", original: "" },
+            { item: "jarra eléctrica winco", target: 1, unidad: "unidad", original: "" },
+            { item: "tostadora philips", target: 1, unidad: "unidad", original: "" },
+            { item: "radiador", target: 5, unidad: "unidad", original: "" },
+            { item: "tv smart samsung", target: 1, unidad: "unidad", original: "" },
+
+            // Vajilla / utensilios (resumida)
+            { item: "plato playo", target: 8, unidad: "unidad", original: "" },
+            { item: "vaso común", target: 8, unidad: "unidad", original: "" },
+            { item: "cuchillo", target: 8, unidad: "unidad", original: "" },
+            { item: "tenedor", target: 8, unidad: "unidad", original: "" },
+            { item: "olla", target: 3, unidad: "unidad", original: "" },
+            { item: "bandeja para horno", target: 1, unidad: "unidad", original: "" }
+          ]
+        },
+        habitaciones: {
+          matrimonial: {
+            items: [
+              { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "" },
+              { item: "mesa de luz", target: 2, unidad: "unidad", original: "" },
+              { item: "velador", target: 2, unidad: "unidad", original: "" },
+              { item: "frazada 2 plazas", target: 2, unidad: "unidad", original: "" },
+              { item: "percha", target: 6, unidad: "unidad", original: "" }
+            ]
+          },
+          simple_1: {
+            items: [
+              { item: "cama cucheta 1 plaza", target: 1, unidad: "unidad", original: "" },
+              { item: "velador", target: 1, unidad: "unidad", original: "" },
+              { item: "percha", target: 4, unidad: "unidad", original: "" }
+            ]
+          },
+          simple_2: {
+            items: [
+              { item: "cama 1 plaza", target: 2, unidad: "unidad", original: "" },
+              { item: "mesa de luz", target: 1, unidad: "unidad", original: "" }
+            ]
+          }
+        },
+        baño: {
+          suite: {
+            items: [
+              { item: "bañera con hidromasaje", target: 1, unidad: "unidad", original: "" },
+              { item: "secador de pelo atma", target: 1, unidad: "unidad", original: "" },
+              { item: "toallero eléctrico", target: 1, unidad: "unidad", original: "" }
+            ]
+          }
+        }
+      }
     }
   ]
 };
