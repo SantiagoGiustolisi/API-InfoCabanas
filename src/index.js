@@ -241,9 +241,11 @@ const mejorCoincidencia = (candidatos, query) => {
 const isChico = (nombre = "") => !GRANDES.some(g => norm(nombre).includes(norm(g)));
 const findCabana = (idRaw = "") => (DATA.cabanas || []).find(c => norm(c.id) === norm(idRaw)) || null;
 
+/* ---------- Resolución de ambientes ---------- */
 const resolveAmbiente = (input = "") => {
   const t = norm(input);
 
+  // match exacto a claves canónicas
   for (const a of CANON_AMBIENTES) if (t === norm(a)) return a;
 
   // alias dinámicos (si existieran)
@@ -252,13 +254,18 @@ const resolveAmbiente = (input = "") => {
     if ((arr || []).map(norm).includes(t)) return canon;
   }
 
-  if (/(^|\s)hab(\s*1|i)(\s|$)|matrimonial/.test(t)) return "habitacion_1";
+  // ► habitación contenedor
+  if (/\bhabitaciones?\b/.test(t)) return "habitaciones";
+
+  // ► subhabitaciones
+  if (/(^|\s)hab(\s*1|i)(\s|$)|\bmatrimonial\b/.test(t)) return "habitacion_1";
   if (/(^|\s)hab(\s*2|ii)(\s|$)/.test(t)) return "habitacion_2";
+
   if (/bano|banio|ban/.test(t)) return "baño";
-  return t; // "habitacion" matcheará luego con "habitaciones"
+  return t;
 };
 
-// === util de estilo
+// util de estilo
 const capitalize = (s = "") =>
   s.replace(/\b\p{L}+/gu, w => w.charAt(0).toUpperCase() + w.slice(1));
 
@@ -267,28 +274,42 @@ const formatItems = (items = []) =>
     ? items.map(it => `• ${capitalize(it.item)} — ${it.target} ${it.unidad}${Number(it.target) === 1 ? "" : "es"}`).join("\n")
     : "No hay ítems configurados en este ambiente.";
 
-// === Formato seccionado para ambientes contenedor (habitaciones)
+/* ---------- Formato seccionado para habitaciones ---------- */
 const formatSectioned = (sections = []) => {
   if (!sections.length) return "No hay ítems en este ambiente.";
 
-  const titleMap = {
+  // orden y rótulos
+  const ORDER = ["matrimonial", "simple_1", "simple_2"];
+  const LABEL = {
     matrimonial: "HABITACIÓN MATRIMONIAL",
     simple_1:    "HABITACIÓN SIMPLE 1",
     simple_2:    "HABITACIÓN SIMPLE 2",
   };
 
-  const NL  = "\n";
-  const SEP = "\n\u200B\n"; // separador que no colapsa en WhatsApp/ManyChat
+  const byKey = Object.fromEntries(sections.map(s => [String(s.sector || ""), s]));
 
-  return sections.map(sec => {
-    const raw = String(sec.sector || "");
-    const title = titleMap[raw] || raw.replace(/_/g, " ").toUpperCase();
-    const body  = formatItems(sec.items || []);
-    return `*${title}*${NL}${body || "—"}`;
-  }).join(SEP);
+  const NL  = "\n";
+  const SEP = "\n\u200B\n"; // separación visible en WhatsApp/ManyChat
+
+  const parts = [];
+  for (const key of ORDER) {
+    const sec = byKey[key];
+    if (!sec) continue;
+    const title = LABEL[key] || key.replace(/_/g, " ").toUpperCase();
+    parts.push(`*${title}*${NL}${formatItems(sec.items || []) || "—"}`);
+  }
+
+  // sectores extra no contemplados en ORDER
+  for (const [key, sec] of Object.entries(byKey)) {
+    if (ORDER.includes(key)) continue;
+    const title = key.replace(/_/g, " ").toUpperCase();
+    parts.push(`*${title}*${NL}${formatItems(sec.items || []) || "—"}`);
+  }
+
+  return parts.join(SEP);
 };
 
-// Soporta ambientes “contenedor” (habitaciones con sub-sectores)
+/* ---------- Construcción de respuesta por ambiente ---------- */
 const buildAmbientePayload = (id, amb, onlySmall) => {
   const cab = findCabana(id);
   if (!cab) return { error: "Cabaña no encontrada." };
@@ -328,7 +349,7 @@ const buildAmbientePayload = (id, amb, onlySmall) => {
     const items = sections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })));
 
     const header = `*Cabaña ${cab.id} | HABITACIÓN 🛏️*\n──────────────`;
-    const text   = `${header}\n\u200B\n${formatSectioned(sections)}`;
+    const text   = `${header}\n\n${formatSectioned(sections)}`;
 
     return { cab, ambCanon, items, text, sections };
   }
