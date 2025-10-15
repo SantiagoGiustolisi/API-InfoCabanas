@@ -16,7 +16,7 @@ app.use(morgan("dev"));
 const DATA = {
   cabanas: [
     {
-      id: "42",
+      id: "Puna",
       ambientes: {
         cocina: {
           items: [
@@ -141,7 +141,7 @@ const DATA = {
     },
 
     {
-      id: "41",
+      id: "Cabaña 09",
       ambientes: {
         cocina: {
           items: [
@@ -216,7 +216,7 @@ const DATA = {
       }
     },
     {
-      id: "43",
+      id: "Casa 01 A",
       ambientes: {
         cocina: {
           items: [
@@ -279,7 +279,7 @@ const DATA = {
       }
     },
    {
-      id: "44",
+      id: "Vicuna",
       ambientes: {
         cocina: {
           items: [
