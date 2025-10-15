@@ -95,6 +95,16 @@ const DATA = {
             { item: "tender", target: 1, unidad: "unidad", original: "" }
           ]
         },
+        exterior: {
+          items: [
+            { item: "parrilla", target: 1, unidad: "unidad", original: "" },
+            { item: "bracero", target: 1, unidad: "unidad", original: "" },
+            { item: "atizador", target: 1, unidad: "unidad", original: "" },
+            { item: "palita", target: 1, unidad: "unidad", original: "" },
+            { item: "mesa de madera", target: 1, unidad: "unidad", original: "" },
+            { item: "bancos", target: 2, unidad: "unidad", original: "bancos x2" }
+          ]
+        },
         habitaciones: {
           matrimonial: {
             items: [
@@ -176,6 +186,16 @@ const DATA = {
             { item: "bandeja para horno", target: 1, unidad: "unidad", original: "" }
           ]
         },
+        exterior: {
+          items: [
+            { item: "parrilla", target: 1, unidad: "unidad", original: "" },
+            { item: "bracero", target: 1, unidad: "unidad", original: "" },
+            { item: "atizador", target: 1, unidad: "unidad", original: "" },
+            { item: "palita", target: 1, unidad: "unidad", original: "" },
+            { item: "mesa de madera", target: 1, unidad: "unidad", original: "" },
+            { item: "bancos", target: 2, unidad: "unidad", original: "bancos x2" }
+          ]
+        },
         habitaciones: {
           matrimonial: {
             items: [
@@ -244,6 +264,16 @@ const DATA = {
             { item: "olla", target: 2, unidad: "unidad", original: "" }
           ]
         },
+        exterior: {
+          items: [
+            { item: "parrilla", target: 1, unidad: "unidad", original: "" },
+            { item: "bracero", target: 1, unidad: "unidad", original: "" },
+            { item: "atizador", target: 1, unidad: "unidad", original: "" },
+            { item: "palita", target: 1, unidad: "unidad", original: "" },
+            { item: "mesa de madera", target: 1, unidad: "unidad", original: "" },
+            { item: "bancos", target: 2, unidad: "unidad", original: "bancos x2" }
+          ]
+        },
         habitaciones: {
           matrimonial: {
             items: [
@@ -304,6 +334,7 @@ const DATA = {
             { item: "bandeja para horno", target: 1, unidad: "unidad", original: "" }
           ]
         },
+        
         habitaciones: {
           matrimonial: {
             items: [
@@ -336,11 +367,21 @@ const DATA = {
               { item: "toallero eléctrico", target: 1, unidad: "unidad", original: "" }
             ]
           }
+        },
+       exterior: {
+          items: [
+            { item: "parrilla", target: 1, unidad: "unidad", original: "" },
+            { item: "bracero", target: 1, unidad: "unidad", original: "" },
+            { item: "atizador", target: 1, unidad: "unidad", original: "" },
+            { item: "palita", target: 1, unidad: "unidad", original: "" },
+            { item: "mesa de madera", target: 1, unidad: "unidad", original: "" },
+            { item: "bancos", target: 2, unidad: "unidad", original: "bancos x2" }
+          ]
         }
       }
     }
   ]
-};
+}
 
 /* =======================
    HELPERS
