@@ -345,9 +345,9 @@ const DATA = {
 /* =======================
    HELPERS
 ======================= */
-const STOPWORDS = new Set(["de","del","la","las","los","y","e","el","a","al","en","por","para"]);
-const CANON_AMBIENTES = ["cocina","habitacion_1","habitacion_2","comedor","baño","utensilios"];
-const GRANDES = ["cama","banera","bañera","mesa","silla","heladera","cocina","tv","televisor"]; // filtrables con ?small=1
+const STOPWORDS = new Set(["de", "del", "la", "las", "los", "y", "e", "el", "a", "al", "en", "por", "para"]);
+const CANON_AMBIENTES = ["cocina", "habitacion_1", "habitacion_2", "comedor", "baño", "utensilios"];
+const GRANDES = ["cama", "banera", "bañera", "mesa", "silla", "heladera", "cocina", "tv", "televisor"];
 
 const norm = (s = "") =>
   s.toString().toLowerCase()
@@ -357,221 +357,83 @@ const norm = (s = "") =>
     .replace(/\s+/g, " ")
     .trim();
 
-const tokens = (s = "") => norm(s).split(/\s+/).filter(t => t && !STOPWORDS.has(t));
-
-const mismasPalabras = (a, b) => {
-  if (a.length !== b.length) return false;
-  const setB = new Set(b);
-  for (const t of a) if (!setB.has(t)) return false;
-  return true;
-};
-
-const lev = (a, b) => {
-  a = norm(a); b = norm(b);
-  const m = Array.from({ length: a.length + 1 }, (_, i) => [i]);
-  for (let j = 1; j <= b.length; j++) m[0][j] = j;
-  for (let i = 1; i <= a.length; i++) {
-    for (let j = 1; j <= b.length; j++) {
-      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
-      m[i][j] = Math.min(m[i - 1][j] + 1, m[i][j - 1] + 1, m[i - 1][j - 1] + cost);
-    }
-  }
-  return m[a.length][b.length];
-};
-
-const similitud = (a, b) => {
-  const L = Math.max(norm(a).length, norm(b).length) || 1;
-  return 1 - (lev(a, b) / L);
-};
-
-const tokenSim = (a, b) => {
-  a = norm(a); b = norm(b);
-  if (!a || !b) return 0;
-  if (a === b) return 1;
-  if (a.length >= 3 && b.startsWith(a)) return 0.92;
-  if (b.length >= 3 && a.startsWith(b)) return 0.92;
-  const d = lev(a, b);
-  const L = Math.max(a.length, b.length) || 1;
-  return 1 - (d / L);
-};
-
-const fuzzyCoverage = (qTok, cTok, thr = 0.72) => {
-  const usados = new Set();
-  let match = 0;
-  for (const q of qTok) {
-    let best = 0, bi = -1;
-    for (let i = 0; i < cTok.length; i++) {
-      if (usados.has(i)) continue;
-      const s = tokenSim(q, cTok[i]);
-      if (s > best) { best = s; bi = i; }
-    }
-    if (best >= thr) { match++; usados.add(bi); }
-  }
-  return match / (qTok.length || 1);
-};
-
-const ALIAS = { acc: "acceso", acces: "acceso", pna: "parana", sta: "santa", esc: "escuela" };
-const expandAliases = arr => arr.map(t => ALIAS[t] || t);
-
-const mejorCoincidencia = (candidatos, query) => {
-  const qTokBase = tokens(query);
-  const qTok = expandAliases(qTokBase);
-  const qNorm = norm(query);
-  let best = null, bestScore = -Infinity;
-
-  for (const c of candidatos) {
-    const cNorm = norm(c);
-    const cTok = expandAliases(tokens(c));
-    if (cNorm === qNorm) return c;
-    if (mismasPalabras(qTok, cTok)) return c;
-
-    const coverage = fuzzyCoverage(qTok, cTok);
-    const charSim = similitud(cNorm, qNorm);
-    const inter = new Set(qTok.filter(t => cTok.includes(t))).size;
-    const union = new Set([...qTok, ...cTok]).size || 1;
-    const jaccard = inter / union;
-    const detailBonus = (coverage === 1) ? (Math.min(cTok.length, qTok.length) / Math.max(1, qTok.length)) : 0;
-
-    const score = (coverage * 3.2) + (charSim * 0.6) + (jaccard * 0.5) + (detailBonus * 0.3);
-    if (score > bestScore) { bestScore = score; best = c; }
-  }
-  return best;
-};
-
 const isChico = (nombre = "") => !GRANDES.some(g => norm(nombre).includes(norm(g)));
 const findCabana = (idRaw = "") => (DATA.cabanas || []).find(c => norm(c.id) === norm(idRaw)) || null;
 
 /* ---------- Resolución de ambientes ---------- */
 const resolveAmbiente = (input = "") => {
   const t = norm(input);
-
-  // match exacto a claves canónicas
-  for (const a of CANON_AMBIENTES) if (t === norm(a)) return a;
-
-  // alias dinámicos (si existieran)
-  const SIN_AMB = (globalThis.SIN && SIN.ambientes) ? SIN.ambientes : {};
-  for (const [canon, arr] of Object.entries(SIN_AMB)) {
-    if ((arr || []).map(norm).includes(t)) return canon;
-  }
-
-  // ► habitación contenedor
   if (/\bhabitaciones?\b/.test(t)) return "habitaciones";
-
-  // ► subhabitaciones
-  if (/(^|\s)hab(\s*1|i)(\s|$)|\bmatrimonial\b/.test(t)) return "habitacion_1";
-  if (/(^|\s)hab(\s*2|ii)(\s|$)/.test(t)) return "habitacion_2";
-
   if (/bano|banio|ban/.test(t)) return "baño";
   return t;
 };
 
-// util de estilo
+/* ---------- Formatos ---------- */
 const capitalize = (s = "") =>
   s.replace(/\b\p{L}+/gu, w => w.charAt(0).toUpperCase() + w.slice(1));
 
 const formatItems = (items = []) =>
   items.length
-    ? items.map(it => `• ${capitalize(it.item)} — ${it.target} ${it.unidad}${Number(it.target) === 1 ? "" : "es"}`).join("\n")
+    ? items.map(it => `• ${capitalize(it.item)} — ${it.target} ${it.unidad}${Number(it.target) === 1 ? "" : "s"}`).join("\n")
     : "No hay ítems configurados en este ambiente.";
 
-/* ---------- Formato seccionado para habitaciones ---------- */
 const formatSectioned = (sections = []) => {
-  if (!sections.length) return "No hay ítems en este ambiente.";
-
-  // orden y rótulos
-  const ORDER = ["matrimonial", "simple_1", "simple_2"];
   const LABEL = {
     matrimonial: "HABITACIÓN MATRIMONIAL",
-    simple_1:    "HABITACIÓN SIMPLE 1",
-    simple_2:    "HABITACIÓN SIMPLE 2",
+    simple_1: "HABITACIÓN SIMPLE 1",
+    simple_2: "HABITACIÓN SIMPLE 2"
   };
-
-  const byKey = Object.fromEntries(sections.map(s => [String(s.sector || ""), s]));
-
-  const NL  = "\n";
-  const SEP = "\n\u200B\n"; // separación visible en WhatsApp/ManyChat
-
-  const parts = [];
-  for (const key of ORDER) {
-    const sec = byKey[key];
-    if (!sec) continue;
-    const title = LABEL[key] || key.replace(/_/g, " ").toUpperCase();
-    parts.push(`*${title}*${NL}${formatItems(sec.items || []) || "—"}`);
-  }
-
-  // sectores extra no contemplados en ORDER
-  for (const [key, sec] of Object.entries(byKey)) {
-    if (ORDER.includes(key)) continue;
-    const title = key.replace(/_/g, " ").toUpperCase();
-    parts.push(`*${title}*${NL}${formatItems(sec.items || []) || "—"}`);
-  }
-
-  return parts.join(SEP);
+  return sections.map(s => {
+    const title = LABEL[s.sector] || s.sector.toUpperCase();
+    return `*${title}*\n${formatItems(s.items)}`;
+  }).join("\n\n");
 };
 
 /* ---------- Encabezados por ambiente ---------- */
 const AMB_LABEL = {
   habitaciones: { title: "HABITACIÓN", icon: "🛏️" },
-  baño:         { title: "BAÑO",       icon: "🚿"   },
-  cocina:       { title: "COCINA",     icon: ""     },
-  comedor:      { title: "COMEDOR",    icon: ""     },
+  baño: { title: "BAÑO", icon: "🚿" },
+  cocina: { title: "COCINA", icon: "🍳" },
+  comedor: { title: "COMEDOR", icon: "" }
 };
 
+// ✅ versión definitiva sin agregar “Cabaña” si no está
 const headerFor = (idCab, ambCanon) => {
   const meta = AMB_LABEL[ambCanon] || { title: ambCanon.toUpperCase(), icon: "" };
   const icon = meta.icon ? ` ${meta.icon}` : "";
-  return `*Cabaña ${idCab} | ${meta.title}${icon}*\n──────────────`;
+
+  const clean = idCab.trim(); // usar exactamente lo que está en los datos
+  const title = `${clean} | ${meta.title}${icon}`;
+  const line = "─".repeat(title.length);
+  return `*${title}*\n${line}`;
 };
 
-/* ---------- Construcción de respuesta por ambiente ---------- */
+/* ---------- Construcción de respuesta ---------- */
 const buildAmbientePayload = (id, amb, onlySmall) => {
   const cab = findCabana(id);
   if (!cab) return { error: "Cabaña no encontrada." };
 
-  let ambCanon = resolveAmbiente(amb);
-  if (!cab.ambientes?.[ambCanon]) {
-    const keys = Object.keys(cab.ambientes || {});
-    const match = mejorCoincidencia(keys, amb);
-    if (match) ambCanon = match; // ej: "habitacion" -> "habitaciones"
-  }
-
+  const ambCanon = resolveAmbiente(amb);
   const ambData = cab.ambientes?.[ambCanon];
   if (!ambData) return { error: `No encuentro el ambiente "${amb}".` };
 
-  // Caso 1: ambiente “normal”
   if (Array.isArray(ambData.items)) {
     let items = ambData.items.map(it => ({ ...it }));
     if (onlySmall) items = items.filter(it => isChico(it.item));
-
     const header = headerFor(cab.id, ambCanon);
-    const body   = formatItems(items);
-    const text   = `${header}\n${body}`;
-
+    const body = formatItems(items);
+    const text = `${header}\n${body}`;
     return { cab, ambCanon, items, text };
   }
 
-  // Caso 2: ambiente “contenedor” (habitaciones / baño con secciones)
-  if (typeof ambData === "object" && ambData) {
-    let sections = [];
-    for (const [sector, obj] of Object.entries(ambData)) {
-      if (Array.isArray(obj?.items)) {
-        let its = obj.items.map(it => ({ ...it }));
-        if (onlySmall) its = its.filter(it => isChico(it.item));
-        sections.push({ sector, items: its });
-      }
-    }
-    const items = sections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })));
-
-    const header = headerFor(cab.id, ambCanon);
-    const text   = `${header}\n\n${
-      ambCanon === "habitaciones" ? formatSectioned(sections)
-                                  : sections.map(s => `*${String(s.sector).replace(/_/g," ").toUpperCase()}*\n${formatItems(s.items)}`).join("\n\u200B\n")
-    }`;
-
-    return { cab, ambCanon, items, text, sections };
-  }
-
-  return { error: "Estructura de ambiente desconocida." };
+  const sections = Object.entries(ambData).map(([sector, obj]) => ({
+    sector,
+    items: (obj.items || []).filter(it => !onlySmall || isChico(it.item))
+  }));
+  const header = headerFor(cab.id, ambCanon);
+  const text = `${header}\n\n${formatSectioned(sections)}`;
+  const items = sections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })));
+  return { cab, ambCanon, items, text, sections };
 };
 
 /* =======================
@@ -607,35 +469,29 @@ app.get("/menu/:id", (req, res) => {
   res.json({ ok: true, id: cab.id, ambientes: Object.keys(cab.ambientes || {}) });
 });
 
-// Detalle por ambiente (?small=1 filtra “grandes”; &format=chat devuelve solo texto)
 app.get("/cabanas/:id/ambientes/:amb", (req, res) => {
-  const onlySmall = String(req.query.small ?? "1") === "1"; // default 1
+  const onlySmall = String(req.query.small ?? "1") === "1";
   const result = buildAmbientePayload(req.params.id, req.params.amb, onlySmall);
   if (result.error) return res.status(404).json({ ok: false, text: result.error });
-
   if (String(req.query.format || "").toLowerCase() === "chat") {
     return res.send(result.text);
   }
-  const { cab, ambCanon, items, text, sections } = result;
-  res.json({ ok: true, cabana: cab.id, ambiente: ambCanon, items, sections, text });
+  res.json({ ok: true, ...result });
 });
 
-// Atajo: /buscar?casa_id=05&ambiente=baño&small=1&format=chat
 app.get("/buscar", (req, res) => {
-  const id  = String(req.query.casa_id || "");
+  const id = String(req.query.casa_id || "");
   const amb = String(req.query.ambiente || "");
-  if (!id)  return res.status(400).json({ ok: false, text: "Falta casa_id" });
+  if (!id) return res.status(400).json({ ok: false, text: "Falta casa_id" });
   if (!amb) return res.status(400).json({ ok: false, text: "Falta ambiente" });
 
   const onlySmall = String(req.query.small ?? "1") === "1";
   const result = buildAmbientePayload(id, amb, onlySmall);
   if (result.error) return res.status(404).json({ ok: false, text: result.error });
-
   if (String(req.query.format || "").toLowerCase() === "chat") {
     return res.send(result.text);
   }
-  const { ambCanon, items, text, sections } = result;
-  res.json({ ok: true, cabana: id, ambiente: ambCanon, items, sections, text });
+  res.json({ ok: true, ...result });
 });
 
 /* =======================
