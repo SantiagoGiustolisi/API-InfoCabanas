@@ -435,7 +435,8 @@ const AMB_LABEL = {
   habitaciones: { title: "HABITACIÓN", icon: "🛏️" },
   baño: { title: "BAÑO", icon: "🚿" },
   cocina: { title: "COCINA", icon: "🍳" },
-  comedor: { title: "COMEDOR", icon: "" }
+  comedor: { title: "COMEDOR", icon: "🍽️" },
+  exterior: { title: "EXTERIOR", icon: "🌿" } // ✅ ← AGREGAR ESTA LÍNEA
 };
 
 // ✅ versión definitiva sin agregar “Cabaña” si no está
