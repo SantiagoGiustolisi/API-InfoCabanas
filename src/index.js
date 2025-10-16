@@ -241,7 +241,9 @@ const DATA = {
           { item: "cortina black out", target: 1, unidad: "unidad", original: "" },
           { item: "frazada 1P violetas", target: 2, unidad: "unidad", original: "frazada 1P x2 violetas" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
+
     },
 
     exterior: {
@@ -356,7 +358,8 @@ const DATA = {
           { item: "banco", target: 1, unidad: "unidad", original: "" },
           { item: "frazada 1P beige", target: 1, unidad: "unidad", original: "frazada 1P color beige" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
     },
 
     exterior: {
@@ -473,7 +476,8 @@ const DATA = {
           { item: "cubrecamas 1P celeste", target: 2, unidad: "unidad", original: "cubrecama 1P celeste x2" },
           { item: "frazadas 1P beige", target: 1, unidad: "unidad", original: "frazada 1P color beige x2" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO"
     },
 
     exterior: {
@@ -551,7 +555,8 @@ const DATA = {
           { item: "mesita auxiliar", target: 1, unidad: "unidad", original: "" },
           { item: "cesto basura", target: 1, unidad: "unidad", original: "sesto basura" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: SI | Unión de camas: SI"
     },
 
     exterior: {
@@ -609,7 +614,8 @@ const DATA = {
           { item: "cuadros", target: 2, unidad: "unidad", original: "cuadro x2" },
           { item: "frazada beige 2P", target: 1, unidad: "unidad", original: "frazada beige 2P" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: SI | Unión de camas: SI"
     },
 
     exterior: {
@@ -714,7 +720,8 @@ const DATA = {
           { item: "velador", target: 1, unidad: "unidad", original: "" },
           { item: "escritorio", target: 1, unidad: "unidad", original: "" },
           { item: "silla madera", target: 1, unidad: "unidad", original: "" }        ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: SI | Unión de camas: SI"
     },
 
     exterior: {
@@ -825,7 +832,8 @@ const DATA = {
           { item: "cortina black out", target: 2, unidad: "unidad", original: "" },
           { item: "frazada 1p verde", target: 3, unidad: "unidad", original: "" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
     },
 
     exterior: {
@@ -930,7 +938,8 @@ const DATA = {
           { item: "banco", target: 1, unidad: "unidad", original: "" },
           { item: "frazada 1p lila", target: 1, unidad: "unidad", original: "" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO"
     },
 
     exterior: {
@@ -1026,7 +1035,8 @@ const DATA = {
           { item: "mesa auxiliar", target: 1, unidad: "unidad", original: "" },
           { item: "frazada 1p beige y cuadros", target: 2, unidad: "unidad", original: "frazada 1P x2 beige y cuadros" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO"
     },
 
     exterior: {
@@ -1143,7 +1153,8 @@ const DATA = {
           { item: "frazada 1p", target: 4, unidad: "unidad", original: "frazada 1p x4" },
           { item: "cuadros", target: 2, unidad: "unidad", original: "cuadros x2 beige" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO"
     },
 
     exterior: {
@@ -1205,7 +1216,8 @@ const DATA = {
           { item: "silla", target: 1, unidad: "unidad", original: "" },
           { item: "florero de mimbre", target: 1, unidad: "unidad", original: "" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: SI | Unión de camas: SI"
     },
 
     exterior: {
@@ -1217,7 +1229,7 @@ const DATA = {
 //Sección Indu
 
 {
-  id: "Indu",
+  id: "Hindu",
   ambientes: {
     cocina: {
       items: [
@@ -1259,7 +1271,8 @@ const DATA = {
           { item: "juego mimbre sillones + mesita", target: 1, unidad: "juego", original: "juego mimbre sillones x2 + mesita" },
           { item: "banco", target: 1, unidad: "unidad", original: "" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: SI | Unión de camas: SI"
     },
 
     exterior: {
@@ -1366,7 +1379,8 @@ const DATA = {
           { item: "frazadas 1P polar beige", target: 1, unidad: "unidad", original: "frazada 1P x2 polar beige" },
           { item: "acolchado blanco", target: 2, unidad: "unidad", original: "acolchado x2 blanco" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
     },
 
     exterior: {
@@ -1493,7 +1507,8 @@ baño: {
           { item: "perchas plásticas", target: 4, unidad: "unidad", original: "percha plastica x4" },
           { item: "cubrecolchones", target: 2, unidad: "unidad", original: "cubrecobechos x2" },
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
     },
 
     exterior: {
@@ -1611,7 +1626,8 @@ baño: {
           { item: "espejo grande pasillo", target: 1, unidad: "unidad", original: "espejo grande en el pasillo" },
           { item: "frazadas 1P", target: 2, unidad: "unidad", original: "frazada 1p x2" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
     },
 
     exterior: {
@@ -1736,7 +1752,8 @@ baño: {
           { item: "perchas", target: 3, unidad: "unidad", original: "3 perchas" },
           { item: "se pueden unir camas 1 plaza", target: 1, unidad: "nota", original: "" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
     },
 
     exterior: {
@@ -1864,7 +1881,8 @@ baño: {
           { item: "frazada 1 plaza", target: 3, unidad: "unidad", original: "frazada 1p x3" },
           { item: "percha", target: 6, unidad: "unidad", original: "percha x6" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: SI | Unión de camas: SI"
     },
 
     exterior: {
@@ -1912,7 +1930,7 @@ baño: {
         { item: "pinza", target: 1, unidad: "unidad", original: "" },
         { item: "cuchara de madera", target: 2, unidad: "unidad", original: "cuchara de madera x2" },
         { item: "cucharon de acero", target: 1, unidad: "unidad", original: "" },
-     { item: "espumadera acero", target: 1, unidad: "unidad", original: "" },
+        { item: "espumadera acero", target: 1, unidad: "unidad", original: "" },
         { item: "cucharón para fideos", target: 1, unidad: "unidad", original: "" },
         { item: "bandeja de acero", target: 3, unidad: "unidad", original: "bandeja de acero x3" },
         { item: "ensaladera de acero", target: 1, unidad: "unidad", original: "ensaladera de acero x1" },
@@ -1983,7 +2001,8 @@ baño: {
           { item: "frazada 1 plaza", target: 1, unidad: "unidad", original: "frazada 1p x2" },
           { item: "acolchado 1 plaza", target: 1, unidad: "unidad", original: "acolchado 1p x2" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
     },
 
     exterior: {
@@ -2113,7 +2132,8 @@ baño: {
           { item: "cubrecama invierno", target: 2, unidad: "unidad", original: "cubrecama x2 invierno" },
           { item: "perchas", target: 2, unidad: "unidad", original: "2 perchas" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
     },
 
     exterior: {
@@ -2254,7 +2274,8 @@ baño: {
           { item: "cuadros", target: 2, unidad: "unidad", original: "cuadros x2" },
           { item: "perchas", target: 2, unidad: "unidad", original: "perchas x2" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
     },
 
     exterior: {
@@ -2387,7 +2408,8 @@ baño: {
           { item: "perchas", target: 3, unidad: "unidad", original: "perchas x3" },
           { item: "cubre colchón", target: 1, unidad: "unidad", original: "cubre colchon" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: NO"
     },
 
     exterior: {
@@ -2512,7 +2534,8 @@ baño: {
           { item: "espejo grande pasillo", target: 1, unidad: "unidad", original: "espejo grande pasillo" },
           { item: "frazada 1 plaza", target: 2, unidad: "unidad", original: "frazada 1p x2" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
     },
 
     exterior: {
@@ -2529,6 +2552,158 @@ baño: {
     }
   }
 },
+
+//Sección 7A
+{
+  id: "Casa 7A",
+  ambientes: {
+    cocina: {
+      items: [
+        // 🍽️ Vajilla y utensilios
+        { item: "cuchillos", target: 4, unidad: "unidad", original: "cuchillo x4" },
+        { item: "tenedores", target: 4, unidad: "unidad", original: "tenedor x4" },
+        { item: "cucharitas", target: 4, unidad: "unidad", original: "cucharita x4" },
+        { item: "cucharas", target: 4, unidad: "unidad", original: "cuchara x4" },
+        { item: "platos playos", target: 4, unidad: "unidad", original: "plato playo x4" },
+        { item: "platos hondos", target: 4, unidad: "unidad", original: "plato hondo x4" },
+        { item: "platitos café", target: 4, unidad: "unidad", original: "platito café x4" },
+        { item: "compoteras postre", target: 4, unidad: "unidad", original: "compotera postre x4" },
+        { item: "vasos comunes", target: 4, unidad: "unidad", original: "vaso comun x4" },
+        { item: "copas de agua", target: 4, unidad: "unidad", original: "copa de agua x4" },
+        { item: "copas de vino", target: 4, unidad: "unidad", original: "copa de vino x4" },
+        { item: "tazas café", target: 4, unidad: "unidad", original: "taza café x4" },
+        { item: "sartenes", target: 2, unidad: "unidad", original: "sarten x2" },
+        { item: "ollas", target: 2, unidad: "unidad", original: "olla x2" },
+        { item: "ensaladeras acero", target: 3, unidad: "unidad", original: "ensaladera acero x2" },
+        { item: "bandejas acero", target: 3, unidad: "unidad", original: "bandeja acero x2" },
+        { item: "fuente acero ovalada", target: 1, unidad: "unidad", original: "fuente acero" },
+        { item: "jarra vidrio", target: 1, unidad: "unidad", original: "jarra vidrio" },
+        { item: "colador pastas", target: 1, unidad: "unidad", original: "colador acero" },
+        { item: "cucharón acero", target: 1, unidad: "unidad", original: "cucharón" },
+        { item: "cuchara teflón", target: 1, unidad: "unidad", original: "cuchara de madera" },
+        { item: "pizzera", target: 1, unidad: "unidad", original: "pizzera" },
+        { item: "bifera", target: 1, unidad: "unidad", original: "bifera" },
+        { item: "tablas para picar madera grandes", target: 2, unidad: "unidad", original: "tabla picar" },
+        { item: "tablas para picar madera chicas", target: 3, unidad: "unidad", original: "" },
+        { item: "juguera plastico", target: 1, unidad: "unidad", original: "juguera manual" },
+        { item: "saca corcho", target: 1, unidad: "unidad", original: "saca corcho" },
+        { item: "abrelata", target: 1, unidad: "unidad", original: "abrelatas" },
+        { item: "cuchilla", target: 1, unidad: "unidad", original: "cuchilla" },
+        { item: "pelapapas", target: 1, unidad: "unidad", original: "pelapapas" },
+        { item: "olla con mango", target: 1, unidad: "unidad", original: "" },
+        { item: "rallador", target: 1, unidad: "unidad", original: "" },
+        { item: "colador de café", target: 1, unidad: "unidad", original: "" },
+        { item: "espatula teflón", target: 1, unidad: "unidad", original: "" },
+        { item: "cuchara espagueti teflón", target: 1, unidad: "unidad", original: "" },
+        { item: "cuchara madera", target: 1, unidad: "unidad", original: "" },
+        { item: "pinza", target: 1, unidad: "unidad", original: "" },
+        { item: "tarritos acero inoxidable", target: 1, unidad: "unidad", original: "" },
+        { item: "ensaladera pirex", target: 1, unidad: "unidad", original: "" },
+        { item: "sarten de teflón", target: 3, unidad: "unidad", original: "" },
+        { item: "jarra hervidor", target: 1, unidad: "unidad", original: "" },
+        { item: "pava acero", target: 1, unidad: "unidad", original: "" },
+        { item: "porta sachet", target: 1, unidad: "unidad", original: "" },
+        { item: "seca plato", target: 1, unidad: "unidad", original: "" },
+        { item: "porta servilleta", target: 1, unidad: "unidad", original: "" },
+        { item: "escurridor de verduras", target: 1, unidad: "unidad", original: "" },
+        { item: "panera", target: 1, unidad: "unidad", original: "" },
+        { item: "individuales", target: 4, unidad: "unidad", original: "" },
+        { item: "mantel cuerina", target: 1, unidad: "unidad", original: "" },
+        { item: "fuente horno", target: 1, unidad: "unidad", original: "" },
+        { item: "bandeja horno", target: 1, unidad: "unidad", original: "" },
+        { item: "magiclick", target: 1, unidad: "unidad", original: "" },
+        { item: "platos medianos", target: 4, unidad: "unidad", original: "madera de copetín" },
+
+        // 🛋️ Living - Cocina
+        { item: "mesa vidrio", target: 1, unidad: "unidad", original: "mesa cuadrada vidrio" },
+        { item: "sillas", target: 6, unidad: "unidad", original: "sillas x6" },
+        { item: "mesa tv", target: 1, unidad: "unidad", original: "mesa tv" },
+        { item: "mesa ratona", target: 1, unidad: "unidad", original: "mesa ratona" },
+        { item: "sillones 2 cuerpos", target: 2, unidad: "unidad", original: "sillón 2 cuerpos" },
+        { item: "sillones 1 cuerpo", target: 2, unidad: "unidad", original: "sillón 1 cuerpo x2" },
+        { item: "banquetas", target: 2, unidad: "unidad", original: "" },
+        { item: "velador de pie", target: 1, unidad: "unidad", original: "" },
+        { item: "silla bebé", target: 1, unidad: "unidad", original: "" },
+        { item: "reloj de pared", target: 1, unidad: "unidad", original: "" },
+        { item: "perchero pared", target: 1, unidad: "unidad", original: "" },
+        { item: "porta llave", target: 1, unidad: "unidad", original: "" },
+        { item: "reposeras", target: 2, unidad: "unidad", original: "" },
+        { item: "hamaca paraguaya", target: 1, unidad: "unidad", original: "" },
+        { item: "adornos varios", target: 1, unidad: "unidad", original: "adornos varios" }
+      ]
+    },
+
+    baño: {
+      suite: {
+        items: [
+          { item: "secador de pelo", target: 1, unidad: "unidad", original: "secador de pelo" },
+          { item: "toallero", target: 1, unidad: "unidad", original: "toallero" }
+        ]
+      }
+    },
+
+    electrodomesticos: {
+      items: [
+        { item: "cocina", target: 1, unidad: "unidad", original: "|" },
+        { item: "microondas reco", target: 1, unidad: "unidad", original: "microondas reco" },
+        { item: "cafetera atma", target: 1, unidad: "unidad", original: "cafetera atma" },
+        { item: "minipimer peabody", target: 1, unidad: "unidad", original: "minipimer peabody" },
+        { item: "termotanque", target: 1, unidad: "unidad", original: "termotanque" },
+        { item: "tvs smart hitachi-bgh", target: 2, unidad: "unidad", original: "tv smart hitachi" },
+        { item: "ventilador de techo", target: 1, unidad: "unidad", original: "ventilador de techo" },
+        { item: "aires acondicionados split philco", target: 3, unidad: "unidad", original: "aire acondicionado split philco" },
+        { item: "plancha astro", target: 1, unidad: "unidad", original: "plancha astro" },
+        { item: "tostadora atma", target: 1, unidad: "unidad", original: "tostadora atma" },
+        { item: "extractor cata", target: 1, unidad: "unidad", original: "extractor cata" },
+        { item: "jarra mounlinex", target: 1, unidad: "unidad", original: "" },
+        { item: "juguera ultracomb", target: 1, unidad: "unidad", original: "" },
+        { item: "caloventor liliana baño", target: 1, unidad: "unidad", original: "" },
+        { item: "termotanque", target: 1, unidad: "unidad", original: "" },
+        { item: "secador de pela gama", target: 1, unidad: "unidad", original: "" },
+        { item: "plancha astro", target: 1, unidad: "unidad", original: "" },
+        { item: "calefactores", target: 3, unidad: "unidad", original: "calefactor liliana baño" }
+      ]
+    },
+
+    habitaciones: {
+      matrimonial: {
+        items: [
+          { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "cama 2p" },
+          { item: "mesas de luz", target: 2, unidad: "unidad", original: "mesa de luz x2" },
+          { item: "veladores", target: 2, unidad: "unidad", original: "velador x2" },
+          { item: "banco", target: 1, unidad: "unidad", original: "banco" },
+          { item: "almohadas extras", target: 4, unidad: "unidad", original: "almohadas extras" },,
+          { item: "frazadas 2 plazas", target: 2, unidad: "unidad", original: "frazada 2p x2" }
+        ]
+      },
+      simple_1: {
+        items: [
+          { item: "camas 1 plaza", target: 2, unidad: "unidad", original: "cama 1p x2" },
+          { item: "mesa de luz", target: 1, unidad: "unidad", original: "mesa de luz" },
+          { item: "velador", target: 1, unidad: "unidad", original: "velador" },
+          { item: "espejo", target: 1, unidad: "unidad", original: "espejo" },
+          { item: "acolchado blanco con turqueza 1P", target: 1, unidad: "unidad", original: "acolchado blanco con turqueza 1P" },
+          { item: "frazadas 1 plaza", target: 3, unidad: "unidad", original: "frazada 1p x2" }
+        ]
+      },
+      nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: NO"
+    },
+
+    exterior: {
+      items: [
+        { item: "parrilla", target: 1, unidad: "unidad", original: "parrilla" },
+        { item: "tender", target: 1, unidad: "unidad", original: "tender" },
+        { item: "atizador", target: 1, unidad: "unidad", original: "atizador" },
+        { item: "palita", target: 1, unidad: "unidad", original: "palita" },
+        { item: "mesa madera", target: 1, unidad: "unidad", original: "mesa madera" },
+        { item: "bancos", target: 2, unidad: "unidad", original: "bancos x2" },
+        { item: "juego de mesa y 4 sillas", target: 2, unidad: "unidad", original: "" },
+        { item: "bracero", target: 1, unidad: "unidad", original: "bracero" }
+      ]
+    }
+  }
+},
+
 
   ]
 }
