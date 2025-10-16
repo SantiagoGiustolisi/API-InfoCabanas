@@ -97,37 +97,34 @@ const DATA = {
     },
 
     habitaciones: {
-      matrimonial: {
-        items: [
-          { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "" },
-          { item: "mesas de luz", target: 2, unidad: "unidad", original: "" },
-          { item: "veladores", target: 2, unidad: "unidad", original: "" },
-          { item: "cuadro portaretrato", target: 1, unidad: "unidad", original: "" },
-          { item: "adornos", target: 5, unidad: "unidad", original: "" },
-          { item: "mueble tv", target: 1, unidad: "unidad", original: "" },
-          { item: "banquito", target: 1, unidad: "unidad", original: "" },
-          { item: "frazada 2P rayada", target: 1, unidad: "unidad", original: "" }
-        ]
-      },
-      simple_1: {
-        items: [
-          { item: "cama 1 plaza", target: 3, unidad: "unidad", original: "" },
-          { item: "veladores", target: 2, unidad: "unidad", original: "" },
-          { item: "mesa de luz", target: 2, unidad: "unidad", original: "" },
-          { item: "espejo pared", target: 1, unidad: "unidad", original: "" },
-          { item: "adornos", target: 5, unidad: "unidad", original: "" },
-          { item: "cortina roler black out", target: 1, unidad: "unidad", original: "" },
-          { item: "cortina black out", target: 1, unidad: "unidad", original: "" },
-          { item: "frazada 1P x2 verdes", target: 2, unidad: "unidad", original: "" }
-        ]
-      },
+  matrimonial: {
+    items: [
+      { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "" },
+      { item: "mesas de luz", target: 2, unidad: "unidad", original: "" },
+      { item: "veladores", target: 2, unidad: "unidad", original: "" },
+      { item: "cuadro portaretrato", target: 1, unidad: "unidad", original: "" },
+      { item: "adornos", target: 5, unidad: "unidad", original: "" },
+      { item: "mueble tv", target: 1, unidad: "unidad", original: "" },
+      { item: "banquito", target: 1, unidad: "unidad", original: "" },
+      { item: "frazada 2P rayada", target: 1, unidad: "unidad", original: "" }
+    ]
+  },
+  simple_1: {
+    items: [
+      { item: "cama 1 plaza", target: 3, unidad: "unidad", original: "" },
+      { item: "veladores", target: 2, unidad: "unidad", original: "" },
+      { item: "mesa de luz", target: 2, unidad: "unidad", original: "" },
+      { item: "espejo pared", target: 1, unidad: "unidad", original: "" },
+      { item: "adornos", target: 5, unidad: "unidad", original: "" },
+      { item: "cortina roler black out", target: 1, unidad: "unidad", original: "" },
+      { item: "cortina black out", target: 1, unidad: "unidad", original: "" },
+      { item: "frazada 1P x2 verdes", target: 2, unidad: "unidad", original: "" }
+    ]
+  },
 
-      // ⚠️ NUEVA SECCIÓN AGREGADA
-      a_tener_en_cuenta: {
-        separacion_camas: "NO",
-        union_camas: "SI"
-      }
-    },
+  // 👇 Agregá esto al final del bloque habitaciones
+  nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
+},
 
     exterior: {
       items: [
