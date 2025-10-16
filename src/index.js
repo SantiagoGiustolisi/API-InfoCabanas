@@ -79,7 +79,6 @@ const DATA = {
 
     electrodomesticos: {
       items: [
-        // Electrodomésticos
         { item: "tv BGH smart 43", target: 1, unidad: "unidad", original: "" },
         { item: "microondas atma", target: 1, unidad: "unidad", original: "" },
         { item: "jarra philips", target: 1, unidad: "unidad", original: "" },
@@ -121,6 +120,12 @@ const DATA = {
           { item: "cortina black out", target: 1, unidad: "unidad", original: "" },
           { item: "frazada 1P x2 verdes", target: 2, unidad: "unidad", original: "" }
         ]
+      },
+
+      // ⚠️ NUEVA SECCIÓN AGREGADA
+      a_tener_en_cuenta: {
+        separacion_camas: "NO",
+        union_camas: "SI"
       }
     },
 
@@ -135,6 +140,7 @@ const DATA = {
     }
   }
 },
+
 //Sección Vicuña
 {
   id: "Vicuña",
