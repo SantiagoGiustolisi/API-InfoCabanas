@@ -2532,7 +2532,6 @@ baño: {
 
   ]
 }
-
 /* =======================
    HELPERS
 ======================= */
@@ -2544,7 +2543,7 @@ const CANON_AMBIENTES = [
   "comedor",
   "baño",
   "utensilios",
-  "electrodomesticos" // ✅ agregado
+  "electrodomesticos"
 ];
 
 const GRANDES = ["cama", "banera", "bañera", "mesa", "silla", "heladera", "cocina", "tv", "televisor"];
@@ -2599,13 +2598,12 @@ const AMB_LABEL = {
   electrodomesticos: { title: "ELECTRODOMÉSTICOS", icon: "🔌" } 
 };
 
-
 // ✅ versión definitiva sin agregar “Cabaña” si no está
 const headerFor = (idCab, ambCanon) => {
   const meta = AMB_LABEL[ambCanon] || { title: ambCanon.toUpperCase(), icon: "" };
   const icon = meta.icon ? ` ${meta.icon}` : "";
 
-  const clean = idCab.trim(); // usar exactamente lo que está en los datos
+  const clean = idCab.trim();
   const title = `${clean} | ${meta.title}${icon}`;
   const line = "─".repeat(title.length);
   return `*${title}*\n${line}`;
@@ -2620,21 +2618,31 @@ const buildAmbientePayload = (id, amb, onlySmall) => {
   const ambData = cab.ambientes?.[ambCanon];
   if (!ambData) return { error: `No encuentro el ambiente "${amb}".` };
 
+  // 🔹 Si es un ambiente simple (con items directos)
   if (Array.isArray(ambData.items)) {
     let items = ambData.items.map(it => ({ ...it }));
     if (onlySmall) items = items.filter(it => isChico(it.item));
     const header = headerFor(cab.id, ambCanon);
-    const body = formatItems(items);
-    const text = `${header}\n${body}`;
+    let text = `${header}\n${formatItems(items)}`;
     return { cab, ambCanon, items, text };
   }
 
-  const sections = Object.entries(ambData).map(([sector, obj]) => ({
-    sector,
-    items: (obj.items || []).filter(it => !onlySmall || isChico(it.item))
-  }));
+  // 🔹 Si el ambiente tiene secciones (como habitaciones)
+  const sections = Object.entries(ambData)
+    .filter(([key]) => key !== "nota") // ❗ excluir la propiedad "nota" del mapeo
+    .map(([sector, obj]) => ({
+      sector,
+      items: (obj.items || []).filter(it => !onlySmall || isChico(it.item))
+    }));
+
   const header = headerFor(cab.id, ambCanon);
-  const text = `${header}\n\n${formatSectioned(sections)}`;
+  let text = `${header}\n\n${formatSectioned(sections)}`;
+
+  // ✅ Agregar la nota si existe
+  if (ambData.nota) {
+    text += `\n\n*NOTA:*\n${ambData.nota}`;
+  }
+
   const items = sections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })));
   return { cab, ambCanon, items, text, sections };
 };
