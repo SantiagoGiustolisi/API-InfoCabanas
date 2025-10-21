@@ -8138,14 +8138,7 @@ baño: {
         { item: "adornos varios", target: 1, unidad: "unidad", original: "adornos varios" }
       ],
 
-      planta_alta: {
-        items: [
-          { item: "sillón matero", target: 2, unidad: "unidad", original: "sillón matero x2" },
-          { item: "sillón simple madera 2 cuerpos", target: 1, unidad: "unidad", original: "sillón simple madera 2 cuerpos" },
-          { item: "mesa cuadrada vidrio", target: 1, unidad: "unidad", original: "mesa cuadrada vidrio" },
-          { item: "alfombra beige", target: 1, unidad: "unidad", original: "alfombra beige" }
-        ]
-      }
+      
     },
 
     electrodomesticos: {
@@ -8192,7 +8185,16 @@ baño: {
           { item: "cubrecamas invierno", target: 2, unidad: "unidad", original: "cubrecamas x2 invierno" },
           { item: "espejos", target: 2, unidad: "unidad", original: "espejos x2" }
         ]
+      },
+      planta_alta: {
+        items: [
+          { item: "sillón matero", target: 2, unidad: "unidad", original: "sillón matero x2" },
+          { item: "sillón simple madera 2 cuerpos", target: 1, unidad: "unidad", original: "sillón simple madera 2 cuerpos" },
+          { item: "mesa cuadrada vidrio", target: 1, unidad: "unidad", original: "mesa cuadrada vidrio" },
+          { item: "alfombra beige", target: 1, unidad: "unidad", original: "alfombra beige" }
+        ]
       }
+      
     },
 
     baño: {
@@ -8277,11 +8279,17 @@ const formatSectioned = (sections = []) => {
     simple_1: "HABITACIÓN SIMPLE 1",
     simple_2: "HABITACIÓN SIMPLE 2",
     planta_alta: "PLANTA ALTA 🪜",
-    lavadero: "LAVADERO 🧺"
+    lavadero: "LAVADERO 🧺",
+    suite: "SUITE 🛁"
   };
+
   return sections.map(s => {
     const title = LABEL[s.sector] || s.sector.toUpperCase();
-    return `*${title}*\n${formatItems(s.items)}`;
+    let sectionText = `*${title}*\n${formatItems(s.items)}`;
+    if (s.nota) {
+      sectionText += `\n\n*NOTA:*\n${s.nota}`;
+    }
+    return sectionText;
   }).join("\n\n");
 };
 
@@ -8324,19 +8332,19 @@ const buildAmbientePayload = (id, amb, onlySmall) => {
     const header = headerFor(cab.id, ambCanon);
     let text = `${header}\n${formatItems(items)}`;
 
-    // 👇 Mostrar también sub-secciones si existen (como planta_alta o lavadero dentro del mismo ambiente)
+    // 👇 Mostrar también sub-secciones si existen
     const subSections = Object.entries(ambData)
       .filter(([key]) => key !== "items" && key !== "nota")
       .map(([sector, obj]) => ({
         sector,
-        items: (obj.items || []).filter(it => !onlySmall || isChico(it.item))
+        items: (obj.items || []).filter(it => !onlySmall || isChico(it.item)),
+        nota: obj.nota || null
       }));
 
     if (subSections.length) {
       text += `\n\n${formatSectioned(subSections)}`;
     }
 
-    // ✅ Agregar nota si existe
     if (ambData.nota) {
       text += `\n\n*NOTA:*\n${ambData.nota}`;
     }
@@ -8344,18 +8352,18 @@ const buildAmbientePayload = (id, amb, onlySmall) => {
     return { cab, ambCanon, items, text };
   }
 
-  // 🔹 Si el ambiente tiene solo secciones (como habitaciones)
+  // 🔹 Si el ambiente tiene solo secciones (como habitaciones o baño con suite)
   const sections = Object.entries(ambData)
     .filter(([key]) => key !== "nota")
     .map(([sector, obj]) => ({
       sector,
-      items: (obj.items || []).filter(it => !onlySmall || isChico(it.item))
+      items: (obj.items || []).filter(it => !onlySmall || isChico(it.item)),
+      nota: obj.nota || null
     }));
 
   const header = headerFor(cab.id, ambCanon);
   let text = `${header}\n\n${formatSectioned(sections)}`;
 
-  // ✅ Agregar la nota si existe
   if (ambData.nota) {
     text += `\n\n*NOTA:*\n${ambData.nota}`;
   }
