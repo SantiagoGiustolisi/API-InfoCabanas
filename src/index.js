@@ -31,9 +31,9 @@ const DATA = {
         { item: "jarra de vidrio azul", target: 1, unidad: "unidad", original: "" },
         { item: "ollas", target: 2, unidad: "unidad", original: "" },
         { item: "sartenes", target: 2, unidad: "unidad", original: "" },
-        { item: "ensaladera acero", target: 5, unidad: "unidad", original: "" },
-        { item: "bandeja acero", target: 3, unidad: "unidad", original: "bandeja acero x3" },
-        { item: "rayador acero", target: 1, unidad: "unidad", original: "" },
+        { item: "ensaladeras acero", target: 5, unidad: "unidad", original: "" },
+        { item: "bandejas acero", target: 3, unidad: "unidad", original: "bandeja acero x3" },
+        { item: "rallador acero", target: 1, unidad: "unidad", original: "" },
         { item: "escurridor pasta", target: 1, unidad: "unidad", original: "" },
         { item: "juguera manual plastica", target: 1, unidad: "unidad", original: "" },
         { item: "hielera acero", target: 1, unidad: "unidad", original: "" },
@@ -10203,7 +10203,52 @@ const norm = (s = "") =>
     .trim();
 
 const isChico = (nombre = "") => !GRANDES.some(g => norm(nombre).includes(norm(g)));
-const findCabana = (idRaw = "") => (DATA.cabanas || []).find(c => norm(c.id) === norm(idRaw)) || null;
+
+// 🔹 Encuentra la cabaña aunque el usuario escriba mal, en minúsculas o sin "Casa"
+const findCabana = (idRaw = "") => {
+  const idNorm = norm(idRaw);
+  if (!idNorm) return null;
+
+  const cabanas = DATA.cabanas || [];
+
+  // ✅ 1. Coincidencia exacta (ya normalizada)
+  let match = cabanas.find(c => norm(c.id) === idNorm);
+  if (match) return match;
+
+  // ✅ 2. Coincidencia parcial (por ejemplo "casa 3a" dentro de "casa 03a")
+  match = cabanas.find(c => idNorm.includes(norm(c.id)) || norm(c.id).includes(idNorm));
+  if (match) return match;
+
+  // ✅ 3. Si el usuario omitió "casa" o escribió mal (ej. "csa 3a", "c3a")
+  for (const cab of cabanas) {
+    const idClean = norm(cab.id).replace(/\bcasa\b/, "").trim();
+    if (idNorm.replace(/\bcasa\b/, "").includes(idClean) || idClean.includes(idNorm.replace(/\bcasa\b/, ""))) {
+      return cab;
+    }
+  }
+
+  // ✅ 4. Coincidencia por similitud (tolerancia a errores)
+  const similarity = (a, b) => {
+    const longer = a.length > b.length ? a : b;
+    const shorter = a.length > b.length ? b : a;
+    const same = [...shorter].filter((ch, i) => longer[i] === ch).length;
+    return same / longer.length;
+  };
+
+  let best = null;
+  let bestScore = 0;
+  for (const cab of cabanas) {
+    const score = similarity(idNorm, norm(cab.id));
+    if (score > bestScore) {
+      bestScore = score;
+      best = cab;
+    }
+  }
+
+  if (best && bestScore >= 0.6) return best;
+
+  return null;
+};
 
 /* ---------- Resolución de ambientes ---------- */
 const resolveAmbiente = (input = "") => {
