@@ -25,24 +25,24 @@ const DATA = {
         { item: "platos playos medianos", target: 5, unidad: "unidad", original: "" },
         { item: "platos hondos", target: 5, unidad: "unidad", original: "" },
         { item: "copas de vino", target: 5, unidad: "unidad", original: "" },
-        { item: "copas champagne", target: 5, unidad: "unidad", original: "" },
+        { item: "copas de champagne", target: 5, unidad: "unidad", original: "" },
         { item: "vasos", target: 5, unidad: "unidad", original: "" },
-        { item: "vasos trago largo", target: 5, unidad: "unidad", original: "" },
+        { item: "vasos de trago largo", target: 5, unidad: "unidad", original: "" },
         { item: "jarra de vidrio azul", target: 1, unidad: "unidad", original: "" },
         { item: "ollas", target: 2, unidad: "unidad", original: "" },
         { item: "sartenes", target: 2, unidad: "unidad", original: "" },
-        { item: "ensaladeras acero", target: 5, unidad: "unidad", original: "" },
-        { item: "bandejas acero", target: 3, unidad: "unidad", original: "bandeja acero x3" },
-        { item: "rallador acero", target: 1, unidad: "unidad", original: "" },
+        { item: "ensaladeras de acero", target: 5, unidad: "unidad", original: "" },
+        { item: "bandejas de acero", target: 3, unidad: "unidad", original: "bandeja acero x3" },
+        { item: "rallador de acero", target: 1, unidad: "unidad", original: "" },
         { item: "escurridor pasta", target: 1, unidad: "unidad", original: "" },
-        { item: "juguera manual plastica", target: 1, unidad: "unidad", original: "" },
-        { item: "hielera acero", target: 1, unidad: "unidad", original: "" },
+        { item: "juguera manual plástica", target: 1, unidad: "unidad", original: "" },
+        { item: "hielera de acero", target: 1, unidad: "unidad", original: "" },
         { item: "cesto de cocina", target: 1, unidad: "unidad", original: "" },
-        { item: "cuchara madera", target: 1, unidad: "unidad", original: "" },
-        { item: "cucharón teflon", target: 1, unidad: "unidad", original: "" },
-        { item: "espumadera teflon", target: 1, unidad: "unidad", original: "" },
-        { item: "espátula teflon", target: 1, unidad: "unidad", original: "" },
-        { item: "cuchilla mango blanco", target: 1, unidad: "unidad", original: "" },
+        { item: "cuchara de madera", target: 1, unidad: "unidad", original: "" },
+        { item: "cucharón de teflón", target: 1, unidad: "unidad", original: "" },
+        { item: "espumadera de teflón", target: 1, unidad: "unidad", original: "" },
+        { item: "espátula de teflón", target: 1, unidad: "unidad", original: "" },
+        { item: "cuchilla de mango blanco", target: 1, unidad: "unidad", original: "" },
         { item: "pisapure", target: 1, unidad: "unidad", original: "" },
         { item: "abrelatas", target: 1, unidad: "unidad", original: "" },
         { item: "pelapapas", target: 1, unidad: "unidad", original: "" },
@@ -51,8 +51,8 @@ const DATA = {
         { item: "cuchillos", target: 5, unidad: "unidad", original: "" },
         { item: "cucharitas", target: 5, unidad: "unidad", original: "" },
         { item: "cucharas", target: 5, unidad: "unidad", original: "" },
-        { item: "tazas café con platos", target: 5, unidad: "unidad", original: "" },
-        { item: "posillos café", target: 6, unidad: "unidad", original: "" },
+        { item: "tazas de café con platos", target: 5, unidad: "unidad", original: "" },
+        { item: "posillos decafé", target: 6, unidad: "unidad", original: "" },
         { item: "tabla madera", target: 1, unidad: "unidad", original: "" },
 
         // Living - Cocina
@@ -62,9 +62,9 @@ const DATA = {
         { item: "porta llaves pared", target: 1, unidad: "unidad", original: "" },
         { item: "espejo de pared", target: 1, unidad: "unidad", original: "" },
         { item: "cuadros", target: 3, unidad: "unidad", original: "cuadros x3" },
-        { item: "sillón 2 cuerpos", target: 1, unidad: "unidad", original: "" },
+        { item: "sillón de 2 cuerpos", target: 1, unidad: "unidad", original: "" },
         { item: "cortinas blancas", target: 2, unidad: "unidad", original: "" },
-        { item: "mesita ratona", target: 1, unidad: "unidad", original: "" }
+        { item: "mesa ratona", target: 1, unidad: "unidad", original: "" }
       ]
     },
 
@@ -85,11 +85,11 @@ const DATA = {
         { item: "jarra philips", target: 1, unidad: "unidad", original: "" },
         { item: "cafetera oster", target: 1, unidad: "unidad", original: "" },
         { item: "tostadora liliana", target: 1, unidad: "unidad", original: "" },
-        { item: "mini pymer atma", target: 1, unidad: "unidad", original: "" },
+        { item: "minipimer atma", target: 1, unidad: "unidad", original: "" },
         { item: "tv 32 samsei común", target: 1, unidad: "unidad", original: "" },
         { item: "aire acondicionado rca", target: 1, unidad: "unidad", original: "" },
         { item: "aire acondicionado tcl", target: 1, unidad: "unidad", original: "" },
-        { item: "ventilador de techo", target: 2, unidad: "unidad", original: "ventilador de techo x2" },
+        { item: "ventiladores de techo", target: 2, unidad: "unidad", original: "ventilador de techo x2" },
         { item: "secador de pelo oster", target: 1, unidad: "unidad", original: "" },
         { item: "heladera koh-i-noor", target: 1, unidad: "unidad", original: "" },
         { item: "cocina florencia", target: 1, unidad: "unidad", original: "" },
@@ -100,26 +100,26 @@ const DATA = {
     habitaciones: {
       matrimonial: {
         items: [
-          { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "" },
+          { item: "cama de 2 plazas", target: 1, unidad: "unidad", original: "" },
           { item: "mesas de luz", target: 2, unidad: "unidad", original: "" },
           { item: "veladores", target: 2, unidad: "unidad", original: "" },
           { item: "cuadro portaretrato", target: 1, unidad: "unidad", original: "" },
           { item: "adornos", target: 5, unidad: "unidad", original: "" },
           { item: "mueble tv", target: 1, unidad: "unidad", original: "" },
           { item: "banquito", target: 1, unidad: "unidad", original: "" },
-          { item: "frazada 2P rayada", target: 1, unidad: "unidad", original: "" }
+          { item: "frazada de 2 plazas rayada", target: 1, unidad: "unidad", original: "" }
         ]
       },
       simple_1: {
         items: [
-          { item: "cama 1 plaza", target: 3, unidad: "unidad", original: "" },
+          { item: "camas de 1 plaza", target: 3, unidad: "unidad", original: "" },
           { item: "veladores", target: 2, unidad: "unidad", original: "" },
-          { item: "mesa de luz", target: 2, unidad: "unidad", original: "" },
+          { item: "mesas de luz", target: 2, unidad: "unidad", original: "" },
           { item: "espejo pared", target: 1, unidad: "unidad", original: "" },
           { item: "adornos", target: 5, unidad: "unidad", original: "" },
           { item: "cortina roler black out", target: 1, unidad: "unidad", original: "" },
           { item: "cortina black out", target: 1, unidad: "unidad", original: "" },
-          { item: "frazada 1P x2 verdes", target: 2, unidad: "unidad", original: "" }
+          { item: "frazada de 1 plaza verdes", target: 2, unidad: "unidad", original: "" }
         ]
       },
       nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
@@ -127,7 +127,7 @@ const DATA = {
 
     exterior: {
       items: [
-        { item: "mesa madera", target: 1, unidad: "unidad", original: "" },
+        { item: "mesa de madera", target: 1, unidad: "unidad", original: "" },
         { item: "bancos", target: 2, unidad: "unidad", original: "bancos x2" },
         { item: "tender", target: 1, unidad: "unidad", original: "" },
         { item: "jarrones", target: 5, unidad: "unidad", original: "" },
@@ -149,42 +149,42 @@ const DATA = {
         { item: "platos medianos", target: 4, unidad: "unidad", original: "" },
         { item: "platos hondos", target: 4, unidad: "unidad", original: "" },
         { item: "copas de vino", target: 4, unidad: "unidad", original: "" },
-        { item: "copas champagne", target: 4, unidad: "unidad", original: "" },
+        { item: "copas de champagne", target: 4, unidad: "unidad", original: "" },
         { item: "vasos", target: 4, unidad: "unidad", original: "" },
-        { item: "vasos trago largo", target: 4, unidad: "unidad", original: "" },
-        { item: "taza de café", target: 4, unidad: "unidad", original: "" },
-        { item: "pocillo de café", target: 4, unidad: "unidad", original: "" },
+        { item: "vasos de trago largo", target: 4, unidad: "unidad", original: "" },
+        { item: "tazas de café", target: 4, unidad: "unidad", original: "" },
+        { item: "pocillos de café", target: 4, unidad: "unidad", original: "" },
         { item: "ollas", target: 2, unidad: "unidad", original: "" },
         { item: "sartenes", target: 2, unidad: "unidad", original: "" },
-        { item: "ensaladera acero", target: 3, unidad: "unidad", original: "ensaladera acero x3" },
+        { item: "ensaladeras de acero", target: 3, unidad: "unidad", original: "ensaladera acero x3" },
         { item: "bandeja de horno", target: 1, unidad: "unidad", original: "" },
-        { item: "rayador acero", target: 1, unidad: "unidad", original: "" },
-        { item: "escurridor acero", target: 1, unidad: "unidad", original: "" },
-        { item: "cuchara madera", target: 1, unidad: "unidad", original: "" },
-        { item: "cucharón acero", target: 1, unidad: "unidad", original: "" },
-        { item: "espumadera acero", target: 1, unidad: "unidad", original: "" },
-        { item: "cuchilla mango blanco", target: 1, unidad: "unidad", original: "" },
+        { item: "rallador de acero", target: 1, unidad: "unidad", original: "" },
+        { item: "escurridor de acero", target: 1, unidad: "unidad", original: "" },
+        { item: "cuchara de madera", target: 1, unidad: "unidad", original: "" },
+        { item: "cucharón de acero", target: 1, unidad: "unidad", original: "" },
+        { item: "espumadera de acero", target: 1, unidad: "unidad", original: "" },
+        { item: "cuchilla de mango blanco", target: 1, unidad: "unidad", original: "" },
         { item: "pisapure", target: 1, unidad: "unidad", original: "" },
         { item: "pelapapas", target: 1, unidad: "unidad", original: "" },
         { item: "abrelatas", target: 1, unidad: "unidad", original: "" },
         { item: "sacacorcho", target: 1, unidad: "unidad", original: "" },
-        { item: "pinzas acero", target: 1, unidad: "unidad", original: "" },
-        { item: "fuente acero", target: 3, unidad: "unidad", original: "" },
-        { item: "tabla madera", target: 1, unidad: "unidad", original: "" },
-        { item: "cesto basura", target: 1, unidad: "unidad", original: "" },
+        { item: "pinza de acero", target: 1, unidad: "unidad", original: "" },
+        { item: "fuentes de acero", target: 3, unidad: "unidad", original: "" },
+        { item: "tabla de madera", target: 1, unidad: "unidad", original: "" },
+        { item: "cesto de basura", target: 1, unidad: "unidad", original: "" },
         { item: "tenedores", target: 4, unidad: "unidad", original: "" },
         { item: "cuchillos", target: 4, unidad: "unidad", original: "" },
         { item: "cucharas", target: 4, unidad: "unidad", original: "" },
         { item: "cucharitas", target: 4, unidad: "unidad", original: "" },
-        { item: "jarro hervidor acero", target: 1, unidad: "unidad", original: "" },
-        { item: "hielera acero", target: 1, unidad: "unidad", original: "" },
+        { item: "jarro hervidor de acero", target: 1, unidad: "unidad", original: "" },
+        { item: "hielera de acero", target: 1, unidad: "unidad", original: "" },
         { item: "pizzera", target: 1, unidad: "unidad", original: "" },
-        { item: "seca plato", target: 1, unidad: "unidad", original: "" },
+        { item: "seca platos", target: 1, unidad: "unidad", original: "" },
 
         // Living - Cocina
-        { item: "mesa madera", target: 1, unidad: "unidad", original: "" },
+        { item: "mesa de madera", target: 1, unidad: "unidad", original: "" },
         { item: "sillas", target: 6, unidad: "unidad", original: "" },
-        { item: "sillón 2 cuerpos", target: 1, unidad: "unidad", original: "" },
+        { item: "sillón de 2 cuerpos", target: 1, unidad: "unidad", original: "" },
         { item: "mesa ratona", target: 1, unidad: "unidad", original: "" },
         { item: "mueble tv", target: 1, unidad: "unidad", original: "" },
         { item: "llavero pared", target: 1, unidad: "unidad", original: "" },
@@ -205,13 +205,13 @@ const DATA = {
     electrodomesticos: {
       items: [
         // Electrodomésticos
-        { item: "aire acondicionado philco", target: 3, unidad: "unidad", original: "aire acondicionado philco x4" },
+        { item: "aires acondicionados philco", target: 3, unidad: "unidad", original: "aire acondicionado philco x4" },
         { item: "heladera gafa", target: 1, unidad: "unidad", original: "" },
         { item: "microondas", target: 1, unidad: "unidad", original: "" },
         { item: "jarra HITACHI", target: 1, unidad: "unidad", original: "" },
         { item: "cafetera oster", target: 1, unidad: "unidad", original: "" },
         { item: "tostadora liliana", target: 1, unidad: "unidad", original: "" },
-        { item: "mini pymer atma", target: 1, unidad: "unidad", original: "" },
+        { item: "minipimer atma", target: 1, unidad: "unidad", original: "" },
         { item: "tv bgh 32 pulgadas común", target: 1, unidad: "unidad", original: "" },
         { item: "tv bgh 43 pulgadas smart", target: 1, unidad: "unidad", original: "" },
         { item: "cocina patrick", target: 1, unidad: "unidad", original: "" },
@@ -223,24 +223,24 @@ const DATA = {
     habitaciones: {
       matrimonial: {
         items: [
-          { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "" },
+          { item: "cama de 2 plazas", target: 1, unidad: "unidad", original: "" },
           { item: "veladores", target: 2, unidad: "unidad", original: "" },
           { item: "mesas de luz", target: 2, unidad: "unidad", original: "" },
-          { item: "frazada 2P animal print", target: 1, unidad: "unidad", original: "" },
+          { item: "frazada de 2 plazas animal print", target: 1, unidad: "unidad", original: "" },
           { item: "mueble tv", target: 1, unidad: "unidad", original: "" },
           { item: "cortina black out", target: 2, unidad: "unidad", original: "" }
         ]
       },
       simple_1: {
         items: [
-          { item: "cama 1 plaza", target: 2, unidad: "unidad", original: "2 camas 1P" },
+          { item: "camas de 1 plaza", target: 2, unidad: "unidad", original: "2 camas 1P" },
           { item: "veladores", target: 2, unidad: "unidad", original: "" },
           { item: "mesa de luz", target: 1, unidad: "unidad", original: "" },
           { item: "silla", target: 1, unidad: "unidad", original: "" },
           { item: "alfombra", target: 1, unidad: "unidad", original: "" },
           { item: "cuadro", target: 1, unidad: "unidad", original: "" },
           { item: "cortina black out", target: 1, unidad: "unidad", original: "" },
-          { item: "frazada 1P violetas", target: 2, unidad: "unidad", original: "frazada 1P x2 violetas" }
+          { item: "frazadas de 1 plaza violetas", target: 2, unidad: "unidad", original: "frazada 1P x2 violetas" }
         ]
       },
        nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
@@ -249,8 +249,8 @@ const DATA = {
 
     exterior: {
       items: [
-        { item: "mesa", target: 2, unidad: "unidad", original: "mesa x2" },
-        { item: "banco", target: 2, unidad: "unidad", original: "banco x2" },
+        { item: "mesas", target: 2, unidad: "unidad", original: "mesa x2" },
+        { item: "bancos", target: 2, unidad: "unidad", original: "banco x2" },
         { item: "tender", target: 1, unidad: "unidad", original: "" },
         { item: "parrilla", target: 1, unidad: "unidad", original: "" },
         { item: "palitas", target: 2, unidad: "unidad", original: "palitas x2" }
@@ -271,16 +271,16 @@ const DATA = {
         { item: "platos hondos", target: 3, unidad: "unidad", original: "" },
         { item: "copas de agua", target: 3, unidad: "unidad", original: "" },
         { item: "copas de vino", target: 3, unidad: "unidad", original: "" },
-        { item: "copas champagne", target: 3, unidad: "unidad", original: "" },
+        { item: "copas de champagne", target: 3, unidad: "unidad", original: "" },
         { item: "vasos", target: 3, unidad: "unidad", original: "" },
-        { item: "taza de café", target: 3, unidad: "unidad", original: "" },
-        { item: "posillo de café", target: 3, unidad: "unidad", original: "" },
+        { item: "tazas de café", target: 3, unidad: "unidad", original: "" },
+        { item: "posillos de café", target: 3, unidad: "unidad", original: "" },
         { item: "ollas", target: 2, unidad: "unidad", original: "" },
         { item: "sarten", target: 1, unidad: "unidad", original: "" },
-        { item: "ensaladera acero", target: 3, unidad: "unidad", original: "ensaladera acero x3" },
-        { item: "bandeja acero", target: 3, unidad: "unidad", original: "bandeja acero x3" },
-        { item: "rayador de acero", target: 1, unidad: "unidad", original: "" },
-        { item: "cuchara madera", target: 1, unidad: "unidad", original: "" },
+        { item: "ensaladeras de acero", target: 3, unidad: "unidad", original: "ensaladera acero x3" },
+        { item: "bandejas de acero", target: 3, unidad: "unidad", original: "bandeja acero x3" },
+        { item: "rallador de acero", target: 1, unidad: "unidad", original: "" },
+        { item: "cuchara de madera", target: 1, unidad: "unidad", original: "" },
         { item: "espumadera", target: 1, unidad: "unidad", original: "" },
         { item: "cucharón", target: 1, unidad: "unidad", original: "" },
         { item: "pisapure", target: 1, unidad: "unidad", original: "" },
@@ -292,22 +292,22 @@ const DATA = {
         { item: "cuchillos", target: 3, unidad: "unidad", original: "" },
         { item: "cucharas", target: 3, unidad: "unidad", original: "" },
         { item: "cucharitas", target: 3, unidad: "unidad", original: "" },
-        { item: "tabla madera", target: 2, unidad: "unidad", original: "tabla madera x2" },
+        { item: "tablas de madera", target: 2, unidad: "unidad", original: "tabla madera x2" },
         { item: "jarra hervidora", target: 1, unidad: "unidad", original: "" },
         { item: "juguera manual", target: 1, unidad: "unidad", original: "" },
         { item: "pizzera", target: 1, unidad: "unidad", original: "" },
-        { item: "bandeja", target: 1, unidad: "unidad", original: "" },
+        { item: "bandeja de horno", target: 1, unidad: "unidad", original: "" },
         { item: "seca platos", target: 1, unidad: "unidad", original: "" },
         { item: "colador de pastas", target: 1, unidad: "unidad", original: "" },
         { item: "cesto basura", target: 1, unidad: "unidad", original: "" },
 
         // Living - Cocina
-        { item: "mesa madera", target: 1, unidad: "unidad", original: "" },
+        { item: "mesa de madera", target: 1, unidad: "unidad", original: "" },
         { item: "sillas", target: 4, unidad: "unidad", original: "" },
-        { item: "sillón 2 cuerpos", target: 1, unidad: "unidad", original: "" },
-        { item: "llavero pared", target: 1, unidad: "unidad", original: "" },
-        { item: "espejo pared", target: 6, unidad: "unidad", original: "espejo pared x6" },
-        { item: "mueble tv", target: 1, unidad: "unidad", original: "" }
+        { item: "sillón de 2 cuerpos", target: 1, unidad: "unidad", original: "" },
+        { item: "llavero de pared", target: 1, unidad: "unidad", original: "" },
+        { item: "espejos de pared", target: 6, unidad: "unidad", original: "espejo pared x6" },
+        { item: "mueble de pared", target: 1, unidad: "unidad", original: "" }
       ]
     },
 
@@ -325,40 +325,40 @@ const DATA = {
     electrodomesticos: {
       items: [
         // Electrodomésticos
-        { item: "aires acondicionados rca", target: 2, unidad: "unidad", original: "aire acondicionado x2 rca" },
-        { item: "heladera gafa", target: 1, unidad: "unidad", original: "" },
-        { item: "microondas kelvinator", target: 1, unidad: "unidad", original: "" },
-        { item: "jarra ranser", target: 1, unidad: "unidad", original: "" },
-        { item: "cafetera oster", target: 1, unidad: "unidad", original: "" },
-        { item: "tostadora liliana", target: 1, unidad: "unidad", original: "" },
-        { item: "mini pymer atma", target: 1, unidad: "unidad", original: "" },
-        { item: "smart tv philco", target: 1, unidad: "unidad", original: "" },
-        { item: "tv philco", target: 1, unidad: "unidad", original: "" },
-        { item: "secador de pelo gama", target: 1, unidad: "unidad", original: "" },
-        { item: "calefon", target: 1, unidad: "unidad", original: "" },
-        { item: "cocina florencia", target: 1, unidad: "unidad", original: "" },
-        { item: "luz de emergencia", target: 1, unidad: "unidad", original: "luz emergencia no funciona" },
-        { item: "ventilador de pie liliana", target: 1, unidad: "unidad", original: "" }
+        { item: "aires acondicionados (Rca-Tlc)", target: 2, unidad: "unidad", original: "aire acondicionado x2 rca" },
+        { item: "heladera (Gafa)", target: 1, unidad: "unidad", original: "" },
+        { item: "microondas (Kelvinator)", target: 1, unidad: "unidad", original: "" },
+        { item: "jarra (Ranser)", target: 1, unidad: "unidad", original: "" },
+        { item: "cafetera (Oster)", target: 1, unidad: "unidad", original: "" },
+        { item: "tostadora (Liliana)", target: 1, unidad: "unidad", original: "" },
+        { item: "minipimer (Atma)", target: 1, unidad: "unidad", original: "" },
+        { item: "smart tv (Philco)", target: 1, unidad: "unidad", original: "" },
+        { item: "tv (Philco)", target: 1, unidad: "unidad", original: "" },
+        { item: "secador de pelo (Gama)", target: 1, unidad: "unidad", original: "" },
+        { item: "calefón", target: 1, unidad: "unidad", original: "" },
+        { item: "cocina (Florencia)", target: 1, unidad: "unidad", original: "" },
+        { item: "luz de emergencia (No Funciona)", target: 1, unidad: "unidad", original: "luz emergencia no funciona" },
+        { item: "ventilador de pie (Liliana)", target: 1, unidad: "unidad", original: "" }
       ]
     },
 
     habitaciones: {
       matrimonial: {
         items: [
-          { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "" },
+          { item: "cama de 2 plazas", target: 1, unidad: "unidad", original: "" },
           { item: "veladores", target: 2, unidad: "unidad", original: "" },
           { item: "mesas de luz", target: 2, unidad: "unidad", original: "" },
           { item: "mueble tv", target: 1, unidad: "unidad", original: "" },
           { item: "silla", target: 1, unidad: "unidad", original: "" },
           { item: "cuadros", target: 2, unidad: "unidad", original: "cuadros x2" },
-          { item: "frazada 2P beige", target: 1, unidad: "unidad", original: "frazada 2P color beige" }
+          { item: "frazada de 2 plazas (Color beige)", target: 1, unidad: "unidad", original: "frazada 2P color beige" }
         ]
       },
       simple_1: {
         items: [
-          { item: "cama 1 plaza", target: 1, unidad: "unidad", original: "" },
+          { item: "cama de 1 plaza", target: 1, unidad: "unidad", original: "" },
           { item: "banco", target: 1, unidad: "unidad", original: "" },
-          { item: "frazada 1P beige", target: 1, unidad: "unidad", original: "frazada 1P color beige" }
+          { item: "frazada 1P (Color beige)", target: 1, unidad: "unidad", original: "frazada 1P color beige" }
         ]
       },
        nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
@@ -384,7 +384,7 @@ const DATA = {
     cocina: {
       items: [
         // Vajilla y utensilios
-        { item: "cuchillo", target: 3, unidad: "unidad", original: "cuchillo x3" },
+        { item: "cuchillos", target: 3, unidad: "unidad", original: "cuchillo x3" },
         { item: "cucharas", target: 3, unidad: "unidad", original: "cuchara x3" },
         { item: "cucharitas", target: 3, unidad: "unidad", original: "cucharita x3" },
         { item: "tenedores", target: 3, unidad: "unidad", original: "tenedor x3" },
@@ -399,11 +399,11 @@ const DATA = {
         { item: "pela papa", target: 1, unidad: "unidad", original: "" },
         { item: "saca corcho", target: 1, unidad: "unidad", original: "" },
         { item: "cuchilla", target: 1, unidad: "unidad", original: "" },
-        { item: "cuchara madera", target: 1, unidad: "unidad", original: "" },
-        { item: "espumadera teflon", target: 1, unidad: "unidad", original: "" },
+        { item: "cuchara de madera", target: 1, unidad: "unidad", original: "" },
+        { item: "espumadera de teflón", target: 1, unidad: "unidad", original: "" },
         { item: "cucharón acero", target: 1, unidad: "unidad", original: "" },
-        { item: "bandejas acero", target: 3, unidad: "unidad", original: "bandeja acero x3" },
-        { item: "ensaladeras acero", target: 3, unidad: "unidad", original: "ensaladera acero x3" },
+        { item: "bandejas de acero", target: 3, unidad: "unidad", original: "bandeja acero x3" },
+        { item: "ensaladeras de acero", target: 3, unidad: "unidad", original: "ensaladera acero x3" },
         { item: "fuente ovalada", target: 1, unidad: "unidad", original: "" },
         { item: "colador de pasta", target: 1, unidad: "unidad", original: "" },
         { item: "olla de acero con mango", target: 1, unidad: "unidad", original: "" },
@@ -412,18 +412,18 @@ const DATA = {
         { item: "jarro hervidor", target: 1, unidad: "unidad", original: "" },
         { item: "rallador", target: 1, unidad: "unidad", original: "" },
         { item: "juguera manual", target: 1, unidad: "unidad", original: "" },
-        { item: "tablas asado", target: 2, unidad: "unidad", original: "" },
-        { item: "fuente horno", target: 1, unidad: "unidad", original: "" },
+        { item: "tablas para asado", target: 2, unidad: "unidad", original: "" },
+        { item: "fuente de horno", target: 1, unidad: "unidad", original: "" },
         { item: "pizzera", target: 1, unidad: "unidad", original: "" },
         { item: "pocillos", target: 3, unidad: "unidad", original: "" },
         { item: "abre lata", target: 1, unidad: "unidad", original: "" },
-        { item: "espumaderas acero", target: 3, unidad: "unidad", original: "" },
+        { item: "espumaderas de acero", target: 3, unidad: "unidad", original: "" },
         { item: "ollas", target: 2, unidad: "unidad", original: "" },
         { item: "sarten", target: 1, unidad: "unidad", original: "" },
         
 
         // Living - Cocina
-        { item: "mesa madera", target: 1, unidad: "unidad", original: "mesa 4 sillas" },
+        { item: "mesa de madera", target: 1, unidad: "unidad", original: "mesa 4 sillas" },
         { item: "sillas", target: 4, unidad: "unidad", original: "mesa 4 sillas" },
         { item: "mueble tv", target: 1, unidad: "unidad", original: "" },
         { item: "sillón 2 cuerpos", target: 1, unidad: "unidad", original: "" },
@@ -444,17 +444,17 @@ const DATA = {
     electrodomesticos: {
       items: [
         // Electrodomésticos
-        { item: "cafetera oster", target: 1, unidad: "unidad", original: "" },
-        { item: "tostadora ultracomb", target: 1, unidad: "unidad", original: "" },
-        { item: "jarra ultracomb", target: 1, unidad: "unidad", original: "" },
-        { item: "microondas grundig", target: 1, unidad: "unidad", original: "" },
-        { item: "calefón orbis", target: 1, unidad: "unidad", original: "" },
-        { item: "heladera helctrolux", target: 1, unidad: "unidad", original: "" },
-        { item: "mini pymer atma", target: 1, unidad: "unidad", original: "" },
-        { item: "aire acondicionado tcl-rca", target: 2, unidad: "unidad", original: "aire acondicionado x2 tcl-rca" },
-        { item: "tv philco 43 smart", target: 1, unidad: "unidad", original: "tv philco 43 pulgadas smart" },
-        { item: "tv led jvc 32 común", target: 1, unidad: "unidad", original: "tv led común jvc 32 pulgadas" },
-        { item: "cocina saccol", target: 1, unidad: "unidad", original: "" },
+        { item: "cafetera (Oster)", target: 1, unidad: "unidad", original: "" },
+        { item: "tostadora (Ultracomb)", target: 1, unidad: "unidad", original: "" },
+        { item: "jarra (Ultracomb)", target: 1, unidad: "unidad", original: "" },
+        { item: "microondas (Grundig)", target: 1, unidad: "unidad", original: "" },
+        { item: "calefón (Orbis)", target: 1, unidad: "unidad", original: "" },
+        { item: "heladera (Helctrolux)", target: 1, unidad: "unidad", original: "" },
+        { item: "minipimer (Atma)", target: 1, unidad: "unidad", original: "" },
+        { item: "aire acondicionado (Tcl-Rca)", target: 2, unidad: "unidad", original: "aire acondicionado x2 tcl-rca" },
+        { item: "tv philco 43 (Smart)", target: 1, unidad: "unidad", original: "tv philco 43 pulgadas smart" },
+        { item: "tv led (Jvc) 32 común", target: 1, unidad: "unidad", original: "tv led común jvc 32 pulgadas" },
+        { item: "cocina (Saccol)", target: 1, unidad: "unidad", original: "" },
         { item: "ventilador de techo", target: 2, unidad: "unidad", original: "ventilador de techo x2" },
         { item: "luz emergencia", target: 1, unidad: "unidad", original: "" }
       ]
@@ -463,21 +463,21 @@ const DATA = {
     habitaciones: {
       matrimonial: {
         items: [
-          { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "" },
+          { item: "cama de 2 plazas", target: 1, unidad: "unidad", original: "" },
           { item: "mesas de luz", target: 2, unidad: "unidad", original: "" },
-          { item: "espejo pared", target: 1, unidad: "unidad", original: "" },
+          { item: "espejo de pared", target: 1, unidad: "unidad", original: "" },
           { item: "veladores", target: 2, unidad: "unidad", original: "" },
           { item: "mesa tv", target: 1, unidad: "unidad", original: "" },
-          { item: "perchero pie", target: 1, unidad: "unidad", original: "" },
-          { item: "frazadas 2P blanca", target: 1, unidad: "unidad", original: "" }
+          { item: "perchero de pie", target: 1, unidad: "unidad", original: "" },
+          { item: "frazada 2 plazas (Color blanco)", target: 1, unidad: "unidad", original: "" }
         ]
       },
       simple_1: {
         items: [
-          { item: "cama 1 plaza marinera", target: 1, unidad: "unidad", original: "" },
+          { item: "cama de 1 plaza marinera", target: 1, unidad: "unidad", original: "" },
           { item: "mesa auxiliar", target: 1, unidad: "unidad", original: "" },
-          { item: "cubrecamas 1P celeste", target: 2, unidad: "unidad", original: "cubrecama 1P celeste x2" },
-          { item: "frazadas 1P beige", target: 1, unidad: "unidad", original: "frazada 1P color beige x2" }
+          { item: "cubrecamas de 1 plaza (Color celeste)", target: 2, unidad: "unidad", original: "cubrecama 1P celeste x2" },
+          { item: "frazada de 1 plaza (Color beige)", target: 1, unidad: "unidad", original: "frazada 1P color beige x2" }
         ]
       },
        nota: "A tener en cuenta: Separación de camas: NO"
@@ -515,12 +515,12 @@ const DATA = {
         { item: "cubiertos", target: 2, unidad: "unidad", original: "cubiertos x2" },
 
         // Living - Cocina
-        { item: "mesa madera", target: 1, unidad: "unidad", original: "" },
+        { item: "mesa de madera", target: 1, unidad: "unidad", original: "" },
         { item: "sillas", target: 4, unidad: "unidad", original: "4 sillas" },
-        { item: "sillón 2 cuerpos", target: 1, unidad: "unidad", original: "" },
-        { item: "llavero pared", target: 1, unidad: "unidad", original: "" },
-        { item: "espejos pared", target: 6, unidad: "unidad", original: "espejo pared x6" },
-        { item: "mueble pared", target: 1, unidad: "unidad", original: "" }
+        { item: "sillón de 2 cuerpos", target: 1, unidad: "unidad", original: "" },
+        { item: "llavero de pared", target: 1, unidad: "unidad", original: "" },
+        { item: "espejos de pared", target: 6, unidad: "unidad", original: "espejo pared x6" },
+        { item: "mueble de pared", target: 1, unidad: "unidad", original: "" }
       ]
     },
 
@@ -537,27 +537,27 @@ const DATA = {
     electrodomesticos: {
       items: [
         // Electrodomésticos
-        { item: "tv philco", target: 1, unidad: "unidad", original: "tv philco sin control" },
-        { item: "aire kelvinator", target: 1, unidad: "unidad", original: "" },
-        { item: "microondas atma", target: 1, unidad: "unidad", original: "" },
-        { item: "jarra atma", target: 1, unidad: "unidad", original: "" },
+        { item: "tv (Philco) - (Sin control remoto)", target: 1, unidad: "unidad", original: "tv philco sin control" },
+        { item: "aire (Kelvinator)", target: 1, unidad: "unidad", original: "" },
+        { item: "microondas (Atma)", target: 1, unidad: "unidad", original: "" },
+        { item: "jarra (Atma)", target: 1, unidad: "unidad", original: "" },
         { item: "cafetera nespresso cápsulas", target: 1, unidad: "unidad", original: "nespreso cafetera cápsula" },
-        { item: "luz emergencia", target: 1, unidad: "unidad", original: "luz emergencia funciona" },
-        { item: "frigobar mabe", target: 1, unidad: "unidad", original: "" },
-        { item: "secador de pelo oster", target: 1, unidad: "unidad", original: "" }
+        { item: "luz emergencia (Funciona)", target: 1, unidad: "unidad", original: "luz emergencia funciona" },
+        { item: "frigobar (Mabe)", target: 1, unidad: "unidad", original: "" },
+        { item: "secador de pelo (Oster)", target: 1, unidad: "unidad", original: "" }
       ]
     },
 
     habitaciones: {
       matrimonial: {
         items: [
-          { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "" },
+          { item: "cama de 2 plazas", target: 1, unidad: "unidad", original: "" },
           { item: "banco", target: 1, unidad: "unidad", original: "" },
           { item: "mesas de luz", target: 2, unidad: "unidad", original: "mesa luz x2" },
           { item: "veladores", target: 2, unidad: "unidad", original: "velador x2" },
           { item: "sillones", target: 2, unidad: "unidad", original: "sillón x2" },
           { item: "mesita auxiliar", target: 1, unidad: "unidad", original: "" },
-          { item: "cesto basura", target: 1, unidad: "unidad", original: "sesto basura" }
+          { item: "cesto de basura", target: 1, unidad: "unidad", original: "sesto basura" }
         ]
       },
        nota: "A tener en cuenta: Separación de camas: SI | Unión de camas: SI"
@@ -576,7 +576,7 @@ const DATA = {
     cocina: {
       items: [
         // Vajilla y utensilios
-        { item: "copas diferentes", target: 6, unidad: "unidad", original: "copas diferentes x6" },
+        { item: "copas de diferentes", target: 6, unidad: "unidad", original: "copas diferentes x6" },
         { item: "tazas", target: 2, unidad: "unidad", original: "taza x2" },
         { item: "pocillos", target: 2, unidad: "unidad", original: "pocillo x2" },
         { item: "platos playos", target: 2, unidad: "unidad", original: "plato playo x2" },
@@ -597,13 +597,13 @@ const DATA = {
     electrodomesticos: {
       items: [
         // Electrodomésticos
-        { item: "tv philco 43 smart", target: 1, unidad: "unidad", original: "tv philco 43 smarth" },
-        { item: "aire acondicionado kelvinator", target: 1, unidad: "unidad", original: "" },
-        { item: "frigobar mabe", target: 1, unidad: "unidad", original: "" },
+        { item: "tv (Philco) 43 smart", target: 1, unidad: "unidad", original: "tv philco 43 smarth" },
+        { item: "aire acondicionado (Kelvinator)", target: 1, unidad: "unidad", original: "" },
+        { item: "frigobar (Mabe)", target: 1, unidad: "unidad", original: "" },
         { item: "cafetera nespresso", target: 1, unidad: "unidad", original: "nespreso cafetera" },
-        { item: "jarra ultracomb", target: 1, unidad: "unidad", original: "" },
-        { item: "microondas atma", target: 1, unidad: "unidad", original: "" },
-        { item: "secador de pelo gama", target: 1, unidad: "unidad", original: "" },
+        { item: "jarra (Ultracomb)", target: 1, unidad: "unidad", original: "" },
+        { item: "microondas (Atma)", target: 1, unidad: "unidad", original: "" },
+        { item: "secador de pelo (Gama)", target: 1, unidad: "unidad", original: "" },
         { item: "luz de emergencia", target: 1, unidad: "unidad", original: "" }
       ]
     },
@@ -611,13 +611,13 @@ const DATA = {
     habitaciones: {
       matrimonial: {
         items: [
-          { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "cama de 2p x1" },
+          { item: "cama de 2 plazas", target: 1, unidad: "unidad", original: "cama de 2p x1" },
           { item: "mesas de luz", target: 2, unidad: "unidad", original: "mesa de luz x2" },
           { item: "veladores", target: 2, unidad: "unidad", original: "veladores x2" },
-          { item: "espejo pared", target: 1, unidad: "unidad", original: "" },
+          { item: "espejo de pared", target: 1, unidad: "unidad", original: "" },
           { item: "florero", target: 1, unidad: "unidad", original: "" },
           { item: "cuadros", target: 2, unidad: "unidad", original: "cuadro x2" },
-          { item: "frazada beige 2P", target: 1, unidad: "unidad", original: "frazada beige 2P" }
+          { item: "frazada de 2 plazas (Color beige)", target: 1, unidad: "unidad", original: "frazada beige 2P" }
         ]
       },
        nota: "A tener en cuenta: Separación de camas: SI | Unión de camas: SI"
@@ -641,44 +641,45 @@ const DATA = {
         { item: "platos medianos", target: 4, unidad: "unidad", original: "4 platos medianos" },
         { item: "platos hondos", target: 4, unidad: "unidad", original: "4 platos hondos" },
         { item: "copas de vino", target: 4, unidad: "unidad", original: "4 copas de vino" },
-        { item: "copas champagne", target: 4, unidad: "unidad", original: "4 copas champagne" },
-        { item: "vasos trago largo", target: 4, unidad: "unidad", original: "4 vasos trago largo" },
-        { item: "vasos comunes", target: 4, unidad: "unidad", original: "4 vasos" },
-        { item: "tenedor", target: 4, unidad: "unidad", original: "tenedor x4" },
-        { item: "cuchillo", target: 4, unidad: "unidad", original: "cuchillo x4" },
-        { item: "cuchara", target: 4, unidad: "unidad", original: "cuchara x4" },
-        { item: "cucharita", target: 4, unidad: "unidad", original: "cucharita x4" },
+        { item: "copas de champagne", target: 4, unidad: "unidad", original: "4 copas champagne" },
+        { item: "vasos de trago largo", target: 4, unidad: "unidad", original: "4 vasos trago largo" },
+        { item: "vasos", target: 4, unidad: "unidad", original: "4 vasos" },
+        { item: "tenedores", target: 4, unidad: "unidad", original: "tenedor x4" },
+        { item: "cuchillos", target: 4, unidad: "unidad", original: "cuchillo x4" },
+        { item: "cucharas", target: 4, unidad: "unidad", original: "cuchara x4" },
+        { item: "cucharitas", target: 4, unidad: "unidad", original: "cucharita x4" },
         { item: "pelapapas", target: 1, unidad: "unidad", original: "pela papas" },
         { item: "abrelatas", target: 1, unidad: "unidad", original: "abre lata" },
         { item: "sacacorchos", target: 1, unidad: "unidad", original: "saca corcho" },
         { item: "pisapure", target: 1, unidad: "unidad", original: "pisa pure acero" },
-        { item: "cuchara madera", target: 1, unidad: "unidad", original: "" },
-        { item: "espumadera acero", target: 1, unidad: "unidad", original: "" },
-        { item: "pinzas acero", target: 1, unidad: "unidad", original: "" },
-        { item: "cuchillo mango blanco", target: 1, unidad: "unidad", original: "" },
-        { item: "escurridor acero", target: 1, unidad: "unidad", original: "" },
-        { item: "ensaladera acero", target: 2, unidad: "unidad", original: "ensaladera acero x2" },
-        { item: "fuente acero", target: 2, unidad: "unidad", original: "fuente acero x2" },
+        { item: "cuchara de madera", target: 1, unidad: "unidad", original: "" },
+        { item: "espumadera de acero", target: 1, unidad: "unidad", original: "" },
+        { item: "pinza de acero", target: 1, unidad: "unidad", original: "" },
+        { item: "cuchillo de mango blanco", target: 1, unidad: "unidad", original: "" },
+        { item: "escurridor de acero", target: 1, unidad: "unidad", original: "" },
+        { item: "ensaladeras de acero", target: 2, unidad: "unidad", original: "ensaladera acero x2" },
+        { item: "fuentes de acero", target: 2, unidad: "unidad", original: "fuente acero x2" },
         { item: "jarro hervidor acero", target: 1, unidad: "unidad", original: "" },
-        { item: "hielera acero", target: 1, unidad: "unidad", original: "" },
-        { item: "frapera plastico", target: 1, unidad: "unidad", original: "" },
-        { item: "olla", target: 2, unidad: "unidad", original: "ollas x2" },
-        { item: "sarten", target: 2, unidad: "unidad", original: "sarten x2" },
+        { item: "hielera de acero", target: 1, unidad: "unidad", original: "" },
+        { item: "frapera de plástico", target: 1, unidad: "unidad", original: "" },
+        { item: "ollas", target: 2, unidad: "unidad", original: "ollas x2" },
+        { item: "sartenes", target: 2, unidad: "unidad", original: "sarten x2" },
         { item: "pizzera", target: 1, unidad: "unidad", original: "" },
-        { item: "taza de café", target: 12, unidad: "unidad", original: "taza de café x12" },
-        { item: "cesto basura", target: 1, unidad: "unidad", original: "" },
+        { item: "tazas de café", target: 12, unidad: "unidad", original: "taza de café x12" },
+        { item: "cesto de basura", target: 1, unidad: "unidad", original: "" },
         { item: "seca plato", target: 1, unidad: "unidad", original: "" },
-        { item: "tabla madera", target: 1, unidad: "unidad", original: "" },
+        { item: "tabla de madera", target: 1, unidad: "unidad", original: "" },
+        { item: "cucharón de acero", target: 1, unidad: "unidad", original: "" },
 
         // 🛋️ Living - Cocina
         { item: "mesa cuadrada", target: 1, unidad: "unidad", original: "" },
         { item: "sillas", target: 5, unidad: "unidad", original: "" },
         { item: "mueble tv", target: 1, unidad: "unidad", original: "" },
         { item: "mesa ratona", target: 1, unidad: "unidad", original: "" },
-        { item: "llavero pared", target: 1, unidad: "unidad", original: "" },
+        { item: "llavero de pared", target: 1, unidad: "unidad", original: "" },
         { item: "cuadros", target: 2, unidad: "unidad", original: "cuadros x2" },
-        { item: "jarras cerámica", target: 6, unidad: "unidad", original: "jarras cerámica x6" },
-        { item: "cuenco cerámica", target: 1, unidad: "unidad", original: "" }
+        { item: "jarras de cerámica", target: 6, unidad: "unidad", original: "jarras cerámica x6" },
+        { item: "cuenco de cerámica", target: 1, unidad: "unidad", original: "" }
       ]
     },
 
@@ -695,33 +696,34 @@ const DATA = {
     electrodomesticos: {
       items: [
         // ⚡ Electrodomésticos
-        { item: "aire acondicionado tcl", target: 2, unidad: "unidad", original: "aire acondicionado tclk2" },
-        { item: "heladera gafa", target: 1, unidad: "unidad", original: "" },
-        { item: "microondas sanyo", target: 1, unidad: "unidad", original: "" },
-        { item: "jarra ultracomb", target: 1, unidad: "unidad", original: "" },
-        { item: "cafetera oster", target: 1, unidad: "unidad", original: "" },
-        { item: "tostadora atma", target: 1, unidad: "unidad", original: "" },
-        { item: "minipimer atma", target: 1, unidad: "unidad", original: "" },
-        { item: "secador de pelo oster", target: 1, unidad: "unidad", original: "" },
-        { item: "tv bgh 43 smart", target: 1, unidad: "unidad", original: "" },
-        { item: "tv 32 comun", target: 1, unidad: "unidad", original: "" },
-        { item: "cocina florencia", target: 1, unidad: "unidad", original: "" },
-        { item: "luz emergencia", target: 1, unidad: "unidad", original: "no funciona" }
+        { item: "aires acondicionados (Tcl)", target: 2, unidad: "unidad", original: "aire acondicionado tclk2" },
+        { item: "heladera (Gafa)", target: 1, unidad: "unidad", original: "" },
+        { item: "microondas (Sanyo)", target: 1, unidad: "unidad", original: "" },
+        { item: "jarra (Ultracomb)", target: 1, unidad: "unidad", original: "" },
+        { item: "cafetera (Oster)", target: 1, unidad: "unidad", original: "" },
+        { item: "tostadora (Atma)", target: 1, unidad: "unidad", original: "" },
+        { item: "minipimer (Atma)", target: 1, unidad: "unidad", original: "" },
+        { item: "secador de pelo (Oster)", target: 1, unidad: "unidad", original: "" },
+        { item: "tv (Bgh) 43 smart", target: 1, unidad: "unidad", original: "" },
+        { item: "tv (Lg) 32 común", target: 1, unidad: "unidad", original: "" },
+        { item: "cocina (Florencia)", target: 1, unidad: "unidad", original: "" },
+        { item: "luz emergencia (No funciona)", target: 1, unidad: "unidad", original: "no funciona" }
       ]
     },
 
     habitaciones: {
       matrimonial: {
         items: [
-          { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "cama 2p" },
-          { item: "mesa de luz", target: 2, unidad: "unidad", original: "mesa luz x2" },
-          { item: "velador", target: 2, unidad: "unidad", original: "velador x2" },
+          { item: "cama de 2 plazas", target: 1, unidad: "unidad", original: "cama 2p" },
+          { item: "mesas de luz", target: 1, unidad: "unidad", original: "mesa luz x2" },
+          { item: "veladores", target: 2, unidad: "unidad", original: "velador x2" },
           { item: "mueble tv", target: 1, unidad: "unidad", original: "" },
+          { item: "cortinas blancas", target: 2, unidad: "unidad", original: "" },
           { item: "banco", target: 1, unidad: "unidad", original: "" }        ]
       },
       simple_1: {
         items: [
-          { item: "cama 1 plaza", target: 2, unidad: "unidad", original: "2 camas 1p" },
+          { item: "camas de 1 plaza", target: 2, unidad: "unidad", original: "2 camas 1p" },
           { item: "mesa de luz", target: 1, unidad: "unidad", original: "" },
           { item: "velador", target: 1, unidad: "unidad", original: "" },
           { item: "escritorio", target: 1, unidad: "unidad", original: "" },
@@ -732,7 +734,7 @@ const DATA = {
 
     exterior: {
       items: [
-        { item: "banco plaza madera", target: 1, unidad: "unidad", original: "" }
+        { item: "banco plaza de madera", target: 1, unidad: "unidad", original: "" }
       ]
     }
   }
@@ -750,28 +752,28 @@ const DATA = {
         { item: "platos medianos", target: 5, unidad: "unidad", original: "5 platos medianos" },
         { item: "platos hondos", target: 5, unidad: "unidad", original: "5 platos hondos" },
         { item: "copas de agua", target: 5, unidad: "unidad", original: "5 copas de agua" },
-        { item: "copas champagne", target: 5, unidad: "unidad", original: "5 copas champagne" },
-        { item: "vasos trago largo", target: 5, unidad: "unidad", original: "5 vasos trago largo" },
-        { item: "tenedor", target: 5, unidad: "unidad", original: "tenedor x5" },
-        { item: "cuchillo", target: 5, unidad: "unidad", original: "cuchillo x5" },
-        { item: "cuchara", target: 5, unidad: "unidad", original: "cuchara x5" },
-        { item: "cucharita", target: 5, unidad: "unidad", original: "cucharita x5" },
-        { item: "sarten", target: 2, unidad: "unidad", original: "sarten x2" },
-        { item: "tabla madera", target: 1, unidad: "unidad", original: "" },
+        { item: "copas de champagne", target: 5, unidad: "unidad", original: "5 copas champagne" },
+        { item: "vasos de trago largo", target: 5, unidad: "unidad", original: "5 vasos trago largo" },
+        { item: "tenedores", target: 5, unidad: "unidad", original: "tenedor x5" },
+        { item: "cuchillos", target: 5, unidad: "unidad", original: "cuchillo x5" },
+        { item: "cucharas", target: 5, unidad: "unidad", original: "cuchara x5" },
+        { item: "cucharitas", target: 5, unidad: "unidad", original: "cucharita x5" },
+        { item: "sartenes", target: 2, unidad: "unidad", original: "sarten x2" },
+        { item: "tabla de madera", target: 1, unidad: "unidad", original: "" },
         { item: "pizzera", target: 1, unidad: "unidad", original: "" },
-        { item: "jarra plastica", target: 1, unidad: "unidad", original: "" },
-        { item: "fuente horno", target: 1, unidad: "unidad", original: "" },
-        { item: "taza café", target: 5, unidad: "unidad", original: "taza café x5" },
-        { item: "pocillo café", target: 5, unidad: "unidad", original: "pocillo café x5" },
-        { item: "jarra hervidora sin mango", target: 1, unidad: "unidad", original: "" },
-        { item: "fuente acero", target: 4, unidad: "unidad", original: "fuente acero x4" },
-        { item: "cuenco vasija ceramico", target: 10, unidad: "unidad", original: "cuenco vasija ceramico x10" },
-        { item: "olla", target: 2, unidad: "unidad", original: "olla x2" },
-        { item: "rayador", target: 1, unidad: "unidad", original: "" },
-        { item: "colador acero", target: 1, unidad: "unidad", original: "" },
-        { item: "ensaladera acero", target: 3, unidad: "unidad", original: "ensaladera acero x3" },
-        { item: "cesto basura", target: 1, unidad: "unidad", original: "" },
-        { item: "cuchara madera", target: 1, unidad: "unidad", original: "" },
+        { item: "jarra plástica", target: 1, unidad: "unidad", original: "" },
+        { item: "fuente de horno", target: 1, unidad: "unidad", original: "" },
+        { item: "tazas de café", target: 5, unidad: "unidad", original: "taza café x5" },
+        { item: "pocillos de café", target: 5, unidad: "unidad", original: "pocillo café x5" },
+        { item: "jarra hervidora (Sin mango)", target: 1, unidad: "unidad", original: "" },
+        { item: "fuentes de acero", target: 4, unidad: "unidad", original: "fuente acero x4" },
+        { item: "cuencos de vasijas cerámico", target: 10, unidad: "unidad", original: "cuenco vasija ceramico x10" },
+        { item: "ollas", target: 2, unidad: "unidad", original: "olla x2" },
+        { item: "rallador", target: 1, unidad: "unidad", original: "" },
+        { item: "colador de acero", target: 1, unidad: "unidad", original: "" },
+        { item: "ensaladeras de acero", target: 3, unidad: "unidad", original: "ensaladera acero x3" },
+        { item: "cesto de basura", target: 1, unidad: "unidad", original: "" },
+        { item: "cuchara de madera", target: 1, unidad: "unidad", original: "" },
         { item: "pela papa", target: 1, unidad: "unidad", original: "" },
         { item: "pisa pure", target: 1, unidad: "unidad", original: "" },
         { item: "saca corcho", target: 1, unidad: "unidad", original: "" },
@@ -779,17 +781,17 @@ const DATA = {
         { item: "colador", target: 1, unidad: "unidad", original: "" },
         { item: "pinza", target: 1, unidad: "unidad", original: "" },
         { item: "cucharon", target: 1, unidad: "unidad", original: "" },
-        { item: "espumadera acero", target: 1, unidad: "unidad", original: "" },
-        { item: "cuchilla mango blanco", target: 1, unidad: "unidad", original: "" },
+        { item: "espumadera de acero", target: 1, unidad: "unidad", original: "" },
+        { item: "cuchilla de mango blanco", target: 1, unidad: "unidad", original: "" },
 
         // 🛋️ Living - Cocina
-        { item: "mesa madera", target: 1, unidad: "unidad", original: "" },
+        { item: "mesa de madera", target: 1, unidad: "unidad", original: "" },
         { item: "sillas", target: 6, unidad: "unidad", original: "6 sillas" },
-        { item: "sillon 2 cuerpos", target: 1, unidad: "unidad", original: "" },
+        { item: "sillón de 2 cuerpos", target: 1, unidad: "unidad", original: "" },
         { item: "mesa ratona", target: 1, unidad: "unidad", original: "" },
         { item: "mueble tv", target: 1, unidad: "unidad", original: "" },
-        { item: "llavero pared", target: 1, unidad: "unidad", original: "" },
-        { item: "cuadro", target: 2, unidad: "unidad", original: "cuadro x2" }
+        { item: "llavero de pared", target: 1, unidad: "unidad", original: "" },
+        { item: "cuadros", target: 2, unidad: "unidad", original: "cuadro x2" }
       ]
     },
 
@@ -806,15 +808,15 @@ const DATA = {
     electrodomesticos: {
       items: [
         // ⚡ Electrodomésticos
-        { item: "aire acondicionado philco tcl", target: 1, unidad: "unidad", original: "aire acondicionado philco-tcl" },
-        { item: "heladera gafa", target: 1, unidad: "unidad", original: "" },
-        { item: "microondas sanyo", target: 1, unidad: "unidad", original: "" },
-        { item: "jarra winco", target: 1, unidad: "unidad", original: "" },
-        { item: "cafetera oster", target: 1, unidad: "unidad", original: "" },
-        { item: "tostadora black y decker", target: 1, unidad: "unidad", original: "" },
-        { item: "minipimer atma", target: 1, unidad: "unidad", original: "" },
-        { item: "tv lg", target: 1, unidad: "unidad", original: "" },
-        { item: "tv bgh", target: 1, unidad: "unidad", original: "" },
+        { item: "aire acondicionado (Philco-Tcl)", target: 2, unidad: "unidad", original: "aire acondicionado philco-tcl" },
+        { item: "heladera (Gafa)", target: 1, unidad: "unidad", original: "" },
+        { item: "microondas (Sanyo)", target: 1, unidad: "unidad", original: "" },
+        { item: "jarra (Winco)", target: 1, unidad: "unidad", original: "" },
+        { item: "cafetera (Oster)", target: 1, unidad: "unidad", original: "" },
+        { item: "tostadora (Black y Decker)", target: 1, unidad: "unidad", original: "" },
+        { item: "minipimer (Atma)", target: 1, unidad: "unidad", original: "" },
+        { item: "tv (Lg)", target: 1, unidad: "unidad", original: "" },
+        { item: "tv (Bgh)", target: 1, unidad: "unidad", original: "" },
         { item: "cocina", target: 1, unidad: "unidad", original: "" },
         { item: "luz emergencia", target: 1, unidad: "unidad", original: "" }
       ]
@@ -823,21 +825,22 @@ const DATA = {
     habitaciones: {
       matrimonial: {
         items: [
-          { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "cama 2p" },
-          { item: "velador", target: 2, unidad: "unidad", original: "velador x2" },
+          { item: "cama de 2 plazas", target: 1, unidad: "unidad", original: "cama 2p" },
+          { item: "veladores", target: 2, unidad: "unidad", original: "velador x2" },
           { item: "mesa de luz", target: 1, unidad: "unidad", original: "mesa luz" },
           { item: "mueble tv", target: 1, unidad: "unidad", original: "" },
           { item: "cuadro", target: 1, unidad: "unidad", original: "" },
-          { item: "frazada 2p animal print", target: 1, unidad: "unidad", original: "frazada 2P animal" }
+          { item: "frazada de 2 plazas (Animal print)", target: 1, unidad: "unidad", original: "frazada 2P animal" }
         ]
       },
       simple_1: {
         items: [
-          { item: "cama 1 plaza", target: 3, unidad: "unidad", original: "3 camas 1p" },
-          { item: "velador", target: 2, unidad: "unidad", original: "velador x2" },
-          { item: "mesa de luz", target: 2, unidad: "unidad", original: "mesa luz x2" },
+          { item: "camas de 1 plaza", target: 3, unidad: "unidad", original: "3 camas 1p" },
+          { item: "veladores", target: 2, unidad: "unidad", original: "velador x2" },
+          { item: "mesas de luz", target: 2, unidad: "unidad", original: "mesa luz x2" },
           { item: "cortina black out", target: 2, unidad: "unidad", original: "" },
-          { item: "frazada 1p verde", target: 3, unidad: "unidad", original: "" }
+          { item: "cuadro", target: 1, unidad: "unidad", original: "" },
+          { item: "frazadas de 1 plaza (Color verde)", target: 3, unidad: "unidad", original: "" }
         ]
       },
        nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
@@ -868,37 +871,38 @@ const DATA = {
         { item: "platos medianos", target: 3, unidad: "unidad", original: "3 platosmedianos" },
         { item: "platos hondos", target: 3, unidad: "unidad", original: "3 platos hondos" },
         { item: "copas de agua", target: 3, unidad: "unidad", original: "3 copas de agua" },
-        { item: "copas champagne", target: 3, unidad: "unidad", original: "3 copas champagne" },
+        { item: "copas de vino", target: 3, unidad: "unidad", original: "3 copas de vino" },
+        { item: "copas de champagne", target: 3, unidad: "unidad", original: "3 copas champagne" },
         { item: "vasos", target: 3, unidad: "unidad", original: "3 vasos" },
-        { item: "tenedor", target: 3, unidad: "unidad", original: "tenedor x3" },
-        { item: "cuchillo", target: 3, unidad: "unidad", original: "cuchillo x3" },
-        { item: "cuchara", target: 3, unidad: "unidad", original: "cuchara x3" },
-        { item: "cucharita", target: 3, unidad: "unidad", original: "cucharita x3" },
+        { item: "tenedores", target: 3, unidad: "unidad", original: "tenedor x3" },
+        { item: "cuchillos", target: 3, unidad: "unidad", original: "cuchillo x3" },
+        { item: "cucharas", target: 3, unidad: "unidad", original: "cuchara x3" },
+        { item: "cucharitas", target: 3, unidad: "unidad", original: "cucharita x3" },
         { item: "juguera manual", target: 1, unidad: "unidad", original: "" },
-        { item: "rayador acero", target: 1, unidad: "unidad", original: "" },
+        { item: "rallador de acero", target: 1, unidad: "unidad", original: "" },
         { item: "jarro hervidor", target: 1, unidad: "unidad", original: "" },
-        { item: "olla", target: 2, unidad: "unidad", original: "olla x2" },
+        { item: "ollas", target: 2, unidad: "unidad", original: "olla x2" },
         { item: "fuente de acero", target: 2, unidad: "unidad", original: "fuente de acero x2" },
-        { item: "frapera plastica", target: 1, unidad: "unidad", original: "" },
-        { item: "sarten", target: 1, unidad: "unidad", original: "" },
+        { item: "frapera plástica", target: 1, unidad: "unidad", original: "" },
+        { item: "sartén", target: 1, unidad: "unidad", original: "" },
         { item: "pizzera", target: 1, unidad: "unidad", original: "" },
         { item: "fuente de horno", target: 1, unidad: "unidad", original: "" },
-        { item: "ensaladera de acero", target: 2, unidad: "unidad", original: "ensaladera de acero x2" },
-        { item: "bowl plastico", target: 2, unidad: "unidad", original: "bowl plastico x2" },
-        { item: "jarra plastica", target: 1, unidad: "unidad", original: "" },
-        { item: "escurridor plastico", target: 1, unidad: "unidad", original: "" },
+        { item: "ensaladeras de acero", target: 2, unidad: "unidad", original: "ensaladera de acero x2" },
+        { item: "bowls de plástico", target: 2, unidad: "unidad", original: "bowl plastico x2" },
+        { item: "jarra plástica", target: 1, unidad: "unidad", original: "" },
+        { item: "escurridor de plástico", target: 1, unidad: "unidad", original: "" },
         { item: "seca plato", target: 1, unidad: "unidad", original: "" },
-        { item: "azucarera yerbera madera", target: 1, unidad: "unidad", original: "azucarera yerbera madera" },
+        { item: "azucarera-yerbera de madera", target: 1, unidad: "unidad", original: "azucarera yerbera madera" },
 
         // 🛋️ Living - Cocina
-        { item: "mesa madera", target: 1, unidad: "unidad", original: "" },
+        { item: "mesa de madera", target: 1, unidad: "unidad", original: "" },
         { item: "sillas", target: 4, unidad: "unidad", original: "4silla" },
-        { item: "sillon 2 cuerpos", target: 1, unidad: "unidad", original: "" },
+        { item: "sillón de 2 cuerpos", target: 1, unidad: "unidad", original: "" },
         { item: "perchero", target: 1, unidad: "unidad", original: "" },
         { item: "mueble cocina", target: 1, unidad: "unidad", original: "" },
-        { item: "llavero pared", target: 1, unidad: "unidad", original: "" },
-        { item: "cuadro", target: 2, unidad: "unidad", original: "cuadro x2" },
-        { item: "cortina tela", target: 4, unidad: "unidad", original: "cortina tela x4" },
+        { item: "llavero de pared", target: 1, unidad: "unidad", original: "" },
+        { item: "cuadros", target: 2, unidad: "unidad", original: "cuadro x2" },
+        { item: "cortinas de tela", target: 4, unidad: "unidad", original: "cortina tela x4" },
         { item: "cortina black out", target: 1, unidad: "unidad", original: "" }
       ]
     },
@@ -915,47 +919,54 @@ const DATA = {
     electrodomesticos: {
       items: [
         // ⚡ Electrodomésticos
-        { item: "aire acondicionado", target: 2, unidad: "unidad", original: "aire acondicionado x2 rca-tcl3" },
-        { item: "heladera gafa", target: 1, unidad: "unidad", original: "" },
-        { item: "microondas kelvinator", target: 1, unidad: "unidad", original: "" },
-        { item: "jarra ranser", target: 1, unidad: "unidad", original: "" },
-        { item: "cafetera oster", target: 1, unidad: "unidad", original: "" },
-        { item: "tostadora black y decker", target: 1, unidad: "unidad", original: "" },
-        { item: "minipimer atma", target: 1, unidad: "unidad", original: "" },
-        { item: "smart tv philco", target: 1, unidad: "unidad", original: "" },
-        { item: "tv philco", target: 1, unidad: "unidad", original: "" },
-        { item: "cocina florencia", target: 1, unidad: "unidad", original: "" },
-        { item: "luz emergencia", target: 1, unidad: "unidad", original: "no funciona" },
-        { item: "secador de pelo remington", target: 1, unidad: "unidad", original: "" },
-        { item: "ventilador de pie clever", target: 1, unidad: "unidad", original: "" },
-        { item: "calefon", target: 1, unidad: "unidad", original: "" }
+        { item: "aires acondicionados (Rca-Tcl)", target: 2, unidad: "unidad", original: "aire acondicionado x2 rca-tcl3" },
+        { item: "heladera (Gafa)", target: 1, unidad: "unidad", original: "" },
+        { item: "microondas (Kelvinator)", target: 1, unidad: "unidad", original: "" },
+        { item: "jarra (Ranser)", target: 1, unidad: "unidad", original: "" },
+        { item: "cafetera (Oster)", target: 1, unidad: "unidad", original: "" },
+        { item: "tostadora (Black y Decker)", target: 1, unidad: "unidad", original: "" },
+        { item: "minipimer (Atma)", target: 1, unidad: "unidad", original: "" },
+        { item: "smart tv (Philco)", target: 1, unidad: "unidad", original: "" },
+        { item: "tv (Philco)", target: 1, unidad: "unidad", original: "" },
+        { item: "cocina (Florencia)", target: 1, unidad: "unidad", original: "" },
+        { item: "luz emergencia (No funciona)", target: 1, unidad: "unidad", original: "no funciona" },
+        { item: "secador de pelo (Remington)", target: 1, unidad: "unidad", original: "" },
+        { item: "ventilador de pie (Clever)", target: 1, unidad: "unidad", original: "" },
+        { item: "calefón", target: 1, unidad: "unidad", original: "" }
       ]
     },
 
     habitaciones: {
       matrimonial: {
         items: [
-          { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "cama 2 p" },
-          { item: "velador", target: 2, unidad: "unidad", original: "velador x2" },
-          { item: "mesa luz", target: 2, unidad: "unidad", original: "mesa luz x2" },
+          { item: "cama de 2 plazas", target: 1, unidad: "unidad", original: "cama 2 p" },
+          { item: "veladores", target: 2, unidad: "unidad", original: "velador x2" },
+          { item: "mesas de luz", target: 2, unidad: "unidad", original: "mesa luz x2" },
           { item: "mueble tv", target: 1, unidad: "unidad", original: "" },
-          { item: "cuadro", target: 2, unidad: "unidad", original: "cuadro x2" },
+          { item: "cuadros", target: 2, unidad: "unidad", original: "cuadro x2" },
           { item: "banco", target: 1, unidad: "unidad", original: "" },
-          { item: "frazada 2p beige", target: 1, unidad: "unidad", original: "" }
+          { item: "frazada de 2 plazas (Color beige)", target: 1, unidad: "unidad", original: "" }
         ]
       },
       simple_1: {
         items: [
-          { item: "cama 1 plaza", target: 1, unidad: "unidad", original: "1 camas 1p" },
+          { item: "cama de 1 plaza", target: 1, unidad: "unidad", original: "1 camas 1p" },
           { item: "banco", target: 1, unidad: "unidad", original: "" },
-          { item: "frazada 1p lila", target: 1, unidad: "unidad", original: "" }
+          { item: "frazada de 1 plaza (Color lila)", target: 1, unidad: "unidad", original: "" }
         ]
       },
        nota: "A tener en cuenta: Separación de camas: NO"
     },
 
     exterior: {
-            suite: { items: [] } // no hay datos en la planilla
+            suite: { items: [
+              { item: "mesa", target: 1, unidad: "unidad", original: "" },
+              { item: "banco", target: 1, unidad: "unidad", original: "" },
+              { item: "tender", target: 1, unidad: "unidad", original: "" },
+              { item: "parrilla", target: 1, unidad: "unidad", original: "" },
+              { item: "palitas", target: 2, unidad: "unidad", original: "palitas x2" },
+              { item: "bracero", target: 1, unidad: "unidad", original: "" }
+            ] } // no hay datos en la planilla
     }
   }
 },
