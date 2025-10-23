@@ -7072,7 +7072,8 @@ baño: {
         { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
         { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
       ],
-      nota: "Observaciones: No contiene hidromasaje ❌"
+      nota: "Observaciones: No contiene hidromasaje ❌",
+      nota:"A tener en cuenta: Contiene 2 baños"
     },
 
     exterior: {
