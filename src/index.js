@@ -2204,31 +2204,25 @@ const DATA = {
     },
 
     habitaciones: {
-      matrimonial: {
-        items: [
-          { item: "cama de 2 plazas", target: 1, unidad: "unidad", original: "cama 2p" },
-          { item: "mesas de luz", target: 2, unidad: "unidad", original: "mesa de luz x2" },
-          { item: "veladores", target: 2, unidad: "unidad", original: "velador x2" },
-          { item: "cuadro", target: 1, unidad: "unidad", original: "cuadros" },
-          { item: "espejo en puerta de placard", target: 1, unidad: "unidad", original: "espejo puerta placar" },
-          { item: "frazada de 2 plazas", target: 1, unidad: "unidad", original: "frazada 2P" },
-          { item: "cubrecama de verano (1,80 m)", target: 1, unidad: "unidad", original: "cubrecama 1,80 verano" },
-          { item: "perchas", target: 2, unidad: "unidad", original: "2 perchas" },
-          { item: "almohadas", target: 1, unidad: "unidad", original: "almohadas ok" }
-        ]
-      },
       simple_1: {
         items: [
-          { item: "camas de 1 plaza", target: 2, unidad: "unidad", original: "cama 1p x2" },
+          { item: "cama de 1 plaza", target: 1, unidad: "unidad", original: "cama 1p" },
           { item: "mesa de luz", target: 1, unidad: "unidad", original: "mesa de luz" },
-          { item: "velador", target: 1, unidad: "unidad", original: "veladores" },
-          { item: "frazadas de 1 plaza", target: 2, unidad: "unidad", original: "frazada 1P x2" },
-          { item: "cubrecamas de verano", target: 2, unidad: "unidad", original: "cubrecama x2 verano" },
-          { item: "cubrecamas de invierno", target: 2, unidad: "unidad", original: "cubrecama x2 invierno" },
-          { item: "perchas", target: 2, unidad: "unidad", original: "2 perchas" }
+          { item: "velador", target: 1, unidad: "unidad", original: "velador" },
+          { item: "frazada", target: 1, unidad: "unidad", original: "frazada" },
+          { item: "perchas", target: 3, unidad: "unidad", original: "perchas x3" }
         ]
       },
-      nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SÍ"
+      simple_2: {
+        items: [
+          { item: "camas de 1 plaza", target: 2, unidad: "unidad", original: "cama 1p x2" },
+          { item: "mesas de luz", target: 2, unidad: "unidad", original: "mesa de luz x2" },
+          { item: "veladores", target: 2, unidad: "unidad", original: "veladores x2" },
+          { item: "frazadas", target: 2, unidad: "unidad", original: "frazada x2" },
+          { item: "perchas", target: 5, unidad: "unidad", original: "perchas x5" }
+        ]
+      },
+      nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: SI"
     },
 
     exterior: {
@@ -2247,6 +2241,7 @@ const DATA = {
     }
   }
 },
+
 
 
 //Sección Casa 3 A
