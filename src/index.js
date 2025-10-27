@@ -3470,8 +3470,7 @@ const DATA = {
           { item: "cuadros", target: 2, unidad: "unidad", original: "cuadro x2" },
           { item: "perchas madera", target: 3, unidad: "unidad", original: "perchas madera x3" }
         ]
-      },
-       nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: NO"
+      }
     },
 
     exterior: {
