@@ -10362,15 +10362,15 @@ const findCabana = (idRaw = "") => {
 
   const cabanas = DATA.cabanas || [];
 
-  // ✅ 1. Coincidencia exacta (ya normalizada)
+  // ✅ 1. Coincidencia exacta
   let match = cabanas.find(c => norm(c.id) === idNorm);
   if (match) return match;
 
-  // ✅ 2. Coincidencia parcial (por ejemplo "casa 3a" dentro de "casa 03a")
+  // ✅ 2. Coincidencia parcial
   match = cabanas.find(c => idNorm.includes(norm(c.id)) || norm(c.id).includes(idNorm));
   if (match) return match;
 
-  // ✅ 3. Si el usuario omitió "casa" o escribió mal (ej. "csa 3a", "c3a")
+  // ✅ 3. Si el usuario omitió “Casa”
   for (const cab of cabanas) {
     const idClean = norm(cab.id).replace(/\bcasa\b/, "").trim();
     if (idNorm.replace(/\bcasa\b/, "").includes(idClean) || idClean.includes(idNorm.replace(/\bcasa\b/, ""))) {
@@ -10378,7 +10378,7 @@ const findCabana = (idRaw = "") => {
     }
   }
 
-  // ✅ 4. Coincidencia por similitud (tolerancia a errores)
+  // ✅ 4. Coincidencia por similitud
   const similarity = (a, b) => {
     const longer = a.length > b.length ? a : b;
     const shorter = a.length > b.length ? b : a;
@@ -10455,7 +10455,6 @@ const AMB_LABEL = {
   lavadero: { title: "LAVADERO", icon: "🧺" }
 };
 
-// ✅ versión definitiva sin agregar “Cabaña” si no está
 const headerFor = (idCab, ambCanon) => {
   const meta = AMB_LABEL[ambCanon] || { title: ambCanon.toUpperCase(), icon: "" };
   const icon = meta.icon ? ` ${meta.icon}` : "";
@@ -10466,60 +10465,50 @@ const headerFor = (idCab, ambCanon) => {
 };
 
 /* ---------- Construcción de respuesta ---------- */
-const buildAmbientePayload = (id, amb, onlySmall) => {
+const buildAmbientePayload = (id, amb, onlySmall = true) => {
   const cab = findCabana(id);
-  if (!cab) return { error: "Cabaña no encontrada." };
+  if (!cab) return { error: "❌ Cabaña no encontrada." };
 
   const ambCanon = resolveAmbiente(amb);
   const ambData = cab.ambientes?.[ambCanon];
-  if (!ambData) return { error: `No encuentro el ambiente "${amb}".` };
+  if (!ambData) return { error: `⚠️ El ambiente '${amb}' no existe en esta cabaña.` };
 
-  // 🔹 Si el ambiente tiene ítems directos
-  if (Array.isArray(ambData.items)) {
-    let items = ambData.items.map(it => ({ ...it }));
-    if (onlySmall) items = items.filter(it => isChico(it.item));
-
-    const header = headerFor(cab.id, ambCanon);
-    let text = `${header}\n${formatItems(items)}`;
-
-    // 👇 Sub-secciones (lavadero, planta_alta, patio, quincho, etc.)
-    const subSections = Object.entries(ambData)
-      .filter(([key]) => key !== "items" && key !== "nota")
-      .map(([sector, obj]) => ({
-        sector,
-        items: (obj.items || []).filter(it => !onlySmall || isChico(it.item)),
-        nota: obj.nota || null
-      }));
-
-    if (subSections.length) {
-      text += `\n\n${formatSectioned(subSections)}`;
-    }
-
-    if (ambData.nota) {
-      text += `\n\n*NOTA:*\n${ambData.nota}`;
-    }
-
-    return { cab, ambCanon, items, text };
-  }
-
-  // 🔹 Si el ambiente tiene solo secciones (habitaciones, exterior, etc.)
-  const sections = Object.entries(ambData)
-    .filter(([key]) => key !== "nota")
+  // 🔹 Filtra sub-secciones (matrimonial, suite, lavadero, etc.)
+  const subSections = Object.entries(ambData)
+    .filter(([key]) => key !== "items" && key !== "nota")
     .map(([sector, obj]) => ({
       sector,
       items: (obj.items || []).filter(it => !onlySmall || isChico(it.item)),
       nota: obj.nota || null
     }));
 
-  const header = headerFor(cab.id, ambCanon);
-  let text = `${header}\n\n${formatSectioned(sections)}`;
+  // 🔹 Caso: el ambiente tiene ítems directos
+  const hasItemsDirectos = Array.isArray(ambData.items) && ambData.items.length > 0;
 
-  if (ambData.nota) {
+  // 🔹 Construcción del texto
+  let text = `🏠 *${cab.id.toUpperCase()} | ${ambCanon.toUpperCase()}*`;
+
+  if (hasItemsDirectos) {
+    const itemsFiltrados = ambData.items.filter(it => !onlySmall || isChico(it.item));
+    text += `\n\n${formatItems(itemsFiltrados)}`;
+  }
+
+  if (subSections.length) {
+    text += `\n\n${formatSectioned(subSections)}`;
+  }
+
+  if (ambData.nota && ambData.nota.trim() !== "") {
     text += `\n\n*NOTA:*\n${ambData.nota}`;
   }
 
-  const items = sections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })));
-  return { cab, ambCanon, items, text, sections };
+  text = text.replace(/\n{3,}/g, "\n\n");
+
+  const items = [
+    ...(hasItemsDirectos ? ambData.items : []),
+    ...subSections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })))
+  ];
+
+  return { cab, ambCanon, items, text, sections: subSections };
 };
 
 /* =======================
