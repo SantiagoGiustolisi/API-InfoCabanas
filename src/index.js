@@ -10406,10 +10406,18 @@ const findCabana = (idRaw = "") => {
 /* ---------- Resolución de ambientes ---------- */
 const resolveAmbiente = (input = "") => {
   const t = norm(input);
-  if (/\bhabitaciones?\b/.test(t)) return "habitaciones";
+
+  if (/habita/.test(t)) return "habitaciones";   // acepta habitacion / habitaciones / hab / habita
   if (/bano|banio|ban/.test(t)) return "baño";
+  if (/cocin/.test(t)) return "cocina";
+  if (/comed/.test(t)) return "comedor";
+  if (/exter/.test(t)) return "exterior";
+  if (/electro|electrodom/.test(t)) return "electrodomesticos";
+  if (/lava/.test(t)) return "lavadero";
+
   return t;
 };
+
 
 /* ---------- Formatos ---------- */
 const capitalize = (s = "") =>
