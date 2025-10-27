@@ -10327,18 +10327,22 @@ const DATA = {
 
   ]
 }
-/* =======================
-   HELPERS
-======================= */
+// =======================
+//   HELPERS Y FORMATEO
+// =======================
+
 const STOPWORDS = new Set(["de", "del", "la", "las", "los", "y", "e", "el", "a", "al", "en", "por", "para"]);
+
 const CANON_AMBIENTES = [
   "cocina",
+  "habitaciones",
   "habitacion_1",
   "habitacion_2",
   "comedor",
   "baño",
   "utensilios",
-  "electrodomesticos"
+  "electrodomesticos",
+  "exterior"
 ];
 
 const GRANDES = ["cama", "banera", "bañera", "mesa", "silla", "heladera", "cocina", "tv", "televisor"];
@@ -10351,63 +10355,99 @@ const norm = (s = "") =>
     .replace(/\s+/g, " ")
     .trim();
 
-const isChico = (nombre = "") => !GRANDES.some(g => norm(nombre).includes(norm(g)));
+const stripEmojis = (s = "") => s.replace(
+  /[\u2600-\u27BF\uFE0F\u200D\u23FB-\u23FE\u23E9-\u23F3\u231A-\u231B\u25FD-\u25FE\u24C2\u3030\u303D\u3297\u3299\u1F000-\u1FAFF]+/gu,
+  ""
+);
 
-// 🔹 Encuentra la cabaña aunque el usuario escriba mal, en minúsculas o sin "Casa"
+// Excepción: "mesa de luz" no se considera grande (para que no quede vacío con small=1)
+const isChico = (nombre = "") => {
+  const t = norm(nombre);
+  if (/\bmesa(s)?\s+de\s+luz\b/.test(t)) return true;
+  const PATTERNS = [
+    /\bcama(s)?\b/,
+    /\bba(ñ|n)era(s)?\b/,
+    /\bheladera(s)?\b/,
+    /\bcocina(s)?\b/,
+    /\btv\b|\btelevisor(es)?\b/,
+    /\bsilla(s)?\b/,
+    /\bmesa(s)?\b/, // "mesa de luz" excluida arriba
+  ];
+  return !PATTERNS.some(rx => rx.test(t));
+};
+
+// 🔹 Encuentra la cabaña (seguro)
 const findCabana = (idRaw = "") => {
   const idNorm = norm(idRaw);
   if (!idNorm) return null;
 
   const cabanas = DATA.cabanas || [];
 
-  // ✅ 1. Coincidencia exacta (ya normalizada)
+  // 1) exacto
   let match = cabanas.find(c => norm(c.id) === idNorm);
   if (match) return match;
 
-  // ✅ 2. Coincidencia parcial (por ejemplo "casa 3a" dentro de "casa 03a")
-  match = cabanas.find(c => idNorm.includes(norm(c.id)) || norm(c.id).includes(idNorm));
+  // 2) exacto sin palabra "casa"
+  const qClean = idNorm.replace(/\bcasa\b/, "").trim();
+  match = cabanas.find(c => norm(c.id).replace(/\bcasa\b/, "").trim() === qClean);
   if (match) return match;
 
-  // ✅ 3. Si el usuario omitió "casa" o escribió mal (ej. "csa 3a", "c3a")
-  for (const cab of cabanas) {
-    const idClean = norm(cab.id).replace(/\bcasa\b/, "").trim();
-    if (idNorm.replace(/\bcasa\b/, "").includes(idClean) || idClean.includes(idNorm.replace(/\bcasa\b/, ""))) {
-      return cab;
-    }
-  }
-
-  // ✅ 4. Coincidencia por similitud (tolerancia a errores)
+  // 3) similitud (con umbral alto para evitar falsos positivos)
   const similarity = (a, b) => {
-    const longer = a.length > b.length ? a : b;
-    const shorter = a.length > b.length ? b : a;
-    const same = [...shorter].filter((ch, i) => longer[i] === ch).length;
-    return same / longer.length;
+    const L = Math.max(1, Math.max(a.length, b.length));
+    let same = 0;
+    for (let i = 0; i < Math.min(a.length, b.length); i++) if (a[i] === b[i]) same++;
+    return same / L;
   };
-
-  let best = null;
-  let bestScore = 0;
+  let best = null, bestScore = 0;
   for (const cab of cabanas) {
-    const score = similarity(idNorm, norm(cab.id));
-    if (score > bestScore) {
-      bestScore = score;
-      best = cab;
-    }
+    const s = similarity(idNorm, norm(c.id));
+    if (s > bestScore) { bestScore = s; best = cab; }
   }
-
-  if (best && bestScore >= 0.6) return best;
+  if (best && bestScore >= 0.85) return best;
 
   return null;
 };
 
-/* ---------- Resolución de ambientes ---------- */
+// ---------- Resolución de ambientes (alias + numeradas) ----------
+const AMB_MAP = {
+  // habitaciones (alias)
+  "habitacion": "habitaciones",
+  "habitaciones": "habitaciones",
+  "dormitorio": "habitaciones",
+  "dormitorios": "habitaciones",
+  "cuarto": "habitaciones",
+  "cuartos": "habitaciones",
+  // baño (alias)
+  "bano": "baño",
+  "banio": "baño",
+  "ban": "baño",
+  "baño": "baño",
+  "banos": "baño",
+  "baños": "baño",
+};
+
+const resolveHabitacionNumerada = (t) => {
+  if (/\bhabitacion(?:_|[\s])?1\b/.test(t)) return "habitacion_1";
+  if (/\bhabitacion(?:_|[\s])?2\b/.test(t)) return "habitacion_2";
+  return null;
+};
+
 const resolveAmbiente = (input = "") => {
   const t = norm(input);
-  if (/\bhabitaciones?\b/.test(t)) return "habitaciones";
-  if (/bano|banio|ban/.test(t)) return "baño";
+
+  const num = resolveHabitacionNumerada(t);
+  if (num) return num;
+
+  if (AMB_MAP[t]) return AMB_MAP[t];
+
+  if (/\bhabitacion(?:es)?\b|\bdormitorio(?:s)?\b|\bcuarto(?:s)?\b/.test(t)) return "habitaciones";
+  if (/\bba(?:n|ñ)(?:o|ios)?\b/.test(t)) return "baño";
+
   return t;
 };
 
-/* ---------- Formatos ---------- */
+// ---------- Formatos ----------
 const capitalize = (s = "") =>
   s.replace(/\b\p{L}+/gu, w => w.charAt(0).toUpperCase() + w.slice(1));
 
@@ -10419,110 +10459,130 @@ const formatItems = (items = []) =>
 const formatSectioned = (sections = []) => {
   const LABEL = {
     matrimonial: "HABITACIÓN MATRIMONIAL 🛌",
-    simple_1: "HABITACIÓN SIMPLE 1 🛌",
-    simple_2: "HABITACIÓN SIMPLE 2 🛌",
+    simple_1: "HABITACIÓN SIMPLE 1 🛏️",
+    simple_2: "HABITACIÓN SIMPLE 2 🛏️",
+    habitacion_1: "HABITACIÓN 1 🛏️",
+    habitacion_2: "HABITACIÓN 2 🛏️",
     planta_alta: "PLANTA ALTA 🪜",
     lavadero: "LAVADERO 💧",
     suite: "SUITE 🛁",
+    general: "GENERAL",
     patio: "PATIO 🌞",
     patio_interno: "PATIO INTERNO 🏡",
     pasillo: "PASILLO 🚪",
     quincho: "QUINCHO 🍖",
-    ante_baño: "ANTE BAÑO 🚿",
-    jardin_frente: "JARDIN FRENTE 🌿"
+    jardin_frente: "JARDÍN FRENTE 🌿",
+    baño_lavadero: "BAÑO / LAVADERO 🚿"
   };
 
   return sections.map(s => {
     const title = LABEL[s.sector] || s.sector.toUpperCase();
     let sectionText = `*${title}*\n${formatItems(s.items)}`;
-    if (s.nota) {
-      sectionText += `\n\n*NOTA:*\n${s.nota}`;
-    }
+    if (s.nota) sectionText += `\n\n*NOTA:*\n${stripEmojis(s.nota)}`;
     return sectionText;
   }).join("\n\n");
 };
 
-/* ---------- Encabezados por ambiente ---------- */
-const AMB_LABEL = {
-  habitaciones: { title: "HABITACIÓN", icon: "🛏️" },
-  baño: { title: "BAÑO", icon: "🚿" },
-  cocina: { title: "COCINA", icon: "🍳" },
-  comedor: { title: "COMEDOR", icon: "🍽️" },
-  exterior: { title: "EXTERIOR", icon: "🌿" },
-  electrodomesticos: { title: "ELECTRODOMÉSTICOS", icon: "🔌" },
-  lavadero: { title: "LAVADERO", icon: "🧺" }
-};
-
-// ✅ versión definitiva sin agregar “Cabaña” si no está
-const headerFor = (idCab, ambCanon) => {
-  const meta = AMB_LABEL[ambCanon] || { title: ambCanon.toUpperCase(), icon: "" };
-  const icon = meta.icon ? ` ${meta.icon}` : "";
-  const clean = idCab.trim();
-  const title = `${clean} | ${meta.title}${icon}`;
-  const line = "─".repeat(title.length);
-  return `*${title}*\n${line}`;
-};
-
-/* ---------- Construcción de respuesta ---------- */
-const buildAmbientePayload = (id, amb, onlySmall) => {
+// =======================
+//   BUILD PAYLOAD
+// =======================
+const buildAmbientePayload = (id, amb, onlySmallParam = true) => {
   const cab = findCabana(id);
-  if (!cab) return { error: "Cabaña no encontrada." };
+  if (!cab) return { error: "❌ Cabaña no encontrada." };
 
-  const ambCanon = resolveAmbiente(amb);
-  const ambData = cab.ambientes?.[ambCanon];
-  if (!ambData) return { error: `No encuentro el ambiente "${amb}".` };
+  // 1) Canoniza ambiente
+  let ambCanon = resolveAmbiente(amb);
+  let ambData = cab.ambientes?.[ambCanon];
 
-  // 🔹 Si el ambiente tiene ítems directos
-  if (Array.isArray(ambData.items)) {
-    let items = ambData.items.map(it => ({ ...it }));
-    if (onlySmall) items = items.filter(it => isChico(it.item));
-
-    const header = headerFor(cab.id, ambCanon);
-    let text = `${header}\n${formatItems(items)}`;
-
-    // 👇 Sub-secciones (lavadero, planta_alta, patio, quincho, etc.)
-    const subSections = Object.entries(ambData)
-      .filter(([key]) => key !== "items" && key !== "nota")
-      .map(([sector, obj]) => ({
-        sector,
-        items: (obj.items || []).filter(it => !onlySmall || isChico(it.item)),
-        nota: obj.nota || null
-      }));
-
-    if (subSections.length) {
-      text += `\n\n${formatSectioned(subSections)}`;
+  // 2) Fallback plural/singular (habitacion ↔ habitaciones)
+  if (!ambData) {
+    const alt = ambCanon.endsWith("s") ? ambCanon.slice(0, -1) : ambCanon + "s";
+    if (cab.ambientes?.[alt]) {
+      ambCanon = alt;
+      ambData = cab.ambientes[alt];
     }
-
-    if (ambData.nota) {
-      text += `\n\n*NOTA:*\n${ambData.nota}`;
-    }
-
-    return { cab, ambCanon, items, text };
   }
 
-  // 🔹 Si el ambiente tiene solo secciones (habitaciones, exterior, etc.)
-  const sections = Object.entries(ambData)
-    .filter(([key]) => key !== "nota")
-    .map(([sector, obj]) => ({
-      sector,
-      items: (obj.items || []).filter(it => !onlySmall || isChico(it.item)),
-      nota: obj.nota || null
-    }));
-
-  const header = headerFor(cab.id, ambCanon);
-  let text = `${header}\n\n${formatSectioned(sections)}`;
-
-  if (ambData.nota) {
-    text += `\n\n*NOTA:*\n${ambData.nota}`;
+  // 3) Si piden "habitaciones" y no existe, fusionar habitacion_1/_2 (si están)
+  let virtualMerge = false;
+  if (!ambData && ambCanon === "habitaciones") {
+    const h1 = cab.ambientes?.["habitacion_1"];
+    const h2 = cab.ambientes?.["habitacion_2"];
+    if (h1 || h2) {
+      ambData = { _virtual_merge: true, nota: (cab.ambientes?.habitaciones?.nota || null) };
+      virtualMerge = true;
+    }
   }
 
-  const items = sections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })));
+  if (!ambData) return { error: "⚠️ Ambiente no encontrado en esta cabaña." };
+
+  // 4) Consolidación correcta (arregla el bug de tratar 'items' como sección)
+  let sections = [];
+  let itemsDirectos = [];
+
+  const filterMaybe = (arr, sector) => {
+    if (!Array.isArray(arr)) return [];
+    return onlySmallParam ? arr.filter(it => isChico(it.item)) : arr;
+  };
+
+  // a) Si el ambiente tiene items directos, NO lo tratamos como sección "items"
+  if (Array.isArray(ambData.items) && ambData.items.length) {
+    itemsDirectos = filterMaybe(ambData.items, ambCanon);
+  }
+
+  // b) Armar secciones reales: todas las claves salvo "items", "nota" y "_virtual_merge"
+  Object.entries(ambData).forEach(([key, obj]) => {
+    if (key === "items" || key === "nota" || key === "_virtual_merge") return;
+    const rawItems = Array.isArray(obj?.items) ? obj.items : [];
+    sections.push({
+      sector: key,
+      items: filterMaybe(rawItems, key),
+      nota: obj?.nota || null
+    });
+  });
+
+  // c) Merge virtual (habitacion_1/_2) si corresponde
+  if (virtualMerge) {
+    const h1 = cab.ambientes?.["habitacion_1"];
+    const h2 = cab.ambientes?.["habitacion_2"];
+    if (h1?.items) sections.push({ sector: "habitacion_1", items: filterMaybe(h1.items, "habitacion_1"), nota: h1.nota || null });
+    if (h2?.items) sections.push({ sector: "habitacion_2", items: filterMaybe(h2.items, "habitacion_2"), nota: h2.nota || null });
+  }
+
+  if (sections.length === 0 && itemsDirectos.length === 0) {
+    return { error: "⚠️ No se encontraron ítems para este ambiente." };
+  }
+
+  // 5) Texto
+  const header = `🏠 *${cab.id.toUpperCase()} | ${ambCanon.toUpperCase()}*`;
+  let text = header;
+
+  if (itemsDirectos.length) {
+    text += `\n\n${formatItems(itemsDirectos)}`;
+  }
+  if (sections.length) {
+    text += `\n\n${formatSectioned(sections)}`;
+  }
+
+  // NOTA general al final
+  if (ambData.nota && String(ambData.nota).trim() !== "") {
+    text += `\n\n*NOTA:*\n${stripEmojis(ambData.nota)}`;
+  }
+
+  text = text.replace(/\n{3,}/g, "\n\n");
+
+  const items = [
+    ...itemsDirectos,
+    ...sections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })))
+  ];
+
   return { cab, ambCanon, items, text, sections };
 };
 
-/* =======================
-   ENDPOINTS
-======================= */
+// =======================
+//   ENDPOINTS
+// =======================
+
 app.get("/", (_req, res) => {
   res.json({
     ok: true,
@@ -10571,16 +10631,22 @@ app.get("/buscar", (req, res) => {
 
   const onlySmall = String(req.query.small ?? "1") === "1";
   const result = buildAmbientePayload(id, amb, onlySmall);
+
   if (result.error) return res.status(404).json({ ok: false, text: result.error });
+  if (!result.text || result.text.trim() === "") {
+    return res.status(404).json({ ok: false, text: "No se encontró información para ese ambiente." });
+  }
+
   if (String(req.query.format || "").toLowerCase() === "chat") {
     return res.send(result.text);
   }
+
   res.json({ ok: true, ...result });
 });
 
-/* =======================
-   START
-======================= */
+// =======================
+//   START SERVER
+// =======================
 app.listen(PORT, () => {
   console.log(`✅ API escuchando en http://localhost:${PORT}`);
 });
