@@ -3470,7 +3470,8 @@ const DATA = {
           { item: "cuadros", target: 2, unidad: "unidad", original: "cuadro x2" },
           { item: "perchas madera", target: 3, unidad: "unidad", original: "perchas madera x3" }
         ]
-      }
+      },
+       nota: "A tener en cuenta: Separación de camas: NO | Unión de camas: NO"
     },
 
     exterior: {
@@ -4316,51 +4317,51 @@ const DATA = {
     }
   }
 },
-// Sección Casa 16A
+//Sección Casa 16A
 {
   id: "Casa 16A",
   ambientes: {
     cocina: {
       items: [
         // 🍽️ Vajilla y utensilios (4 personas)
-        { item: "cuchillos", target: 4, unidad: "unidad", original: "cuchillo x4" },
-        { item: "tenedores", target: 4, unidad: "unidad", original: "tenedor x4" },
-        { item: "cucharitas", target: 4, unidad: "unidad", original: "cucharita x4" },
-        { item: "cucharas-cucharitas largas", target: 4, unidad: "unidad", original: "cuchara x4 + cucharitas largas" },
-        { item: "platos playos", target: 4, unidad: "unidad", original: "plato playo x4" },
-        { item: "platos medianos", target: 4, unidad: "unidad", original: "plato mediano x4" },
-        { item: "platos hondos", target: 4, unidad: "unidad", original: "plato hondo x4" },
-        { item: "platitos de café", target: 4, unidad: "unidad", original: "platito café x4" },
-        { item: "compoteras de postre", target: 4, unidad: "unidad", original: "compotera postre x4" },
-        { item: "vasos comunes", target: 4, unidad: "unidad", original: "vaso comun x4" },
-        { item: "copas de agua", target: 4, unidad: "unidad", original: "copa de agua x4" },
-        { item: "copas de vino", target: 4, unidad: "unidad", original: "copa de vino x4" },
-        { item: "copas de champagne", target: 3, unidad: "unidad", original: "copa champagne x3" },
-        { item: "pocillos", target: 5, unidad: "unidad", original: "posillo x5" },
-        { item: "tazas de café", target: 4, unidad: "unidad", original: "taza café x4" },
-        { item: "sartenes", target: 2, unidad: "unidad", original: "sarten x2" },
-        { item: "ollas", target: 3, unidad: "unidad", original: "olla x3" },
+        { item: "cuchillo", target: 4, unidad: "unidad", original: "cuchillo x4" },
+        { item: "tenedor", target: 4, unidad: "unidad", original: "tenedor x4" },
+        { item: "cucharita", target: 4, unidad: "unidad", original: "cucharita x4" },
+        { item: "cuchara + cucharitas largas", target: 4, unidad: "unidad", original: "cuchara x4 + cucharitas largas" },
+        { item: "plato playo", target: 4, unidad: "unidad", original: "plato playo x4" },
+        { item: "plato mediano", target: 4, unidad: "unidad", original: "plato mediano x4" },
+        { item: "plato hondo", target: 4, unidad: "unidad", original: "plato hondo x4" },
+        { item: "platito café", target: 4, unidad: "unidad", original: "platito café x4" },
+        { item: "compotera postre", target: 4, unidad: "unidad", original: "compotera postre x4" },
+        { item: "vaso común", target: 4, unidad: "unidad", original: "vaso comun x4" },
+        { item: "copa de agua", target: 4, unidad: "unidad", original: "copa de agua x4" },
+        { item: "copa de vino", target: 4, unidad: "unidad", original: "copa de vino x4" },
+        { item: "copa champagne", target: 3, unidad: "unidad", original: "copa champagne x3" },
+        { item: "pocillo", target: 5, unidad: "unidad", original: "posillo x5" },
+        { item: "taza café", target: 4, unidad: "unidad", original: "taza café x4" },
+        { item: "sartén", target: 2, unidad: "unidad", original: "sarten x2" },
+        { item: "olla", target: 3, unidad: "unidad", original: "olla x3" },
         { item: "olla con mango", target: 1, unidad: "unidad", original: "olla con mango" },
-        { item: "ensaladeras de acero", target: 3, unidad: "unidad", original: "ensaladera acero x3" },
-        { item: "bandejas de acero", target: 3, unidad: "unidad", original: "bandeja acero x3" },
+        { item: "ensaladera acero", target: 3, unidad: "unidad", original: "ensaladera acero x3" },
+        { item: "bandeja acero", target: 3, unidad: "unidad", original: "bandeja acero x3" },
         { item: "pela papa", target: 1, unidad: "unidad", original: "pela papa" },
         { item: "abre lata", target: 1, unidad: "unidad", original: "abre lata" },
         { item: "saca corcho", target: 1, unidad: "unidad", original: "saca corcho" },
         { item: "pisa papa", target: 1, unidad: "unidad", original: "pisa papa" },
         { item: "espumadera", target: 1, unidad: "unidad", original: "espumadera" },
-        { item: "cucharón", target: 1, unidad: "unidad", original: "cucharon" },
-        { item: "pinzas", target: 1, unidad: "unidad", original: "pinsa" },
-        { item: "cuchara de madera", target: 1, unidad: "unidad", original: "cuchara madera" },
+        { item: "cucharon", target: 1, unidad: "unidad", original: "cucharon" },
+        { item: "pinsas", target: 1, unidad: "unidad", original: "pinsa" },
+        { item: "cuchara madera", target: 1, unidad: "unidad", original: "cuchara madera" },
         { item: "cepillo lava vaso", target: 1, unidad: "unidad", original: "sepillo lava vaso" },
-        { item: "juego cuchilla más cuchillos (Mika)", target: 1, unidad: "unidad", original: "juego cuchilla mas cuchillos marca mika" },
+        { item: "juego cuchilla más cuchillos marca mika", target: 1, unidad: "unidad", original: "juego cuchilla mas cuchillos marca mika" },
         { item: "porta servilleta", target: 1, unidad: "unidad", original: "porta servilleta" },
-        { item: "jarritos submarino", target: 7, unidad: "unidad", original: "jarrito submarino x7" },
+        { item: "jarrito submarino", target: 7, unidad: "unidad", original: "jarrito submarino x7" },
         { item: "compoteras de vidrio", target: 4, unidad: "unidad", original: "compoteras de vidrio x4" },
-        { item: "fuentes pyrex rectangular", target: 2, unidad: "unidad", original: "fuente pyrex rectangular x2" },
-        { item: "rallador", target: 1, unidad: "unidad", original: "rayador" },
+        { item: "fuente pyrex rectangular", target: 2, unidad: "unidad", original: "fuente pyrex rectangular x2" },
+        { item: "rayador", target: 1, unidad: "unidad", original: "rayador" },
         { item: "frapera", target: 1, unidad: "unidad", original: "frapera" },
         { item: "jarra hervidor", target: 1, unidad: "unidad", original: "jarra hervidor" },
-        { item: "jarra de vidrio", target: 1, unidad: "unidad", original: "jarra vidrio" },
+        { item: "jarra vidrio", target: 1, unidad: "unidad", original: "jarra vidrio" },
         { item: "ensaladera plástica", target: 1, unidad: "unidad", original: "ensaladera plastica" },
         { item: "platos de melamina", target: 8, unidad: "unidad", original: "platos de melamina x8" },
         { item: "taper", target: 1, unidad: "unidad", original: "taper" },
@@ -4368,20 +4369,20 @@ const DATA = {
         { item: "jarrito medidor de vidrio", target: 1, unidad: "unidad", original: "jarrito medidor de vidrio" },
         { item: "posa pava", target: 1, unidad: "unidad", original: "posa pava" },
         { item: "seca plato", target: 1, unidad: "unidad", original: "seca plato" },
-        { item: "jarro hervidor de teflón", target: 1, unidad: "unidad", original: "jarro hervidor de teflon" },
+        { item: "jarro hervidor de teflon", target: 1, unidad: "unidad", original: "jarro hervidor de teflon" },
         { item: "bifera", target: 1, unidad: "unidad", original: "bifera" },
-        { item: "pizzeras", target: 2, unidad: "unidad", original: "pizera x2" },
-        { item: "bandejas de horno", target: 2, unidad: "unidad", original: "bandeja de horno x2" },
-        { item: "condimenteros", target: 3, unidad: "unidad", original: "condimentero x3" },
+        { item: "pizera", target: 2, unidad: "unidad", original: "pizera x2" },
+        { item: "bandeja de horno", target: 2, unidad: "unidad", original: "bandeja de horno x2" },
+        { item: "condimentero", target: 3, unidad: "unidad", original: "condimentero x3" },
         { item: "panera", target: 1, unidad: "unidad", original: "panera" },
 
-        // 🪑 Living - Cocina
-        { item: "mesa", target: 1, unidad: "conjunto", original: "mesa 6 sillas" },
-        { item: "sillas", target: 6, unidad: "conjunto", original: "mesa 6 sillas" },
-        { item: "sillón de 3 cuerpos", target: 1, unidad: "unidad", original: "sillon 3 cuerpos" },
+  // 🪑 Living - Cocina
+
+        { item: "mesa vidrio 6 sillas", target: 1, unidad: "unidad", original: "mesa vidrio 6 sillas" },
+        { item: "sillón 3 cuerpos", target: 1, unidad: "unidad", original: "sillon 3 cuerpos" },
         { item: "mesa ratona", target: 1, unidad: "unidad", original: "mesa ratona" },
         { item: "cuadro", target: 1, unidad: "unidad", original: "cuadro" },
-        { item: "perchero de pared", target: 1, unidad: "unidad", original: "perchero pared" },
+        { item: "perchero pared", target: 1, unidad: "unidad", original: "perchero pared" },
         { item: "adornos", target: 1, unidad: "unidad", original: "adornos" }
       ]
     },
@@ -4389,58 +4390,57 @@ const DATA = {
     electrodomesticos: {
       items: [
         { item: "luces de emergencia", target: 2, unidad: "unidad", original: "luces de emergencia" },
-        { item: "heladera (Briket)", target: 1, unidad: "unidad", original: "heladera briket" },
-        { item: "microondas (Global Home)", target: 1, unidad: "unidad", original: "microondas global home" },
-        { item: "cocina (Escorial)", target: 1, unidad: "unidad", original: "cocina escorial" },
-        { item: "aires acondicionados (RCA - Yorck)", target: 3, unidad: "unidad", original: "aire acondicionado x3 rca x2 - yorck" },
-        { item: "TVs Smart (RCA)", target: 3, unidad: "unidad", original: "tv x3 smart rca" },
-        { item: "caloventor de pared (Clever)", target: 1, unidad: "unidad", original: "caloventor de pared clever" },
-        { item: "leño hogar", target: 1, unidad: "unidad", original: "leño hogar" },
+        { item: "heladera briket", target: 1, unidad: "unidad", original: "heladera BRIKET" },
+        { item: "microondas global home", target: 1, unidad: "unidad", original: "MICROOANDAS GLOBAL HOME" },
+        { item: "cocina escorial", target: 1, unidad: "unidad", original: "COCINA ESCORIAL" },
+        { item: "aire acondicionado", target: 3, unidad: "unidad", original: "AIRE ACONDICIONADO X3 rca x2 - yorck" },
+        { item: "tv smart RCA", target: 3, unidad: "unidad", original: "tv x3 smarth RCA" },
+        { item: "caloventor de pared clever", target: 1, unidad: "unidad", original: "caloventor de pared clever" },
+        { item: "leño hogar", target: 1, unidad: "unidad", original: "leÑo hogar" },
         { item: "calefactores", target: 3, unidad: "unidad", original: "calefactores x3" },
-        { item: "ventilador de pie (Liliana)", target: 1, unidad: "unidad", original: "ventilador de pie liliana" },
-        { item: "secador de pelo empotrado (Gama)", target: 1, unidad: "unidad", original: "secador de pelo empotrado gama" },
-        { item: "cafetera (Smart Life)", target: 1, unidad: "unidad", original: "cafetera smart life" },
-        { item: "minipimer (Braun)", target: 1, unidad: "unidad", original: "minipimer braun" },
-        { item: "jarra (Peabody)", target: 1, unidad: "unidad", original: "jarra peabody" },
-        { item: "tostadora (Peabody)", target: 1, unidad: "unidad", original: "tostadora peabody" },
-        { item: "juguera (Smart Life)", target: 1, unidad: "unidad", original: "juguera smart life" },
-        { item: "extractor (Longvie)", target: 1, unidad: "unidad", original: "extractor longvie" },
-        { item: "lavarropas (Drean)", target: 1, unidad: "unidad", original: "lavarropas drean" },
+        { item: "ventilador de pie liliana", target: 1, unidad: "unidad", original: "ventilador de pie liliana" },
+        { item: "secador de pelo empotrado marca gama", target: 1, unidad: "unidad", original: "secador de pelo empotrado marca gama" },
+        { item: "cafetera smarth life", target: 1, unidad: "unidad", original: "cafetera smarth life" },
+        { item: "minipymer broun", target: 1, unidad: "unidad", original: "minipymer broun" },
+        { item: "jarra peabody", target: 1, unidad: "unidad", original: "jarra peabody" },
+        { item: "tostadora peabody", target: 1, unidad: "unidad", original: "tostadora peabody" },
+        { item: "juguera smarth life", target: 1, unidad: "unidad", original: "juguera smarth life" },
+        { item: "extractor longvie", target: 1, unidad: "unidad", original: "extractor longvie" },
+        { item: "lavarropas dream", target: 1, unidad: "unidad", original: "lavarropas dream" },
         { item: "termotanque", target: 1, unidad: "unidad", original: "termotanque" },
-        { item: "plancha (Brolux)", target: 1, unidad: "unidad", original: "plancha brolux" }
+        { item: "plancha brolux", target: 1, unidad: "unidad", original: "plancha brolux" }
       ]
     },
-
-    baño: {
-      items: [
-        { item: "vanitory", target: 1, unidad: "unidad", original: "vanitory" },
-        { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
-        { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
-      ],
-      nota: "Observaciones: No contiene hidromasaje ❌\nA tener en cuenta: Contiene 2 baños"
-    },
-
+      baño: {
+                  suite: {
+                    items: [
+                      { item: "secador de pelo", target: 1, unidad: "unidad", original: "secador de pelo" },
+                      { item: "toallero", target: 1, unidad: "unidad", original: "toallero" }
+                    ],
+                  nota: "Observaciones: No contiene hidromasaje ❌"
+                  }
+                },
     habitaciones: {
       matrimonial: {
         items: [
-          { item: "cama de 2 plazas", target: 1, unidad: "unidad", original: "cama 2p" },
-          { item: "mesas de luz", target: 2, unidad: "unidad", original: "mesa de luz x2" },
+          { item: "cama 2 plazas", target: 1, unidad: "unidad", original: "cama 2p" },
+          { item: "mesa de luz", target: 2, unidad: "unidad", original: "mesa de luz x2" },
           { item: "veladores", target: 2, unidad: "unidad", original: "velador x2" },
           { item: "cuadro", target: 1, unidad: "unidad", original: "cuadro" },
-          { item: "cubrecama de 2 plazas (Color beige)", target: 1, unidad: "unidad", original: "cubrecama beige 2p" },
-          { item: "frazadas de 2 plazas Alcoyana", target: 2, unidad: "unidad", original: "frazadas 2p x2 alcoyana" },
-          { item: "frazadas de 2 plazas King Size", target: 1, unidad: "unidad", original: "frazadas 2p king size" }
+          { item: "cubrecama beige 2p", target: 1, unidad: "unidad", original: "cubrecama beige 2p" },
+          { item: "frazadas 2 plazas alcoyana", target: 2, unidad: "unidad", original: "frazadas 2p x2 alcoyana" },
+          { item: "frazadas 2 plazas king saise", target: 1, unidad: "unidad", original: "frazadas 2p king saise" }
         ]
       },
       simple: {
         items: [
-          { item: "camas de 1 plaza", target: 2, unidad: "unidad", original: "cama 1p x2" },
+          { item: "cama 1 plaza", target: 2, unidad: "unidad", original: "cama 1p x2" },
           { item: "mesa de luz", target: 1, unidad: "unidad", original: "mesa de luz x1" },
-          { item: "velador", target: 1, unidad: "unidad", original: "velador x1" },
+          { item: "velador", target: 1, unidad: "unidad", original: "velado x1" },
           { item: "pilow", target: 1, unidad: "unidad", original: "pilow" },
-          { item: "cubrecama de 1 plaza (Color turquesa)", target: 1, unidad: "unidad", original: "cubrecama 1p turquesa" },
-          { item: "frazadas de 1 plaza", target: 4, unidad: "unidad", original: "frazada 1p x4" },
-          { item: "frazadas de 1.5 plaza", target: 2, unidad: "unidad", original: "frazada 1.5p x2" }
+          { item: "cubrecama 1p tirquesa", target: 1, unidad: "unidad", original: "cubrecama 1p tirquesa" },
+          { item: "frazada 1p", target: 4, unidad: "unidad", original: "frazada 1p x4" },
+          { item: "frazada 1.5p", target: 2, unidad: "unidad", original: "frazada 1.5p x2" }
         ]
       },
       nota: "A tener en cuenta: Separación de camas: SI | Unión de camas: SI"
@@ -4452,8 +4452,7 @@ const DATA = {
         { item: "bracero", target: 1, unidad: "unidad", original: "bracero" },
         { item: "palita", target: 1, unidad: "unidad", original: "palita" },
         { item: "atisador", target: 1, unidad: "unidad", original: "atisador" },
-        { item: "mesa", target: 1, unidad: "conjunto", original: "mesa 6 sillas" },
-        { item: "sillas", target: 6, unidad: "conjunto", original: "mesa 6 sillas" }
+        { item: "mesa 6 sillas", target: 1, unidad: "unidad", original: "mesa 6 sillas" }
       ]
     }
   }
@@ -5592,7 +5591,8 @@ const DATA = {
   }
 },
 
-// Sección Casa 34A
+//Sección Casa 34A
+
 {
   id: "Casa 34A",
   ambientes: {
@@ -5657,18 +5657,14 @@ const DATA = {
         { item: "adornos", target: 1, unidad: "unidad", original: "adornos" }
       ]
     },
-
-    baño: {
-      general: {
-        items: [
-          { item: "vanitory", target: 1, unidad: "unidad", original: "vanitory" },
-          { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
-          { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
-        ]
-      },
-      nota: "Observaciones: No contiene hidromasaje ❌\nA tener en cuenta: Contiene 2 baños"
+      baño: {
+      items: [
+        { item: "vanitory", target: 1, unidad: "unidad", original: "vanitory" },
+        { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
+        { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
+      ],
+      nota: "Observaciones: No contiene hidromasaje ❌\nA tener en cuenta: Contiene 2 baños",
     },
-
     electrodomesticos: {
       items: [
         { item: "heladera (Gafa)", target: 1, unidad: "unidad", original: "HELADERA GAFA" },
@@ -5685,6 +5681,7 @@ const DATA = {
         { item: "termotanque", target: 1, unidad: "unidad", original: "termotanque" }
       ]
     },
+
 
     habitaciones: {
       matrimonial: {
@@ -10330,22 +10327,18 @@ const DATA = {
 
   ]
 }
-// =======================
-//   HELPERS Y FORMATEO
-// =======================
-
+/* =======================
+   HELPERS
+======================= */
 const STOPWORDS = new Set(["de", "del", "la", "las", "los", "y", "e", "el", "a", "al", "en", "por", "para"]);
-
 const CANON_AMBIENTES = [
   "cocina",
-  "habitaciones",
   "habitacion_1",
   "habitacion_2",
   "comedor",
   "baño",
   "utensilios",
-  "electrodomesticos",
-  "exterior"
+  "electrodomesticos"
 ];
 
 const GRANDES = ["cama", "banera", "bañera", "mesa", "silla", "heladera", "cocina", "tv", "televisor"];
@@ -10358,98 +10351,63 @@ const norm = (s = "") =>
     .replace(/\s+/g, " ")
     .trim();
 
-const stripEmojis = (s = "") => s.replace(
-  /[\u2600-\u27BF\uFE0F\u200D\u23FB-\u23FE\u23E9-\u23F3\u231A-\u231B\u25FD-\u25FE\u24C2\u3030\u303D\u3297\u3299\u1F000-\u1FAFF]+/gu,
-  ""
-);
+const isChico = (nombre = "") => !GRANDES.some(g => norm(nombre).includes(norm(g)));
 
-// No consideramos “mesa de luz” como grande (para que no quede vacío con small=1)
-const isChico = (nombre = "") => {
-  const t = norm(nombre);
-  if (/\bmesa(s)?\s+de\s+luz\b/.test(t)) return true;
-  const GRANDES_PATTERNS = [
-    /\bcama(s)?\b/,
-    /\bba(ñ|n)era(s)?\b/,
-    /\bheladera(s)?\b/,
-    /\bcocina(s)?\b/,
-    /\btv\b|\btelevisor(es)?\b/,
-    /\bsilla(s)?\b/,
-    /\bmesa(s)?\b/, // "mesa de luz" ya está exceptuada
-  ];
-  return !GRANDES_PATTERNS.some(rx => rx.test(t));
-};
-
-// 🔹 Encuentra la cabaña (seguro)
+// 🔹 Encuentra la cabaña aunque el usuario escriba mal, en minúsculas o sin "Casa"
 const findCabana = (idRaw = "") => {
   const idNorm = norm(idRaw);
   if (!idNorm) return null;
 
   const cabanas = DATA.cabanas || [];
 
-  // 1) exacto
+  // ✅ 1. Coincidencia exacta (ya normalizada)
   let match = cabanas.find(c => norm(c.id) === idNorm);
   if (match) return match;
 
-  // 2) exacto sin palabra "casa"
-  const qClean = idNorm.replace(/\bcasa\b/, "").trim();
-  match = cabanas.find(c => norm(c.id).replace(/\bcasa\b/, "").trim() === qClean);
+  // ✅ 2. Coincidencia parcial (por ejemplo "casa 3a" dentro de "casa 03a")
+  match = cabanas.find(c => idNorm.includes(norm(c.id)) || norm(c.id).includes(idNorm));
   if (match) return match;
 
-  // 3) similitud estricta
-  const similarity = (a, b) => {
-    const L = Math.max(1, Math.max(a.length, b.length));
-    let same = 0;
-    for (let i = 0; i < Math.min(a.length, b.length); i++) if (a[i] === b[i]) same++;
-    return same / L;
-  };
-  let best = null, bestScore = 0;
+  // ✅ 3. Si el usuario omitió "casa" o escribió mal (ej. "csa 3a", "c3a")
   for (const cab of cabanas) {
-    const s = similarity(idNorm, norm(cab.id));
-    if (s > bestScore) { bestScore = s; best = cab; }
+    const idClean = norm(cab.id).replace(/\bcasa\b/, "").trim();
+    if (idNorm.replace(/\bcasa\b/, "").includes(idClean) || idClean.includes(idNorm.replace(/\bcasa\b/, ""))) {
+      return cab;
+    }
   }
-  if (best && bestScore >= 0.85) return best;
+
+  // ✅ 4. Coincidencia por similitud (tolerancia a errores)
+  const similarity = (a, b) => {
+    const longer = a.length > b.length ? a : b;
+    const shorter = a.length > b.length ? b : a;
+    const same = [...shorter].filter((ch, i) => longer[i] === ch).length;
+    return same / longer.length;
+  };
+
+  let best = null;
+  let bestScore = 0;
+  for (const cab of cabanas) {
+    const score = similarity(idNorm, norm(cab.id));
+    if (score > bestScore) {
+      bestScore = score;
+      best = cab;
+    }
+  }
+
+  if (best && bestScore >= 0.6) return best;
 
   return null;
 };
 
-// ---------- Resolución de ambientes (alias + numeradas) ----------
-const AMB_MAP = {
-  // habitaciones (alias)
-  "habitacion": "habitaciones",
-  "habitaciones": "habitaciones",
-  "dormitorio": "habitaciones",
-  "dormitorios": "habitaciones",
-  "cuarto": "habitaciones",
-  "cuartos": "habitaciones",
-  // baño (alias)
-  "bano": "baño",
-  "banio": "baño",
-  "ban": "baño",
-  "baño": "baño",
-  "banos": "baño",
-  "baños": "baño",
-};
-
-const resolveHabitacionNumerada = (t) => {
-  if (/\bhabitacion(?:_|[\s])?1\b/.test(t)) return "habitacion_1";
-  if (/\bhabitacion(?:_|[\s])?2\b/.test(t)) return "habitacion_2";
-  return null;
-};
-
+/* ---------- Resolución de ambientes ---------- */
 const resolveAmbiente = (input = "") => {
   const t = norm(input);
-  const num = resolveHabitacionNumerada(t);
-  if (num) return num;
-
-  if (AMB_MAP[t]) return AMB_MAP[t];
-
-  if (/\bhabitacion(?:es)?\b|\bdormitorio(?:s)?\b|\bcuarto(?:s)?\b/.test(t)) return "habitaciones";
-  if (/\bba(?:n|ñ)(?:o|ios)?\b/.test(t)) return "baño";
-
+  if (/\bhabitaciones?\b/.test(t)) return "habitaciones";
+  if (/bano|banio|ban/.test(t)) return "baño";
   return t;
 };
 
-// ---------- Formatos ----------
+/* ---------- Formatos ---------- */
 const capitalize = (s = "") =>
   s.replace(/\b\p{L}+/gu, w => w.charAt(0).toUpperCase() + w.slice(1));
 
@@ -10461,135 +10419,110 @@ const formatItems = (items = []) =>
 const formatSectioned = (sections = []) => {
   const LABEL = {
     matrimonial: "HABITACIÓN MATRIMONIAL 🛌",
-    simple_1: "HABITACIÓN SIMPLE 1 🛏️",
-    simple_2: "HABITACIÓN SIMPLE 2 🛏️",
-    habitacion_1: "HABITACIÓN 1 🛏️",
-    habitacion_2: "HABITACIÓN 2 🛏️",
+    simple_1: "HABITACIÓN SIMPLE 1 🛌",
+    simple_2: "HABITACIÓN SIMPLE 2 🛌",
     planta_alta: "PLANTA ALTA 🪜",
     lavadero: "LAVADERO 💧",
     suite: "SUITE 🛁",
-    general: "GENERAL",
     patio: "PATIO 🌞",
     patio_interno: "PATIO INTERNO 🏡",
     pasillo: "PASILLO 🚪",
     quincho: "QUINCHO 🍖",
-    jardin_frente: "JARDÍN FRENTE 🌿",
-    baño_lavadero: "BAÑO / LAVADERO 🚿"
+    ante_baño: "ANTE BAÑO 🚿",
+    jardin_frente: "JARDIN FRENTE 🌿"
   };
 
   return sections.map(s => {
     const title = LABEL[s.sector] || s.sector.toUpperCase();
     let sectionText = `*${title}*\n${formatItems(s.items)}`;
-    if (s.nota) sectionText += `\n\n*NOTA:*\n${stripEmojis(s.nota)}`;
+    if (s.nota) {
+      sectionText += `\n\n*NOTA:*\n${s.nota}`;
+    }
     return sectionText;
   }).join("\n\n");
 };
 
-// =======================
-//   BUILD PAYLOAD
-// =======================
-const buildAmbientePayload = (id, amb, onlySmallParam = true) => {
+/* ---------- Encabezados por ambiente ---------- */
+const AMB_LABEL = {
+  habitaciones: { title: "HABITACIÓN", icon: "🛏️" },
+  baño: { title: "BAÑO", icon: "🚿" },
+  cocina: { title: "COCINA", icon: "🍳" },
+  comedor: { title: "COMEDOR", icon: "🍽️" },
+  exterior: { title: "EXTERIOR", icon: "🌿" },
+  electrodomesticos: { title: "ELECTRODOMÉSTICOS", icon: "🔌" },
+  lavadero: { title: "LAVADERO", icon: "🧺" }
+};
+
+// ✅ versión definitiva sin agregar “Cabaña” si no está
+const headerFor = (idCab, ambCanon) => {
+  const meta = AMB_LABEL[ambCanon] || { title: ambCanon.toUpperCase(), icon: "" };
+  const icon = meta.icon ? ` ${meta.icon}` : "";
+  const clean = idCab.trim();
+  const title = `${clean} | ${meta.title}${icon}`;
+  const line = "─".repeat(title.length);
+  return `*${title}*\n${line}`;
+};
+
+/* ---------- Construcción de respuesta ---------- */
+const buildAmbientePayload = (id, amb, onlySmall) => {
   const cab = findCabana(id);
-  if (!cab) return { error: "❌ Cabaña no encontrada." };
+  if (!cab) return { error: "Cabaña no encontrada." };
 
-  // Canoniza ambiente
-  let ambCanon = resolveAmbiente(amb);
-  let ambData = cab.ambientes?.[ambCanon];
+  const ambCanon = resolveAmbiente(amb);
+  const ambData = cab.ambientes?.[ambCanon];
+  if (!ambData) return { error: `No encuentro el ambiente "${amb}".` };
 
-  // Fallback plural/singular
-  if (!ambData) {
-    const alt = ambCanon.endsWith("s") ? ambCanon.slice(0, -1) : ambCanon + "s";
-    if (cab.ambientes?.[alt]) {
-      ambCanon = alt;
-      ambData = cab.ambientes[alt];
+  // 🔹 Si el ambiente tiene ítems directos
+  if (Array.isArray(ambData.items)) {
+    let items = ambData.items.map(it => ({ ...it }));
+    if (onlySmall) items = items.filter(it => isChico(it.item));
+
+    const header = headerFor(cab.id, ambCanon);
+    let text = `${header}\n${formatItems(items)}`;
+
+    // 👇 Sub-secciones (lavadero, planta_alta, patio, quincho, etc.)
+    const subSections = Object.entries(ambData)
+      .filter(([key]) => key !== "items" && key !== "nota")
+      .map(([sector, obj]) => ({
+        sector,
+        items: (obj.items || []).filter(it => !onlySmall || isChico(it.item)),
+        nota: obj.nota || null
+      }));
+
+    if (subSections.length) {
+      text += `\n\n${formatSectioned(subSections)}`;
     }
+
+    if (ambData.nota) {
+      text += `\n\n*NOTA:*\n${ambData.nota}`;
+    }
+
+    return { cab, ambCanon, items, text };
   }
 
-  // Si piden "habitaciones" pero no existe, fusionar habitacion_1/_2
-  let virtualMerge = false;
-  if (!ambData && ambCanon === "habitaciones") {
-    const h1 = cab.ambientes?.["habitacion_1"];
-    const h2 = cab.ambientes?.["habitacion_2"];
-    if (h1 || h2) {
-      ambData = { _virtual_merge: true, nota: (cab.ambientes?.habitaciones?.nota || null) };
-      virtualMerge = true;
-    }
-  }
-
-  if (!ambData) return { error: "⚠️ Ambiente no encontrado en esta cabaña." };
-
-  // Consolidar
-  let sections = [];
-  let itemsDirectos = [];
-
-  const filterMaybe = (arr, sector) => {
-    if (!Array.isArray(arr)) return [];
-    let filtered = onlySmallParam ? arr.filter(it => isChico(it.item)) : arr;
-    // Si quedó vacío y es habitaciones, mostramos igual (para no dar vacío por camas/mesas)
-    if (filtered.length === 0 && (ambCanon === "habitaciones" || /^habitacion/.test(sector))) {
-      filtered = arr;
-    }
-    return filtered;
-  };
-
-  const pushSectionFrom = (sector, obj) => {
-    const rawItems = Array.isArray(obj?.items) ? obj.items : [];
-    sections.push({
+  // 🔹 Si el ambiente tiene solo secciones (habitaciones, exterior, etc.)
+  const sections = Object.entries(ambData)
+    .filter(([key]) => key !== "nota")
+    .map(([sector, obj]) => ({
       sector,
-      items: filterMaybe(rawItems, sector),
-      nota: obj?.nota || null
-    });
-  };
+      items: (obj.items || []).filter(it => !onlySmall || isChico(it.item)),
+      nota: obj.nota || null
+    }));
 
-  // Items directos del ambiente
-  if (Array.isArray(ambData.items) && ambData.items.length) {
-    itemsDirectos = filterMaybe(ambData.items, ambCanon);
+  const header = headerFor(cab.id, ambCanon);
+  let text = `${header}\n\n${formatSectioned(sections)}`;
+
+  if (ambData.nota) {
+    text += `\n\n*NOTA:*\n${ambData.nota}`;
   }
 
-  // Secciones reales del ambiente (excepto items/nota/_virtual_merge)
-  Object.entries(ambData).forEach(([key, obj]) => {
-    if (key === "items" || key === "nota" || key === "_virtual_merge") return;
-    pushSectionFrom(key, obj);
-  });
-
-  // Merge virtual de habitacion_1/_2 si aplica
-  if (virtualMerge) {
-    const h1 = cab.ambientes?.["habitacion_1"];
-    const h2 = cab.ambientes?.["habitacion_2"];
-    if (h1) pushSectionFrom("habitacion_1", h1);
-    if (h2) pushSectionFrom("habitacion_2", h2);
-  }
-
-  if (sections.length === 0 && itemsDirectos.length === 0) {
-    return { error: "⚠️ No se encontraron ítems para este ambiente." };
-  }
-
-  // Texto
-  const header = `🏠 *${cab.id.toUpperCase()} | ${ambCanon.toUpperCase()}*`;
-  let text = header;
-
-  if (itemsDirectos.length) text += `\n\n${formatItems(itemsDirectos)}`;
-  if (sections.length) text += `\n\n${formatSectioned(sections)}`;
-
-  // Nota general al final
-  if (ambData.nota && String(ambData.nota).trim() !== "") {
-    text += `\n\n*NOTA:*\n${stripEmojis(ambData.nota)}`;
-  }
-
-  text = text.replace(/\n{3,}/g, "\n\n");
-
-  const items = [
-    ...itemsDirectos,
-    ...sections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })))
-  ];
-
+  const items = sections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })));
   return { cab, ambCanon, items, text, sections };
 };
 
-// =======================
-//   ENDPOINTS
-// =======================
-
+/* =======================
+   ENDPOINTS
+======================= */
 app.get("/", (_req, res) => {
   res.json({
     ok: true,
@@ -10638,22 +10571,16 @@ app.get("/buscar", (req, res) => {
 
   const onlySmall = String(req.query.small ?? "1") === "1";
   const result = buildAmbientePayload(id, amb, onlySmall);
-
   if (result.error) return res.status(404).json({ ok: false, text: result.error });
-  if (!result.text || result.text.trim() === "") {
-    return res.status(404).json({ ok: false, text: "No se encontró información para ese ambiente." });
-  }
-
   if (String(req.query.format || "").toLowerCase() === "chat") {
     return res.send(result.text);
   }
-
   res.json({ ok: true, ...result });
 });
 
-// =======================
-//   START SERVER
-// =======================
+/* =======================
+   START
+======================= */
 app.listen(PORT, () => {
   console.log(`✅ API escuchando en http://localhost:${PORT}`);
 });
