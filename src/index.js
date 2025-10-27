@@ -10418,18 +10418,25 @@ const AMB_MAP = {
   "baños": "baño"
 };
 
+/* ---------- Resolución de ambientes ---------- */
 const resolveAmbiente = (input = "") => {
-  const t = norm(input);
+  // Normaliza texto y elimina caracteres no alfabéticos o emojis
+  const t = norm(input)
+    .replace(/[^\p{L}0-9\s]/gu, "") // elimina emojis, símbolos raros
+    .trim();
 
-  // Mapeo directo
-  if (AMB_MAP[t]) return AMB_MAP[t];
-
-  // Regex robusto
-  if (/\bhabitacion(?:es)?\b|\bdormitorio(?:s)?\b|\bcuarto(?:s)?\b/.test(t)) return "habitaciones";
-  if (/\bba(?:n|ñ)(?:o|ios)?\b/.test(t)) return "baño";
+  // 🔹 Detección flexible por palabras clave
+  if (/habita|habitac|habitacion|habitaciones|hab/.test(t)) return "habitaciones";
+  if (/bano|banio|ban/.test(t)) return "baño";
+  if (/cocin/.test(t)) return "cocina";
+  if (/comed/.test(t)) return "comedor";
+  if (/exter/.test(t)) return "exterior";
+  if (/electro|electrodom/.test(t)) return "electrodomesticos";
+  if (/lava/.test(t)) return "lavadero";
 
   return t;
 };
+
 
 // ---------- Formatos ----------
 const capitalize = (s = "") =>
