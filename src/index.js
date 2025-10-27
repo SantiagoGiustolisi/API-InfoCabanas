@@ -10339,6 +10339,8 @@ const STOPWORDS = new Set(["de", "del", "la", "las", "los", "y", "e", "el", "a",
 const CANON_AMBIENTES = [
   "cocina",
   "habitaciones",
+  "habitacion_1",
+  "habitacion_2",
   "comedor",
   "baño",
   "utensilios",
@@ -10356,87 +10358,96 @@ const norm = (s = "") =>
     .replace(/\s+/g, " ")
     .trim();
 
-const isChico = (nombre = "") => !GRANDES.some(g => norm(nombre).includes(norm(g)));
+const stripEmojis = (s = "") => s.replace(
+  /[\u2600-\u27BF\uFE0F\u200D\u23FB-\u23FE\u23E9-\u23F3\u231A-\u231B\u25FD-\u25FE\u24C2\u3030\u303D\u3297\u3299\u1F000-\u1FAFF]+/gu,
+  ""
+);
 
-// 🔹 Encuentra la cabaña (exacto primero, luego tolerante)
+// No consideramos “mesa de luz” como grande (para que no quede vacío con small=1)
+const isChico = (nombre = "") => {
+  const t = norm(nombre);
+  if (/\bmesa(s)?\s+de\s+luz\b/.test(t)) return true;
+  const GRANDES_PATTERNS = [
+    /\bcama(s)?\b/,
+    /\bba(ñ|n)era(s)?\b/,
+    /\bheladera(s)?\b/,
+    /\bcocina(s)?\b/,
+    /\btv\b|\btelevisor(es)?\b/,
+    /\bsilla(s)?\b/,
+    /\bmesa(s)?\b/, // "mesa de luz" ya está exceptuada
+  ];
+  return !GRANDES_PATTERNS.some(rx => rx.test(t));
+};
+
+// 🔹 Encuentra la cabaña (seguro)
 const findCabana = (idRaw = "") => {
   const idNorm = norm(idRaw);
   if (!idNorm) return null;
 
   const cabanas = DATA.cabanas || [];
 
-  // 1️⃣ Coincidencia exacta
+  // 1) exacto
   let match = cabanas.find(c => norm(c.id) === idNorm);
   if (match) return match;
 
-  // 2️⃣ Coincidencia parcial (solo si no hay exacto)
-  match = cabanas.find(c => idNorm.includes(norm(c.id)) || norm(c.id).includes(idNorm));
+  // 2) exacto sin palabra "casa"
+  const qClean = idNorm.replace(/\bcasa\b/, "").trim();
+  match = cabanas.find(c => norm(c.id).replace(/\bcasa\b/, "").trim() === qClean);
   if (match) return match;
 
-  // 3️⃣ Omitiendo palabra "casa"
-  for (const cab of cabanas) {
-    const idClean = norm(cab.id).replace(/\bcasa\b/, "").trim();
-    const qClean = idNorm.replace(/\bcasa\b/, "").trim();
-    if (qClean.includes(idClean) || idClean.includes(qClean)) return cab;
-  }
-
-  // 4️⃣ Similitud
+  // 3) similitud estricta
   const similarity = (a, b) => {
-    const longer = a.length > b.length ? a : b;
-    const shorter = a.length > b.length ? b : a;
+    const L = Math.max(1, Math.max(a.length, b.length));
     let same = 0;
-    for (let i = 0; i < shorter.length; i++) if (longer[i] === shorter[i]) same++;
-    return same / Math.max(1, longer.length);
+    for (let i = 0; i < Math.min(a.length, b.length); i++) if (a[i] === b[i]) same++;
+    return same / L;
   };
-
   let best = null, bestScore = 0;
   for (const cab of cabanas) {
-    const score = similarity(idNorm, norm(cab.id));
-    if (score > bestScore) { bestScore = score; best = cab; }
+    const s = similarity(idNorm, norm(cab.id));
+    if (s > bestScore) { bestScore = s; best = cab; }
   }
-  if (best && bestScore >= 0.6) return best;
+  if (best && bestScore >= 0.85) return best;
 
   return null;
 };
 
-// ---------- Resolución de ambientes (alias + fallback singular/plural) ----------
+// ---------- Resolución de ambientes (alias + numeradas) ----------
 const AMB_MAP = {
-  // habitaciones
+  // habitaciones (alias)
   "habitacion": "habitaciones",
   "habitaciones": "habitaciones",
   "dormitorio": "habitaciones",
   "dormitorios": "habitaciones",
   "cuarto": "habitaciones",
   "cuartos": "habitaciones",
-
-  // baño
+  // baño (alias)
   "bano": "baño",
   "banio": "baño",
   "ban": "baño",
   "baño": "baño",
   "banos": "baño",
-  "baños": "baño"
+  "baños": "baño",
 };
 
-/* ---------- Resolución de ambientes ---------- */
-const resolveAmbiente = (input = "") => {
-  // Normaliza texto y elimina caracteres no alfabéticos o emojis
-  const t = norm(input)
-    .replace(/[^\p{L}0-9\s]/gu, "") // elimina emojis, símbolos raros
-    .trim();
+const resolveHabitacionNumerada = (t) => {
+  if (/\bhabitacion(?:_|[\s])?1\b/.test(t)) return "habitacion_1";
+  if (/\bhabitacion(?:_|[\s])?2\b/.test(t)) return "habitacion_2";
+  return null;
+};
 
-  // 🔹 Detección flexible por palabras clave
-  if (/habita|habitac|habitacion|habitaciones|hab/.test(t)) return "habitaciones";
-  if (/bano|banio|ban/.test(t)) return "baño";
-  if (/cocin/.test(t)) return "cocina";
-  if (/comed/.test(t)) return "comedor";
-  if (/exter/.test(t)) return "exterior";
-  if (/electro|electrodom/.test(t)) return "electrodomesticos";
-  if (/lava/.test(t)) return "lavadero";
+const resolveAmbiente = (input = "") => {
+  const t = norm(input);
+  const num = resolveHabitacionNumerada(t);
+  if (num) return num;
+
+  if (AMB_MAP[t]) return AMB_MAP[t];
+
+  if (/\bhabitacion(?:es)?\b|\bdormitorio(?:s)?\b|\bcuarto(?:s)?\b/.test(t)) return "habitaciones";
+  if (/\bba(?:n|ñ)(?:o|ios)?\b/.test(t)) return "baño";
 
   return t;
 };
-
 
 // ---------- Formatos ----------
 const capitalize = (s = "") =>
@@ -10452,22 +10463,24 @@ const formatSectioned = (sections = []) => {
     matrimonial: "HABITACIÓN MATRIMONIAL 🛌",
     simple_1: "HABITACIÓN SIMPLE 1 🛏️",
     simple_2: "HABITACIÓN SIMPLE 2 🛏️",
+    habitacion_1: "HABITACIÓN 1 🛏️",
+    habitacion_2: "HABITACIÓN 2 🛏️",
     planta_alta: "PLANTA ALTA 🪜",
     lavadero: "LAVADERO 💧",
     suite: "SUITE 🛁",
+    general: "GENERAL",
     patio: "PATIO 🌞",
     patio_interno: "PATIO INTERNO 🏡",
     pasillo: "PASILLO 🚪",
     quincho: "QUINCHO 🍖",
     jardin_frente: "JARDÍN FRENTE 🌿",
-    baño_lavadero: "BAÑO / LAVADERO 🚿",
-    general: "GENERAL"
+    baño_lavadero: "BAÑO / LAVADERO 🚿"
   };
 
   return sections.map(s => {
     const title = LABEL[s.sector] || s.sector.toUpperCase();
     let sectionText = `*${title}*\n${formatItems(s.items)}`;
-    if (s.nota) sectionText += `\n\n*NOTA:*\n${s.nota}`;
+    if (s.nota) sectionText += `\n\n*NOTA:*\n${stripEmojis(s.nota)}`;
     return sectionText;
   }).join("\n\n");
 };
@@ -10475,13 +10488,15 @@ const formatSectioned = (sections = []) => {
 // =======================
 //   BUILD PAYLOAD
 // =======================
-const buildAmbientePayload = (id, amb, onlySmall = true) => {
+const buildAmbientePayload = (id, amb, onlySmallParam = true) => {
   const cab = findCabana(id);
   if (!cab) return { error: "❌ Cabaña no encontrada." };
 
-  // Canonizar ambiente + fallback singular/plural
+  // Canoniza ambiente
   let ambCanon = resolveAmbiente(amb);
   let ambData = cab.ambientes?.[ambCanon];
+
+  // Fallback plural/singular
   if (!ambData) {
     const alt = ambCanon.endsWith("s") ? ambCanon.slice(0, -1) : ambCanon + "s";
     if (cab.ambientes?.[alt]) {
@@ -10489,50 +10504,86 @@ const buildAmbientePayload = (id, amb, onlySmall = true) => {
       ambData = cab.ambientes[alt];
     }
   }
+
+  // Si piden "habitaciones" pero no existe, fusionar habitacion_1/_2
+  let virtualMerge = false;
+  if (!ambData && ambCanon === "habitaciones") {
+    const h1 = cab.ambientes?.["habitacion_1"];
+    const h2 = cab.ambientes?.["habitacion_2"];
+    if (h1 || h2) {
+      ambData = { _virtual_merge: true, nota: (cab.ambientes?.habitaciones?.nota || null) };
+      virtualMerge = true;
+    }
+  }
+
   if (!ambData) return { error: "⚠️ Ambiente no encontrado en esta cabaña." };
 
-  // Sub-secciones (ignorar 'nota' y 'items' en esta pasada)
-  const subSections = Object.entries(ambData)
-    .filter(([key, obj]) => key !== "items" && key !== "nota")
-    .map(([sector, obj]) => ({
+  // Consolidar
+  let sections = [];
+  let itemsDirectos = [];
+
+  const filterMaybe = (arr, sector) => {
+    if (!Array.isArray(arr)) return [];
+    let filtered = onlySmallParam ? arr.filter(it => isChico(it.item)) : arr;
+    // Si quedó vacío y es habitaciones, mostramos igual (para no dar vacío por camas/mesas)
+    if (filtered.length === 0 && (ambCanon === "habitaciones" || /^habitacion/.test(sector))) {
+      filtered = arr;
+    }
+    return filtered;
+  };
+
+  const pushSectionFrom = (sector, obj) => {
+    const rawItems = Array.isArray(obj?.items) ? obj.items : [];
+    sections.push({
       sector,
-      items: (Array.isArray(obj?.items) ? obj.items : []).filter(it => !onlySmall || isChico(it.item)),
+      items: filterMaybe(rawItems, sector),
       nota: obj?.nota || null
-    }));
+    });
+  };
 
   // Items directos del ambiente
-  const itemsDirectos = Array.isArray(ambData.items) ? ambData.items.filter(it => !onlySmall || isChico(it.item)) : [];
+  if (Array.isArray(ambData.items) && ambData.items.length) {
+    itemsDirectos = filterMaybe(ambData.items, ambCanon);
+  }
 
-  if (subSections.length === 0 && itemsDirectos.length === 0) {
+  // Secciones reales del ambiente (excepto items/nota/_virtual_merge)
+  Object.entries(ambData).forEach(([key, obj]) => {
+    if (key === "items" || key === "nota" || key === "_virtual_merge") return;
+    pushSectionFrom(key, obj);
+  });
+
+  // Merge virtual de habitacion_1/_2 si aplica
+  if (virtualMerge) {
+    const h1 = cab.ambientes?.["habitacion_1"];
+    const h2 = cab.ambientes?.["habitacion_2"];
+    if (h1) pushSectionFrom("habitacion_1", h1);
+    if (h2) pushSectionFrom("habitacion_2", h2);
+  }
+
+  if (sections.length === 0 && itemsDirectos.length === 0) {
     return { error: "⚠️ No se encontraron ítems para este ambiente." };
   }
 
-  // Armado del texto
+  // Texto
   const header = `🏠 *${cab.id.toUpperCase()} | ${ambCanon.toUpperCase()}*`;
   let text = header;
 
-  if (itemsDirectos.length) {
-    text += `\n\n${formatItems(itemsDirectos)}`;
-  }
-
-  if (subSections.length) {
-    text += `\n\n${formatSectioned(subSections)}`;
-  }
+  if (itemsDirectos.length) text += `\n\n${formatItems(itemsDirectos)}`;
+  if (sections.length) text += `\n\n${formatSectioned(sections)}`;
 
   // Nota general al final
   if (ambData.nota && String(ambData.nota).trim() !== "") {
-    text += `\n\n*NOTA:*\n${ambData.nota}`;
+    text += `\n\n*NOTA:*\n${stripEmojis(ambData.nota)}`;
   }
 
   text = text.replace(/\n{3,}/g, "\n\n");
 
-  // Items para JSON
   const items = [
     ...itemsDirectos,
-    ...subSections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })))
+    ...sections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })))
   ];
 
-  return { cab, ambCanon, items, text, sections: subSections };
+  return { cab, ambCanon, items, text, sections };
 };
 
 // =======================
