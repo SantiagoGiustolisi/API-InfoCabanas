@@ -10330,7 +10330,7 @@ const STOPWORDS = new Set(["de", "del", "la", "las", "los", "y", "e", "el", "a",
 
 const CANON_AMBIENTES = [
   "cocina",
-  "habitaciones",
+  "habitaciones",      // lógico unificado
   "habitacion_1",
   "habitacion_2",
   "comedor",
@@ -10355,7 +10355,7 @@ const stripEmojis = (s = "") => s.replace(
   ""
 );
 
-// Excepción: "mesa de luz" no se considera grande (para que no quede vacío con small=1)
+// 👉 Excepción: "mesa de luz" NO es grande (para que no quede vacío con small=1)
 const isChico = (nombre = "") => {
   const t = norm(nombre);
   if (/\bmesa(s)?\s+de\s+luz\b/.test(t)) return true;
@@ -10366,7 +10366,7 @@ const isChico = (nombre = "") => {
     /\bcocina(s)?\b/,
     /\btv\b|\btelevisor(es)?\b/,
     /\bsilla(s)?\b/,
-    /\bmesa(s)?\b/, // "mesa de luz" excluida arriba
+    /\bmesa(s)?\b/, // "mesa de luz" ya excluida arriba
   ];
   return !PATTERNS.some(rx => rx.test(t));
 };
@@ -10387,7 +10387,7 @@ const findCabana = (idRaw = "") => {
   match = cabanas.find(c => norm(c.id).replace(/\bcasa\b/, "").trim() === qClean);
   if (match) return match;
 
-  // 3) similitud (con umbral alto para evitar falsos positivos)
+  // 3) similitud (umbral alto para evitar falsos positivos)
   const similarity = (a, b) => {
     const L = Math.max(1, Math.max(a.length, b.length));
     let same = 0;
@@ -10406,14 +10406,14 @@ const findCabana = (idRaw = "") => {
 
 // ---------- Resolución de ambientes (alias + numeradas) ----------
 const AMB_MAP = {
-  // habitaciones (alias)
+  // habitaciones
   "habitacion": "habitaciones",
   "habitaciones": "habitaciones",
   "dormitorio": "habitaciones",
   "dormitorios": "habitaciones",
   "cuarto": "habitaciones",
   "cuartos": "habitaciones",
-  // baño (alias)
+  // baño
   "bano": "baño",
   "banio": "baño",
   "ban": "baño",
@@ -10511,21 +10511,26 @@ const buildAmbientePayload = (id, amb, onlySmallParam = true) => {
 
   if (!ambData) return { error: "⚠️ Ambiente no encontrado en esta cabaña." };
 
-  // 4) Consolidación correcta (arregla el bug de tratar 'items' como sección)
+  // 4) Consolidación correcta (NO meter 'items' como sección)
   let sections = [];
   let itemsDirectos = [];
 
   const filterMaybe = (arr, sector) => {
     if (!Array.isArray(arr)) return [];
-    return onlySmallParam ? arr.filter(it => isChico(it.item)) : arr;
+    let filtered = onlySmallParam ? arr.filter(it => isChico(it.item)) : arr;
+    // Si quedó vacío y estamos en habitaciones, mostrá igual (para no devolver nada por camas/mesas)
+    if (filtered.length === 0 && (ambCanon === "habitaciones" || /^habitacion_/.test(sector))) {
+      filtered = arr;
+    }
+    return filtered;
   };
 
-  // a) Si el ambiente tiene items directos, NO lo tratamos como sección "items"
+  // a) items directos del ambiente (p.ej. baño.items)
   if (Array.isArray(ambData.items) && ambData.items.length) {
     itemsDirectos = filterMaybe(ambData.items, ambCanon);
   }
 
-  // b) Armar secciones reales: todas las claves salvo "items", "nota" y "_virtual_merge"
+  // b) secciones reales (todas salvo 'items', 'nota', '_virtual_merge')
   Object.entries(ambData).forEach(([key, obj]) => {
     if (key === "items" || key === "nota" || key === "_virtual_merge") return;
     const rawItems = Array.isArray(obj?.items) ? obj.items : [];
@@ -10536,7 +10541,7 @@ const buildAmbientePayload = (id, amb, onlySmallParam = true) => {
     });
   });
 
-  // c) Merge virtual (habitacion_1/_2) si corresponde
+  // c) merge virtual de habitacion_1/_2 si aplica
   if (virtualMerge) {
     const h1 = cab.ambientes?.["habitacion_1"];
     const h2 = cab.ambientes?.["habitacion_2"];
@@ -10545,21 +10550,17 @@ const buildAmbientePayload = (id, amb, onlySmallParam = true) => {
   }
 
   if (sections.length === 0 && itemsDirectos.length === 0) {
-    return { error: "⚠️ No se encontraron ítems para este ambiente." };
+    return { error: "⚠️ No se encontraron ítems para ese ambiente." };
   }
 
   // 5) Texto
   const header = `🏠 *${cab.id.toUpperCase()} | ${ambCanon.toUpperCase()}*`;
   let text = header;
 
-  if (itemsDirectos.length) {
-    text += `\n\n${formatItems(itemsDirectos)}`;
-  }
-  if (sections.length) {
-    text += `\n\n${formatSectioned(sections)}`;
-  }
+  if (itemsDirectos.length) text += `\n\n${formatItems(itemsDirectos)}`;
+  if (sections.length) text += `\n\n${formatSectioned(sections)}`;
 
-  // NOTA general al final
+  // Nota general al final
   if (ambData.nota && String(ambData.nota).trim() !== "") {
     text += `\n\n*NOTA:*\n${stripEmojis(ambData.nota)}`;
   }
