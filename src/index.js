@@ -10483,30 +10483,31 @@ const buildAmbientePayload = (id, amb, onlySmall = true) => {
   const ambData = cab.ambientes?.[ambCanon];
   if (!ambData) return { error: `⚠️ El ambiente '${amb}' no existe en esta cabaña.` };
 
-  // 🔹 Filtra sub-secciones (matrimonial, suite, lavadero, etc.)
+  // 🔹 Si el ambiente tiene ítems directos (ej: cocina, baño)
+  const hasItemsDirectos = Array.isArray(ambData.items);
+
+  // 🔹 Si tiene sub-secciones (ej: habitaciones, exterior, etc.)
   const subSections = Object.entries(ambData)
     .filter(([key]) => key !== "items" && key !== "nota")
     .map(([sector, obj]) => ({
       sector,
       items: (obj.items || []).filter(it => !onlySmall || isChico(it.item)),
       nota: obj.nota || null
-    }));
+    }))
+    .filter(s => s.items.length > 0); // evita secciones vacías
 
-  // 🔹 Caso: el ambiente tiene ítems directos
-  const hasItemsDirectos = Array.isArray(ambData.items) && ambData.items.length > 0;
-
-  // 🧩 Encabezado común para todos los ambientes (incluso habitaciones)
+  // 🧩 Encabezado general
   const header = headerFor(cab.id, ambCanon);
   let text = header;
 
-  // 🔹 Agrega los ítems directos (si existen)
-  if (hasItemsDirectos) {
+  // 🔹 Caso 1: ambiente con ítems directos
+  if (hasItemsDirectos && ambData.items.length > 0) {
     const itemsFiltrados = ambData.items.filter(it => !onlySmall || isChico(it.item));
     text += `\n\n${formatItems(itemsFiltrados)}`;
   }
 
-  // 🔹 Agrega las subsecciones (habitaciones, lavadero, exterior, etc.)
-  if (subSections.length) {
+  // 🔹 Caso 2: ambiente con secciones (habitaciones, exterior)
+  if (subSections.length > 0) {
     text += `\n\n${formatSectioned(subSections)}`;
   }
 
@@ -10515,10 +10516,10 @@ const buildAmbientePayload = (id, amb, onlySmall = true) => {
     text += `\n\n*NOTA:*\n${ambData.nota}`;
   }
 
-  // 🔹 Limpieza de saltos de línea
+  // 🔹 Limpieza
   text = text.replace(/\n{3,}/g, "\n\n");
 
-  // 🔹 Arreglo completo de ítems (útil si se pide formato JSON)
+  // 🔹 Arreglo total de ítems
   const items = [
     ...(hasItemsDirectos ? ambData.items : []),
     ...subSections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })))
@@ -10526,6 +10527,7 @@ const buildAmbientePayload = (id, amb, onlySmall = true) => {
 
   return { cab, ambCanon, items, text, sections: subSections };
 };
+
 
 
 /* =======================
