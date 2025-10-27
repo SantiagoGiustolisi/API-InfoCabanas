@@ -10364,30 +10364,28 @@ const norm = (s = "") =>
 
 const isChico = (nombre = "") => !GRANDES.some(g => norm(nombre).includes(norm(g)));
 
-// 🔹 Encuentra la cabaña aunque el usuario escriba mal o sin "Casa"
+// 🧹 Quita emojis para notas y observaciones
+const stripEmojis = (s = "") => s.replace(
+  /[\u2600-\u27BF\uFE0F\u200D\u23FB-\u23FE\u23E9-\u23F3\u231A-\u231B\u25FD-\u25FE\u24C2\u3030\u303D\u3297\u3299\u1F000-\u1FAFF]+/gu,
+  ""
+);
+
+// 🔹 Busca la cabaña de forma segura (sin falsos positivos)
 const findCabana = (idRaw = "") => {
   const idNorm = norm(idRaw);
   if (!idNorm) return null;
 
   const cabanas = DATA.cabanas || [];
 
-  // 1️⃣ Coincidencia exacta
+  // 1️⃣ Coincidencia exacta (segura)
   let match = cabanas.find(c => norm(c.id) === idNorm);
   if (match) return match;
 
-  // 2️⃣ Coincidencia parcial
-  match = cabanas.find(c => idNorm.includes(norm(c.id)) || norm(c.id).includes(idNorm));
+  // 2️⃣ Coincidencia tolerante solo si no hay riesgo de falsos positivos
+  match = cabanas.find(c => norm(c.id).replace(/\s+/g, "") === idNorm.replace(/\s+/g, ""));
   if (match) return match;
 
-  // 3️⃣ Si el usuario omitió "casa" o escribió mal (ej. "csa 3a", "c3a")
-  for (const cab of cabanas) {
-    const idClean = norm(cab.id).replace(/\bcasa\b/, "").trim();
-    if (idNorm.replace(/\bcasa\b/, "").includes(idClean) || idClean.includes(idNorm.replace(/\bcasa\b/, ""))) {
-      return cab;
-    }
-  }
-
-  // 4️⃣ Coincidencia por similitud (tolerancia a errores)
+  // 3️⃣ Coincidencia por similitud mínima (último recurso)
   const similarity = (a, b) => {
     const longer = a.length > b.length ? a : b;
     const shorter = a.length > b.length ? b : a;
@@ -10406,8 +10404,7 @@ const findCabana = (idRaw = "") => {
     }
   }
 
-  if (best && bestScore >= 0.6) return best;
-
+  if (best && bestScore >= 0.85) return best; // más estricto
   return null;
 };
 
@@ -10447,7 +10444,7 @@ const formatSectioned = (sections = []) => {
   return sections.map(s => {
     const title = LABEL[s.sector] || s.sector.toUpperCase();
     let sectionText = `*${title}*\n${formatItems(s.items)}`;
-    if (s.nota) sectionText += `\n\n*NOTA:*\n${s.nota}`;
+    if (s.nota) sectionText += `\n\n*NOTA:*\n${stripEmojis(s.nota)}`;
     return sectionText;
   }).join("\n\n");
 };
@@ -10455,16 +10452,14 @@ const formatSectioned = (sections = []) => {
 // =======================
 //   BUILD PAYLOAD
 // =======================
-
 const buildAmbientePayload = (id, amb, onlySmall = true) => {
   const cab = findCabana(id);
   if (!cab) return { error: "❌ Cabaña no encontrada." };
 
   const ambCanon = resolveAmbiente(amb);
   const ambData = cab.ambientes?.[ambCanon];
-  if (!ambData) return { error: "⚠️ Ambiente no encontrado en esta cabaña." };
+  if (!ambData) return { error: `⚠️ El ambiente '${ambiente}' no existe en esta cabaña.` };
 
-  // Sub-secciones (ej: habitaciones, exterior, etc.)
   const subSections = Object.entries(ambData)
     .filter(([key]) => key !== "items" && key !== "nota")
     .map(([sector, obj]) => ({
@@ -10480,10 +10475,9 @@ const buildAmbientePayload = (id, amb, onlySmall = true) => {
   }
 
   if (ambData.nota) {
-    text += `\n\n*NOTA:*\n${ambData.nota}`;
+    text += `\n\n*NOTA:*\n${stripEmojis(ambData.nota)}`;
   }
 
-  // Si el ambiente tiene solo secciones
   const sections = Object.entries(ambData)
     .filter(([key]) => key !== "nota")
     .map(([sector, obj]) => ({
@@ -10498,8 +10492,7 @@ const buildAmbientePayload = (id, amb, onlySmall = true) => {
 
   const header = `🏠 *${cab.id.toUpperCase()} | ${ambCanon.toUpperCase()}*`;
   text = `${header}\n\n${formatSectioned(sections)}${text}`;
-
-  text = text.replace(/\n{3,}/g, "\n\n"); // limpia saltos excesivos
+  text = text.replace(/\n{3,}/g, "\n\n");
 
   const items = sections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })));
 
@@ -10509,7 +10502,6 @@ const buildAmbientePayload = (id, amb, onlySmall = true) => {
 // =======================
 //   ENDPOINTS
 // =======================
-
 app.get("/", (_req, res) => {
   res.json({
     ok: true,
