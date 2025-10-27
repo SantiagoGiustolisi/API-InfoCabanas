@@ -10479,7 +10479,7 @@ const formatSectioned = (sections = []) => {
 };
 
 // =======================
-//   BUILD PAYLOAD
+//   BUILD PAYLOAD (corregido)
 // =======================
 const buildAmbientePayload = (id, amb, onlySmallParam = true) => {
   const cab = findCabana(id);
@@ -10498,13 +10498,13 @@ const buildAmbientePayload = (id, amb, onlySmallParam = true) => {
     }
   }
 
-  // 3) Si piden "habitaciones" y no existe, fusionar habitacion_1/_2 (si están)
+  // 3) Si piden "habitaciones" y no existe, fusionar todas las subhabitaciones (matrimonial, simple_1, etc.)
   let virtualMerge = false;
   if (!ambData && ambCanon === "habitaciones") {
-    const h1 = cab.ambientes?.["habitacion_1"];
-    const h2 = cab.ambientes?.["habitacion_2"];
-    if (h1 || h2) {
-      ambData = { _virtual_merge: true, nota: (cab.ambientes?.habitaciones?.nota || null) };
+    const subHabs = Object.entries(cab.ambientes || {})
+      .filter(([k]) => /^habitacion_|matrimonial|simple_/i.test(k));
+    if (subHabs.length) {
+      ambData = { _virtual_merge: true, nota: cab.ambientes?.habitaciones?.nota || null };
       virtualMerge = true;
     }
   }
@@ -10541,12 +10541,18 @@ const buildAmbientePayload = (id, amb, onlySmallParam = true) => {
     });
   });
 
-  // c) merge virtual de habitacion_1/_2 si aplica
+  // c) merge virtual de subhabitaciones si aplica
   if (virtualMerge) {
-    const h1 = cab.ambientes?.["habitacion_1"];
-    const h2 = cab.ambientes?.["habitacion_2"];
-    if (h1?.items) sections.push({ sector: "habitacion_1", items: filterMaybe(h1.items, "habitacion_1"), nota: h1.nota || null });
-    if (h2?.items) sections.push({ sector: "habitacion_2", items: filterMaybe(h2.items, "habitacion_2"), nota: h2.nota || null });
+    const subHabs = Object.entries(cab.ambientes || {})
+      .filter(([k]) => /^habitacion_|matrimonial|simple_/i.test(k));
+    for (const [key, obj] of subHabs) {
+      if (!obj?.items) continue;
+      sections.push({
+        sector: key,
+        items: filterMaybe(obj.items, key),
+        nota: obj.nota || null
+      });
+    }
   }
 
   if (sections.length === 0 && itemsDirectos.length === 0) {
@@ -10574,6 +10580,7 @@ const buildAmbientePayload = (id, amb, onlySmallParam = true) => {
 
   return { cab, ambCanon, items, text, sections };
 };
+
 
 // =======================
 //   ENDPOINTS
