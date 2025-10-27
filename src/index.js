@@ -5593,8 +5593,7 @@ const DATA = {
   }
 },
 
-//Sección Casa 34A
-
+// Sección Casa 34A
 {
   id: "Casa 34A",
   ambientes: {
@@ -5659,14 +5658,18 @@ const DATA = {
         { item: "adornos", target: 1, unidad: "unidad", original: "adornos" }
       ]
     },
-      baño: {
-      items: [
-        { item: "vanitory", target: 1, unidad: "unidad", original: "vanitory" },
-        { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
-        { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
-      ],
-      nota: "Observaciones: No contiene hidromasaje ❌\nA tener en cuenta: Contiene 2 baños",
+
+    baño: {
+      general: {
+        items: [
+          { item: "vanitory", target: 1, unidad: "unidad", original: "vanitory" },
+          { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
+          { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
+        ]
+      },
+      nota: "Observaciones: No contiene hidromasaje ❌\nA tener en cuenta: Contiene 2 baños"
     },
+
     electrodomesticos: {
       items: [
         { item: "heladera (Gafa)", target: 1, unidad: "unidad", original: "HELADERA GAFA" },
@@ -5683,7 +5686,6 @@ const DATA = {
         { item: "termotanque", target: 1, unidad: "unidad", original: "termotanque" }
       ]
     },
-
 
     habitaciones: {
       matrimonial: {
@@ -10485,24 +10487,30 @@ const buildAmbientePayload = (id, amb, onlySmall = true) => {
   // 🔹 Caso: el ambiente tiene ítems directos
   const hasItemsDirectos = Array.isArray(ambData.items) && ambData.items.length > 0;
 
-  // 🔹 Construcción del texto
-  let text = `🏠 *${cab.id.toUpperCase()} | ${ambCanon.toUpperCase()}*`;
+  // 🧩 Encabezado común para todos los ambientes (incluso habitaciones)
+  const header = headerFor(cab.id, ambCanon);
+  let text = header;
 
+  // 🔹 Agrega los ítems directos (si existen)
   if (hasItemsDirectos) {
     const itemsFiltrados = ambData.items.filter(it => !onlySmall || isChico(it.item));
     text += `\n\n${formatItems(itemsFiltrados)}`;
   }
 
+  // 🔹 Agrega las subsecciones (habitaciones, lavadero, exterior, etc.)
   if (subSections.length) {
     text += `\n\n${formatSectioned(subSections)}`;
   }
 
+  // 🔹 Nota general del ambiente
   if (ambData.nota && ambData.nota.trim() !== "") {
     text += `\n\n*NOTA:*\n${ambData.nota}`;
   }
 
+  // 🔹 Limpieza de saltos de línea
   text = text.replace(/\n{3,}/g, "\n\n");
 
+  // 🔹 Arreglo completo de ítems (útil si se pide formato JSON)
   const items = [
     ...(hasItemsDirectos ? ambData.items : []),
     ...subSections.flatMap(s => s.items.map(it => ({ ...it, sector: s.sector })))
@@ -10510,6 +10518,7 @@ const buildAmbientePayload = (id, amb, onlySmall = true) => {
 
   return { cab, ambCanon, items, text, sections: subSections };
 };
+
 
 /* =======================
    ENDPOINTS
