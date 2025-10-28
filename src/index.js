@@ -1262,7 +1262,7 @@ const DATA = {
 //Sección Indu
 
 {
-  id: "Hindu",
+  id: "Indu",
   ambientes: {
     cocina: {
       items: [
@@ -1911,7 +1911,7 @@ const DATA = {
         { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
         { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
       ],
-      nota: "Observaciones: Contiene hidromasaje | Estado: NO FUNCIONA correctamente ⚙\nA tener en cuenta: Contiene 2 baños",
+      nota: "Observaciones: Contiene hidromasaje | Estado: NO FUNCIONA correctamente ⚙️\nA tener en cuenta: Contiene 2 baños",
     },
 
 
@@ -2760,7 +2760,7 @@ const DATA = {
         { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
         { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
       ],
-      nota: "Observaciones: Contiene hidromasaje | Estado: NO FUNCIONA correctamente ⚙\nA tener en cuenta: Contiene 1 baño",
+      nota: "Observaciones: Contiene hidromasaje | Estado: NO FUNCIONA correctamente ⚙️\nA tener en cuenta: Contiene 1 baño",
     },
 
     electrodomesticos: {
@@ -4410,7 +4410,7 @@ const DATA = {
         { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
         { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
       ],
-      nota: "Observaciones: No contiene hidromasaje ❌ -- A tener en cuenta: Contiene 2 baños"
+       nota: "Observaciones: No contiene hidromasaje ❌\nA tener en cuenta: Contiene 2 baños",
     },
 
     habitaciones: {
@@ -4721,7 +4721,7 @@ const DATA = {
         { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
         { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
       ],
-      nota: "Observaciones: No contiene hidromasaje ❌"
+        nota: "Observaciones: No contiene hidromasaje ❌\nA tener en cuenta: Contiene 1 baño",
     },
 
     exterior: {
@@ -4852,7 +4852,7 @@ const DATA = {
         { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
         { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
       ],
-      nota: "Observaciones: No contiene hidromasaje ❌ -- A tener en cuenta: Contiene 1 baño",
+        nota: "Observaciones: No contiene hidromasaje ❌\nA tener en cuenta: Contiene 1 baño",
     },
 
     exterior: {
@@ -4943,7 +4943,7 @@ const DATA = {
         { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
         { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
       ],
-      nota: "Observaciones: No contiene hidromasaje ❌⚙️ -- A tener en cuenta: Contiene 1 baño"
+       nota: "Observaciones: No contiene hidromasaje ❌\nA tener en cuenta: Contiene 1 baño",
     },
 
     electrodomesticos: {
@@ -5094,7 +5094,7 @@ const DATA = {
         { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
         { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
       ],
-      nota: "Observaciones: No contiene hidromasaje ❌ -- A tener en cuenta: Contiene 2 baños"
+        nota: "Observaciones: No contiene hidromasaje ❌\nA tener en cuenta: Contiene 2 baños",
     },
 
     electrodomesticos: {
@@ -5374,7 +5374,7 @@ const DATA = {
         { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
         { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
       ],
-      nota: "Observaciones: No contiene hidromasaje ❌ -- A tener en cuenta: Contiene 1 baño",
+       nota: "Observaciones: No contiene hidromasaje ❌\nA tener en cuenta: Contiene 1 baño",
     },
     electrodomesticos: {
       items: [
@@ -5496,7 +5496,7 @@ const DATA = {
         { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
         { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
       ],
-      nota: "Observaciones: No contiene hidromasaje ❌ -- A tener en cuenta: Contiene 1 baño"
+        nota: "Observaciones: No contiene hidromasaje ❌\nA tener en cuenta: Contiene 1 baño",
     },
 
     electrodomesticos: {
@@ -6183,7 +6183,7 @@ const DATA = {
         { item: "inodoro + bidet", target: 1, unidad: "conjunto", original: "inodoro + bidet" },
         { item: "cortina de baño", target: 1, unidad: "unidad", original: "cortina de baño" }
       ],
-      nota: "Observaciones: No contiene hidromasaje ❌ \nA tener en cuenta: Contiene 2 baños"
+      nota: "Observaciones: No contiene hidromasaje ❌\nA tener en cuenta: Contiene 2 baños"
     },
 
     habitaciones: {
